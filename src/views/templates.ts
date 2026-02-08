@@ -1,13 +1,28 @@
+import { templates } from "../data/templates";
+import { renderTemplateCard } from "../components/cards/templateCard";
+import { renderPageHeader } from "../components/sections/pageHeader";
+
 export function renderTemplatesView(): string {
+  const templatesHTML = templates
+    .map((template) =>
+      renderTemplateCard({
+        id: template.id,
+        title: template.title,
+        niche: template.niche,
+        description: template.description,
+      })
+    )
+    .join("");
+
   return `
     <section class="page page-templates">
-      <header class="page-header">
-        <h1>Plantillas Web</h1>
-        <p>Plantillas base adaptadas a distintos nichos de negocio.</p>
-      </header>
+      ${renderPageHeader({
+        title: "Plantillas Web",
+        description: "Bases reutilizables adaptadas a distintos nichos.",
+      })}
 
-      <div class="page-content">
-        <p>Listado de plantillas en construcción.</p>
+      <div class="page-content templates-list">
+        ${templatesHTML}
       </div>
     </section>
   `;

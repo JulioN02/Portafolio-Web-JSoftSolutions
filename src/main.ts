@@ -1,6 +1,8 @@
 import { renderHeader } from "./components/layout/header";
 import { renderFooter } from "./components/layout/footer";
 import { initNavigation, navigateTo } from "./scripts/navigation";
+import { initServiceInteractions } from "./scripts/services";
+import { registerGlobalEvents } from "./scripts/events";
 
 // DOM references
 const headerRoot = document.getElementById("site-header");
@@ -21,3 +23,11 @@ initNavigation();
 
 // Initial route
 navigateTo(window.location.pathname as any);
+
+initServiceInteractions();
+
+function initApp(): void {
+  registerGlobalEvents();
+}
+
+initApp();
