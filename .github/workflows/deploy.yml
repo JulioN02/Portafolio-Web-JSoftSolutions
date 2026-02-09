@@ -1,0 +1,44 @@
+name: Despliegue Automático a GitHub Pages
+
+on:
+  push:
+    branches: ["main"] # Se activa cada vez que haces push a la rama principal
+
+# Permisos necesarios para que el bot de GitHub pueda escribir en la sección de Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Obtener el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar entorno de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 3. Instalar dependencias
+        run: npm install
+
+      - name: 4. Compilar proyecto (TS a JS con Vite)
+        run: npm run build
+
+      - name: 5. Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: 6. Subir los archivos compilados
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Vite guarda todo lo listo para producción en la carpeta 'dist'
+          path: './dist'
+
+      - name: 7. Ejecutar el despliegue final
+        id: deployment
+        uses: actions/deploy-pages@v4
