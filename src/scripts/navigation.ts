@@ -5,18 +5,39 @@ import { renderTemplatesView } from "../views/templates";
 import { renderGuaranteesView } from "../views/guarantees";
 import { renderAboutView } from "../views/about";
 import { renderContactView } from "../views/contact";
+import { initContactForm } from "../scripts/contact";
 
 //DEFINICIÓN DE RUTAS
 type Route = "/" | "/services" | "/products" | "/templates" | "/guarantees" | "/about" | "/contact";
 
-const routes: Record<Route, () => string> = {
-  "/": renderHomeView,
-  "/services": renderServicesView,
-  "/products": renderProductsView,
-  "/templates": renderTemplatesView,
-  "/guarantees": renderGuaranteesView,
-  "/about": renderAboutView,
-  "/contact": renderContactView,
+type RouteConfig = {
+  render: () => string;
+  onMount?: () => void;
+};
+
+const routes: Record<Route, RouteConfig> = {
+  "/": {
+    render: renderHomeView,
+  },
+  "/services": {
+    render: renderServicesView,
+  },
+  "/products": {
+    render: renderProductsView,
+  },
+  "/templates": {
+    render: renderTemplatesView,
+  },
+  "/guarantees": {
+    render: renderGuaranteesView,
+  },
+  "/about": {
+    render: renderAboutView,
+  },
+  "/contact": {
+    render: renderContactView,
+    onMount: initContactForm,
+  },
 };
 
 
@@ -28,17 +49,21 @@ export function navigateTo(path: Route): void {
     throw new Error("Main container not found");
   }
 
-  const viewRenderer = routes[path];
+  const route = routes[path];
 
-  if (!viewRenderer) {
+  if (!route) {
     console.warn(`Route not found: ${path}`);
     mainRoot.innerHTML = "<h2>Página no encontrada</h2>";
     return;
   }
 
-  mainRoot.innerHTML = viewRenderer();
+  mainRoot.innerHTML = route.render();
   history.pushState({}, "", path);
+
+  // 🔹 Hook post-render
+  route.onMount?.();
 }
+
 
 //Inicializacion de navegacion
 export function initNavigation(): void {
@@ -58,3 +83,4 @@ export function initNavigation(): void {
     navigateTo(currentPath);
   });
 }
+
