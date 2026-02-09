@@ -1,0 +1,27 @@
+:root {
+  /* Brand Colors */
+  --color-blue-base: #192950;
+  --color-blue-medium: #21497B;
+  --color-blue-ui: #25609D;
+
+  --color-green-backend: #3E985D;
+  --color-green-accent: #7CBD68;
+
+  --color-white: #ffffff;
+  --color-gray-light: #f4f6f8;
+  --color-gray-medium: #d1d5db;
+
+  /* Typography */
+  --font-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding: 1.5rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+}

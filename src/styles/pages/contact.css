@@ -1,0 +1,194 @@
+/* ======================================================
+   CONTACT VIEW
+   ====================================================== */
+
+/* ---------- PAGE WRAPPER ---------- */
+.page-contact {
+  padding: 3rem 2rem;
+  background-color: var(--color-gray-light);
+  min-height: calc(100vh - 160px);
+}
+
+.page-contact .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ---------- PAGE HEADER ---------- */
+.page-contact .page-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.page-contact .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.page-contact .page-header p {
+  font-size: var(--text-md);
+  color: var(--color-blue-medium);
+  line-height: 1.8;
+}
+
+/* ---------- CONTENT LAYOUT ---------- */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ---------- FORM ---------- */
+.contact-form {
+  background-color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-gray-medium);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- FORM GROUP ---------- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-blue-base);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  font-size: var(--text-sm);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-gray-medium);
+  background-color: var(--color-white);
+  transition: all var(--transition-fast);
+  font-family: var(--font-primary);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-green-backend);
+  box-shadow: 0 0 0 3px rgba(62, 152, 93, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+.contact-form button[type="submit"] {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+/* ---------- FORM NOTE ---------- */
+.form-note {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-blue-medium);
+  line-height: 1.5;
+}
+
+/* ---------- CONTACT CHANNELS ---------- */
+.contact-channels {
+  background-color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  border-left: 5px solid var(--color-green-backend);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.contact-channels h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1.5rem;
+}
+
+.contact-channels ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-channels li {
+  font-size: var(--text-sm);
+  color: var(--color-blue-medium);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.contact-channels li:last-child {
+  margin-bottom: 0;
+}
+
+.contact-channels a {
+  color: var(--color-green-backend);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.contact-channels a:hover {
+  color: var(--color-green-accent);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .page-contact {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .page-contact .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-form,
+  .contact-channels {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-contact {
+    padding: 2rem 1rem;
+  }
+
+  .page-contact .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .page-contact .page-header p {
+    font-size: var(--text-sm);
+  }
+
+  .contact-form,
+  .contact-channels {
+    padding: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.65rem;
+  }
+}

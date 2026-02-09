@@ -1,0 +1,13 @@
+@import "./reset.css";
+@import "./variables.css";
+@import "./layout.css";
+@import "./components/header.css";
+@import "./components/footer.css";
+@import "./components/ui.css";
+@import "./pages/home.css";
+@import "./pages/services.css";
+@import "./pages/products.css";
+@import "./pages/templates.css";
+@import "./pages/guarantees.css";
+@import "./pages/about.css";
+@import "./pages/contact.css"

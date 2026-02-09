@@ -3,20 +3,38 @@ import { renderFooter } from "./components/layout/footer";
 import { initNavigation, navigateTo } from "./scripts/navigation";
 import { initServiceInteractions } from "./scripts/services";
 import { registerGlobalEvents } from "./scripts/events";
+import { renderHomeView } from "./views/home";
+import { initHeader } from "./scripts/header";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const app = document.getElementById("app");
+  
+  if (!app) {
+    throw new Error("App container not found");
+  }
+
+  // Renderizar header y footer
+  const headerHTML = renderHeader();
+  const footerHTML = renderFooter();
+
+  app.insertAdjacentHTML("beforebegin", headerHTML);
+  app.insertAdjacentHTML("afterend", footerHTML);
+
+  // Inicializar funcionalidades
+  initHeader();      // ← NUEVA LÍNEA
+  initNavigation();
+});
 
 // DOM references
-const headerRoot = document.getElementById("site-header");
 const mainRoot = document.getElementById("site-main");
-const footerRoot = document.getElementById("site-footer");
 
 // Guard clause
-if (!headerRoot || !mainRoot || !footerRoot) {
+if (!mainRoot) {
   throw new Error("Layout root elements not found");
 }
 
 // Render layout
-headerRoot.innerHTML = renderHeader();
-footerRoot.innerHTML = renderFooter();
+mainRoot.innerHTML = renderHomeView();
 
 // Init navigation
 initNavigation();

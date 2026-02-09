@@ -16,7 +16,7 @@ export function renderTemplateCard({
       <h3>${title}</h3>
       <small>${niche}</small>
       <p>${description}</p>
-      <button data-template-id="${id}" class="btn btn-secondary">
+      <button data-template-id="${id}" class="ui-button">
         Ver más
       </button>
     </article>

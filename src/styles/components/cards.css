@@ -1,0 +1,88 @@
+/* ======================================================
+   CARDS
+   Base + Variants
+   ====================================================== */
+
+/* ---------- BASE CARD ---------- */
+
+.card,
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  padding: 1.5rem;
+
+  background-color: var(--color-white);
+  border-radius: 6px;
+
+  border: 1px solid var(--color-gray-medium);
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.card:hover,
+.service-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-blue-ui);
+}
+
+
+/* ---------- CARD TITLES ---------- */
+
+.card h3,
+.service-card h3 {
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--color-blue-base);
+  margin: 0;
+}
+
+
+/* ---------- CARD DESCRIPTION ---------- */
+
+.card p,
+.service-card p {
+  font-size: var(--text-sm);
+  color: var(--color-blue-medium);
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ---------- CARD ACTION ---------- */
+
+.card .ui-button,
+.service-card .ui-button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+
+/* ---------- SERVICE CARD ---------- */
+
+.service-card {
+  border-left: 4px solid var(--color-blue-ui);
+}
+
+/* ---------- PRODUCT CARD ---------- */
+
+.product-card {
+  border-left: 4px solid var(--color-green-backend);
+}
+
+/* ---------- TEMPLATE CARD ---------- */
+
+.template-card small {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-green-backend);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.template-card {
+  border-left: 4px solid var(--color-blue-medium);
+}

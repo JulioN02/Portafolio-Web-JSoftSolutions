@@ -1,0 +1,102 @@
+/* ======================================================
+   PRODUCTS VIEW
+   ====================================================== */
+
+/* ---------- PAGE WRAPPER ---------- */
+.page-products {
+  padding: 3rem 2rem;
+  background-color: var(--color-gray-light);
+  min-height: calc(100vh - 160px);
+}
+
+.page-products .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- PAGE HEADER ---------- */
+.page-products .page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-products .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.page-products .page-header p {
+  font-size: var(--text-md);
+  color: var(--color-blue-medium);
+  line-height: 1.8;
+}
+
+/* ---------- PAGE CONTENT ---------- */
+.page-products .page-content {
+  margin-top: 2rem;
+}
+
+/* ---------- PRODUCTS LIST (GRID) ---------- */
+.page-products .products-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* ---------- PRODUCT CARD CONTEXT ---------- */
+.page-products .product-card {
+  background-color: var(--color-white);
+  border-left: 5px solid var(--color-green-backend);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+.page-products .product-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  border-left-color: var(--color-green-accent);
+}
+
+.page-products .product-card .ui-button {
+  margin-top: 1.5rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .page-products {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .page-products .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .page-products .products-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-products {
+    padding: 2rem 1rem;
+  }
+
+  .page-products .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .page-products .page-header p {
+    font-size: var(--text-sm);
+  }
+
+  .page-products .products-list {
+    gap: 1rem;
+  }
+}

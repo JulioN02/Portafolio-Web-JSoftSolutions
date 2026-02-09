@@ -1,0 +1,225 @@
+/* ======================================================
+   ABOUT VIEW — CONSOLIDATED & STRUCTURAL
+   ====================================================== */
+
+/* ---------- VIEW WRAPPER ---------- */
+.about-view {
+  padding: 4rem 2rem;
+  background-color: var(--color-gray-light);
+  min-height: calc(100vh - 160px);
+}
+
+.about-view .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+.about-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.about-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.about-header p {
+  font-size: var(--text-md);
+  color: var(--color-blue-medium);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---------- PROFILE SELECTOR ---------- */
+.about-selector {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 3rem auto;
+  background-color: var(--color-blue-base);
+  padding: 0.5rem;
+  border-radius: 10px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-selector button {
+  padding: 0.75rem 1.75rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-white);
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.about-selector button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.about-selector button.active {
+  background: linear-gradient(135deg, var(--color-green-backend) 0%, var(--color-green-accent) 100%);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(62, 152, 93, 0.3);
+}
+
+/* ---------- CONTENT CONTAINER ---------- */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---------- ABOUT SECTIONS ---------- */
+.about-section {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border-left: 5px solid var(--color-green-backend);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: all var(--transition-fast);
+}
+
+.about-section:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Section title */
+.about-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.about-section h3::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-green-accent);
+  display: inline-block;
+}
+
+/* Paragraphs */
+.about-section p {
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-blue-medium);
+  margin-bottom: 1rem;
+}
+
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- LIST-LIKE PARAGRAPHS ---------- */
+.about-section ul,
+.about-section ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  list-style-position: inside;
+}
+
+.about-section li {
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-blue-medium);
+  margin-bottom: 0.75rem;
+}
+
+.about-section li::marker {
+  color: var(--color-green-accent);
+  font-weight: 600;
+}
+
+/* Bullet points alternativo */
+.about-section p::before {
+  content: "";
+  display: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .about-view {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .about-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-header p {
+    font-size: var(--text-sm);
+  }
+
+  .about-selector {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .about-selector button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .about-section {
+    padding: 1.75rem;
+  }
+
+  .about-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-view {
+    padding: 2rem 1rem;
+  }
+
+  .about-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-header p {
+    font-size: 0.9rem;
+  }
+
+  .about-selector {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about-selector button {
+    width: 100%;
+    padding: 0.65rem 1rem;
+  }
+
+  .about-section {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-section h3 {
+    font-size: 1rem;
+  }
+
+  .about-section p {
+    font-size: 0.85rem;
+  }
+}

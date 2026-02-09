@@ -13,7 +13,7 @@ export function renderServiceCard(props: ServiceCardProps): string {
       <p>${description}</p>
       <button
         type="button"
-        class="service-card-action"
+        class="ui-button"
         data-service-id="${id}"
       >
         Ver más

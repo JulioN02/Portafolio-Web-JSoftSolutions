@@ -1,0 +1,16 @@
+body {
+  font-family: var(--font-primary);
+  color: var(--color-blue-base);
+  background-color: var(--color-gray-light);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+main {
+  min-height: calc(100vh - 160px); /* header + footer */
+}

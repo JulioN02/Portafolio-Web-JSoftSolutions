@@ -13,7 +13,7 @@ export function renderProductCard({
     <article class="card product-card">
       <h3>${title}</h3>
       <p>${description}</p>
-      <button data-product-id="${id}" class="btn btn-secondary">
+      <button data-product-id="${id}" class="ui-button">
         Ver más
       </button>
     </article>

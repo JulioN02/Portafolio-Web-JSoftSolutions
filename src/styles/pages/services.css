@@ -1,0 +1,101 @@
+/* ======================================================
+   SERVICES VIEW
+   ====================================================== */
+
+/* ---------- PAGE WRAPPER ---------- */
+.page-services {
+  padding: 3rem 2rem;
+  background-color: var(--color-gray-light);
+  min-height: calc(100vh - 160px);
+}
+
+.page-services .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- PAGE HEADER ---------- */
+.page-services .page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-services .page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.page-services .page-header p {
+  font-size: var(--text-md);
+  color: var(--color-blue-medium);
+  line-height: 1.8;
+}
+
+/* ---------- PAGE CONTENT ---------- */
+.page-services .page-content {
+  margin-top: 2rem;
+}
+
+/* ---------- SERVICES LIST (GRID) ---------- */
+.page-services .services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* ---------- SERVICE CARD CONTEXT ---------- */
+.page-services .service-card {
+  background-color: var(--color-white);
+  border-left: 5px solid var(--color-green-backend);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+.page-services .service-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+}
+
+.page-services .service-card .ui-button {
+  margin-top: 1.5rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .page-services {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .page-services .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .page-services .services-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-services {
+    padding: 2rem 1rem;
+  }
+
+  .page-services .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .page-services .page-header p {
+    font-size: var(--text-sm);
+  }
+
+  .page-services .services-list {
+    gap: 1rem;
+  }
+}

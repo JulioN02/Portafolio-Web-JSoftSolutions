@@ -77,10 +77,27 @@ export function initNavigation(): void {
     });
   });
 
+  // ✅ Inicializar con Home por defecto
+  let currentPath = (window.location.pathname as Route) || "/";
+  
+  // Si la ruta actual no existe en routes, usar Home
+  if (!routes[currentPath]) {
+    currentPath = "/";
+    history.replaceState({}, "", "/");
+  }
+  
+  navigateTo(currentPath);
+
   // Manejar back/forward del navegador
   window.addEventListener("popstate", () => {
-    const currentPath = window.location.pathname as Route;
-    navigateTo(currentPath);
+    let path = (window.location.pathname as Route) || "/";
+    
+    // Si la ruta no existe, usar Home
+    if (!routes[path]) {
+      path = "/";
+    }
+    
+    navigateTo(path);
   });
 }
 

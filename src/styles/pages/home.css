@@ -1,0 +1,252 @@
+/* ======================================================
+   HOME VIEW
+   ====================================================== */
+
+/* ---------- HERO SECTION ---------- */
+.hero-section {
+  background: linear-gradient(135deg, var(--color-blue-base) 0%, var(--color-blue-medium) 100%);
+  color: var(--color-white);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.hero-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.hero-content p {
+  font-size: var(--text-md);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* ---------- SERVICES SECTION ---------- */
+.services-section {
+  padding: 5rem 2rem;
+  background-color: var(--color-white);
+}
+
+.services-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-section header {
+  max-width: 640px;
+  margin-bottom: 3rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
+
+.services-section header p {
+  font-size: var(--text-md);
+  color: var(--color-blue-medium);
+  line-height: 1.6;
+}
+
+/* ---------- SERVICES LIST ---------- */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Ajustes específicos para cards dentro de Home */
+.services-list .service-card {
+  border-left: 5px solid var(--color-green-backend);
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+.services-list .service-card:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* ---------- VALUE SECTION ---------- */
+.value-section {
+  background-color: var(--color-gray-light);
+  padding: 5rem 2rem;
+}
+
+.value-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.value-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-blue-base);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.value-section p {
+  max-width: 640px;
+  font-size: var(--text-md);
+  color: var(--color-blue-medium);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.value-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.value-section li {
+  position: relative;
+  padding-left: 2rem;
+  font-size: var(--text-sm);
+  color: var(--color-blue-base);
+  line-height: 1.6;
+}
+
+.value-section li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-green-accent);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ---------- CTA SECTION ---------- */
+.cta-section {
+  background: linear-gradient(135deg, var(--color-blue-base) 0%, var(--color-blue-medium) 100%);
+  color: var(--color-white);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.cta-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.cta-section p {
+  font-size: var(--text-md);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.cta-section .cta-button {
+  font-size: var(--text-md);
+  padding: 1rem 2.5rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .services-section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .services-section h2 {
+    font-size: 2rem;
+  }
+
+  .services-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .value-section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .value-section h2 {
+    font-size: 2rem;
+  }
+
+  .cta-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .services-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .services-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .services-list {
+    gap: 1rem;
+  }
+
+  .value-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .value-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.6rem;
+  }
+}
