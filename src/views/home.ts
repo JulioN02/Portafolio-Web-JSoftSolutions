@@ -1,5 +1,20 @@
+import { services } from "../data/services";
+
 export function renderHomeView(): string {
+  const featuredServices = services.slice(0, 3);
+
+  const servicesHTML = featuredServices
+    .map(
+      (service) => `
+        <article class="service-card">
+          <h3>${service.title}</h3>
+          <p>${service.description}</p>
+        </article>
+      `
+    )
+    .join("");
   return `
+  
     <!-- HERO / PROPUESTA DE VALOR -->
     <section class="hero-section">
       <div class="hero-content">
@@ -15,42 +30,14 @@ export function renderHomeView(): string {
     <section class="services-section">
       <header>
         <h2>Servicios</h2>
-        <p>
-          Soluciones web diseñadas con criterio técnico y enfoque práctico.
-        </p>
+        <p>Soluciones web diseñadas con criterio técnico y enfoque práctico.</p>
       </header>
 
       <div class="services-list">
-        <article class="service-card">
-          <h3>Desarrollo Web Profesional</h3>
-          <p>
-            Sitios web estructurados, escalables y bien organizados
-            desde el inicio.
-          </p>
-        </article>
-
-        <article class="service-card">
-          <h3>Landing Pages Estratégicas</h3>
-          <p>
-            Páginas enfocadas en conversión, claridad del mensaje
-            y rendimiento.
-          </p>
-        </article>
-
-        <article class="service-card">
-          <h3>Portafolios y Sitios Corporativos</h3>
-          <p>
-            Presencia digital profesional para marcas personales
-            y empresas.
-          </p>
-        </article>
-
-        <article class="service-card">
-          <h3>Soluciones Web Funcionales</h3>
-          <p>
-            Herramientas web simples que resuelven problemas concretos.
-          </p>
-        </article>
+        ${servicesHTML}
+      </div>
+      <div class="services-footer">
+        <a href="/services" data-route="/services" class="cta-button">Ver todos los servicios</a>
       </div>
     </section>
 

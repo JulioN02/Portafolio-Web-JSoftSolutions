@@ -34,5 +34,5 @@ export const services: Service[] = [
       "Mensaje claro",
       "Optimización básica de rendimiento",
     ],
-  },
+  }
 ];

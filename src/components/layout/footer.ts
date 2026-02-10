@@ -137,25 +137,6 @@ export function renderFooter(): string {
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.807 0-9.725h3.554v1.378c.43-.664 1.199-1.61 2.920-1.61 2.134 0 3.731 1.395 3.731 4.397v5.56zM5.337 8.855c-1.144 0-1.915-.759-1.915-1.71 0-.955.771-1.71 1.958-1.71 1.187 0 1.914.757 1.941 1.71 0 .951-.754 1.71-1.984 1.71zm1.581 11.597H3.635V9.727h3.283v10.725zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
-            <a 
-              href="https://twitter.com" 
-              class="site-footer__social-link" 
-              aria-label="Twitter - Sígueme en Twitter"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Visita nuestro Twitter"
-            >
-              <svg 
-                class="site-footer__social-icon" 
-                width="18" 
-                height="18" 
-                viewBox="0 0 24 24" 
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 9-5 9-5z"/>
-              </svg>
-            </a>
           </div>
         </div>
       </div>
