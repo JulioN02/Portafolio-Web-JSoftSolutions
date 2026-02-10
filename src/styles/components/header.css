@@ -1,200 +1,560 @@
+/**
+ * ============================================================================
+ * HEADER COMPONENT STYLES
+ * Ubicación: src/styles/components/header.css
+ * 
+ * Responsabilidad:
+ * - Estilos visuales del header sticky
+ * - Navegación responsiva con menú móvil
+ * - Estados visuales (hover, active, focus)
+ * - Adaptación completa a dispositivos móviles
+ * 
+ * Dependencias:
+ * - variables.css (colores, tipografía, transiciones)
+ * - base.css (reset de estilos)
+ * 
+ * Clases CSS:
+ * - .site-header (contenedor principal)
+ * - .site-header__inner (wrapper con max-width)
+ * - .site-header__logo (marca)
+ * - .site-header__nav (lista de navegación)
+ * - .site-header__link (items de navegación)
+ * - .site-header__toggle (botón hamburger móvil)
+ * - .site-nav (contenedor semántico nav)
+ * ============================================================================
+ */
+
+/* ============================================================================
+   CONTENEDOR PRINCIPAL - HEADER
+   ============================================================================ */
+
 .site-header {
-  background: linear-gradient(135deg, var(--color-blue-base) 0%, var(--color-blue-dark, #1a3a52) 100%);
-  color: var(--color-white);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  /* Posicionamiento y jerarquía */
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  width: 100%;
+
+  /* Fondo degradado (marca visual) */
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-base) 0%,
+    var(--color-blue-medium) 100%
+  );
+
+  /* Color de texto */
+  color: var(--color-white);
+
+  /* Borde inferior como elemento identificador */
   border-bottom: 3px solid var(--color-green-accent);
-  transition: transform 0.3s ease-in-out;
+
+  /* Sombra de profundidad - subtil */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+
+  /* Transición para efectos dinámicos */
+  transition: box-shadow var(--transition-fast);
+
+  /* Prevenir antialias en navegadores antiguos */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/**
+ * Estado: Cuando hay scroll
+ * Se añade dinámicamente con JS para mejorar elevación visual
+ */
+.site-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================================
+   CONTENEDOR INTERIOR - LAYOUT
+   ============================================================================ */
+
 .site-header__inner {
+  /* Flex layout para espaciado automático */
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  /* Dimensiones */
   height: 80px;
-  padding: 0 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
   width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+
+  /* Espaciado horizontal */
+  padding: 0 var(--container-padding);
+
+  /* Prevenir que items se compriman */
+  gap: 1rem;
 }
 
+/* ============================================================================
+   LOGO / MARCA
+   ============================================================================ */
+
 .site-header__logo {
-  font-size: var(--text-lg);
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-decoration: none;
-  color: var(--color-white);
+  /* Display y alignment */
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  transition: all var(--transition-fast);
+
+  /* Tipografía */
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-white);
+
+  /* Comportamiento */
+  text-decoration: none;
   white-space: nowrap;
+  flex-shrink: 0; /* Evita que se comprima */
+
+  /* Cursor */
+  cursor: pointer;
+
+  /* Transiciones suaves */
+  transition: all var(--transition-fast);
+
+  /* Accesibilidad - outline para keyboard */
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }
 
+/* Estado: Hover */
 .site-header__logo:hover {
   color: var(--color-green-accent);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
+/* Estado: Focus (navegación por teclado) */
+.site-header__logo:focus-visible {
+  outline-color: var(--color-green-accent);
+  border-radius: 4px;
+}
+
+/* Estado: Active (click) */
+.site-header__logo:active {
+  transform: translateY(0);
+}
+
+/* Texto del logo */
+.site-header__logo-text {
+  display: inline-block;
+}
+
+/* ============================================================================
+   NAVEGACIÓN - CONTENEDOR
+   ============================================================================ */
+ /* 
+.site-nav {
+ Sin estilos por defecto - los estilos van en .site-header__nav 
+}
+*/
+/* ============================================================================
+   NAVEGACIÓN - LISTA
+   ============================================================================ */
+
 .site-header__nav {
+  /* Display flex horizontal */
   display: flex;
-  gap: 2.5rem;
+  align-items: center;
+  gap: 0.5rem;
+
+  /* Reset de lista HTML */
   list-style: none;
   margin: 0;
   padding: 0;
+
+  /* Flexibilidad */
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* Items de lista */
+.site-header__nav li {
+  display: flex;
   align-items: center;
 }
 
+/* ============================================================================
+   NAVEGACIÓN - ENLACES
+   ============================================================================ */
+
 .site-header__link {
+  /* Tipografía */
   font-size: var(--text-sm);
-  color: var(--color-white);
-  text-decoration: none;
-  position: relative;
-  transition: all var(--transition-fast);
   font-weight: 500;
+  color: var(--color-white);
+
+  /* Comportamiento */
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Espaciado */
+  padding: 0.5rem 1rem;
+
+  /* Layout para efecto underline */
+  position: relative;
+  display: inline-block;
+
+  /* Cursor */
   cursor: pointer;
-  padding: 0.5rem 0;
+
+  /* Transiciones */
+  transition: all var(--transition-fast);
+
+  /* Accesibilidad */
+  border-radius: 4px;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }
 
+/* Estado: Hover */
 .site-header__link:hover {
   color: var(--color-green-accent);
+  background-color: rgba(122, 203, 104, 0.08);
 }
 
+/* Estado: Focus (teclado) */
+.site-header__link:focus-visible {
+  outline-color: var(--color-green-accent);
+}
+
+/* Estado: Active (link activo según ruta) */
 .site-header__link--active {
   color: var(--color-green-accent);
   font-weight: 600;
+  background-color: rgba(122, 203, 104, 0.12);
 }
 
+/* Efecto underline animado en links */
 .site-header__link::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -8px;
+  left: 50%;
+  bottom: 0;
   width: 0;
   height: 2px;
   background: var(--color-green-accent);
   border-radius: 2px;
+  transform: translateX(-50%);
   transition: width var(--transition-fast) ease-out;
 }
 
+/* Mostrar underline en hover y active */
 .site-header__link:hover::after,
 .site-header__link--active::after {
   width: 100%;
 }
 
-/* Mobile Menu Toggle */
+/* ============================================================================
+   TOGGLE BOTÓN - MENÚ HAMBURGER MÓVIL
+   ============================================================================ */
+
 .site-header__toggle {
+  /* Hidden por defecto (mostrar en media queries) */
   display: none;
   flex-direction: column;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  width: 40px;
-  height: 40px;
   align-items: center;
   justify-content: center;
+
+  /* Dimensiones */
+  width: 44px;
+  height: 44px;
+  gap: 5px;
+
+  /* Reset de botón */
+  background: none;
+  border: none;
+  padding: 8px;
+
+  /* Estilos */
+  color: var(--color-white);
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* Transiciones */
   transition: all var(--transition-fast);
-  border-radius: 6px;
+
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }
 
+/* Estado: Hover */
 .site-header__toggle:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(122, 203, 104, 0.15);
+  transform: scale(1.05);
 }
 
+/* Estado: Focus (teclado) */
+.site-header__toggle:focus-visible {
+  outline-color: var(--color-green-accent);
+}
+
+/* Estado: Active (presionado) */
+.site-header__toggle:active {
+  transform: scale(0.98);
+}
+
+/* Líneas del hamburger */
 .site-header__toggle span {
+  display: block;
   width: 24px;
   height: 2px;
   background: var(--color-white);
   border-radius: 2px;
   transition: all var(--transition-fast);
-  display: block;
+  transform-origin: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ============================================================================
+   ANIMACIÓN DEL HAMBURGER BUTTON (active state)
+   ============================================================================ */
+
+/* Primera línea: rotación hacia arriba formando X */
+.site-header__toggle.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+/* Segunda línea: desaparece */
+.site-header__toggle.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Tercera línea: rotación hacia abajo formando X */
+.site-header__toggle.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - TABLET (max-width: 1024px)
+   ============================================================================ */
+
+@media (max-width: 1024px) {
   .site-header__inner {
-    padding: 0 1.5rem;
     height: 70px;
-  }
-
-  .site-header__nav {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background: linear-gradient(180deg, var(--color-blue-base) 0%, var(--color-blue-dark, #1a3a52) 100%);
-    padding: 1rem 0;
-    border-bottom: 3px solid var(--color-green-accent);
-    max-height: calc(100vh - 70px);
-    overflow-y: auto;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .site-header__nav.active {
-    transform: translateX(0);
-  }
-
-  .site-header__toggle {
-    display: flex;
+    padding: 0 1.5rem;
+    gap: 1rem;
   }
 
   .site-header__link {
-    font-size: var(--text-sm);
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-  }
-
-  .site-header__link:last-child {
-    border-bottom: none;
-  }
-
-  .site-header__link::after {
-    display: none;
-  }
-
-  .site-header__link:hover {
-    background-color: rgba(122, 203, 104, 0.15);
-    padding-left: 2rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 480px) {
+/* ============================================================================
+   RESPONSIVE DESIGN - MOBILE (max-width: 768px)
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  /* Reducir altura del header */
   .site-header__inner {
-    height: 60px;
-    padding: 0 1rem;
+    height: 64px;
+    padding: 0 1.5rem;
   }
 
+  /* Logo más pequeño */
   .site-header__logo {
     font-size: var(--text-md);
     letter-spacing: 0;
   }
 
+  /* Mostrar toggle button */
+  .site-header__toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  /* Navegación en overlay */
   .site-header__nav {
-    top: 60px;
-    max-height: calc(100vh - 60px);
+    /* Posicionamiento: overlay fijo */
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Layout vertical */
+    flex-direction: column;
+    gap: 0;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    /* Estilos */
+    background: linear-gradient(
+      180deg,
+      var(--color-blue-base) 0%,
+      var(--color-blue-medium) 100%
+    );
+    border-top: 3px solid var(--color-green-accent);
+
+    /* Espaciado */
+    padding: 1rem 0;
+
+    /* Scroll si el contenido es muy largo */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Sombra */
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    /* Animación de entrada/salida */
+    transform: translateX(-100%);
+    transition: transform var(--transition-fast) cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Z-index por debajo del header */
+    z-index: 999;
+  }
+
+  /* Mostrar menú cuando está activo */
+  .site-header__nav.is-active {
+    transform: translateX(0);
+  }
+
+  /* Items de la lista en móvil */
+  .site-header__nav li {
+    width: 100%;
+  }
+
+  /* Enlaces en móvil */
+  .site-header__link {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    position: static;
+    display: block;
+    text-align: left;
+  }
+
+  /* Último item sin borde */
+  .site-header__link:last-child {
+    border-bottom: none;
+  }
+
+  /* Underline no visible en móvil */
+  .site-header__link::after {
+    display: none;
+  }
+
+  /* Hover mejorado en móvil */
+  .site-header__link:hover {
+    background-color: rgba(122, 203, 104, 0.12);
+    padding-left: 2rem;
+  }
+
+  /* Link activo en móvil */
+  .site-header__link--active {
+    background-color: rgba(122, 203, 104, 0.15);
+    border-left: 3px solid var(--color-green-accent);
+    padding-left: calc(1.5rem - 3px);
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - SMALL MOBILE (max-width: 480px)
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  .site-header__inner {
+    height: 56px;
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+
+  .site-header__logo {
+    font-size: var(--text-md);
+  }
+
+  .site-header__toggle {
+    width: 40px;
+    height: 40px;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .site-header__toggle span {
+    width: 20px;
+    height: 2px;
+  }
+
+  .site-header__nav {
+    top: 56px;
   }
 
   .site-header__link {
     padding: 0.875rem 1rem;
     font-size: 0.9rem;
   }
+}
 
-  .site-header__toggle {
-    width: 36px;
-    height: 36px;
+/* ============================================================================
+   ACCESIBILIDAD - Preferencia de movimiento reducido
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header__logo,
+  .site-header__link,
+  .site-header__toggle,
+  .site-header__toggle span,
+  .site-header__nav {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* ============================================================================
+   ACCESIBILIDAD - Dark mode (opcional futura implementación)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  /* Mantener estilos actuales - ya están optimizados para dark 
+  .site-header {
+    El gradiente azul ya es adecuado para dark mode
+  }
+  */
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  .site-header {
+    position: static;
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-gray-medium);
   }
 
-  .site-header__toggle span {
-    width: 20px;
-    height: 2px;
+  .site-header__toggle {
+    display: none !important;
+  }
+
+  .site-header__nav {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    flex-direction: row !important;
+    gap: 2rem;
+  }
+}
+
+/* ============================================================================
+   UTILIDADES Y CORRECCIONES DE NAVEGADORES ANTIGUOS
+   ============================================================================ */
+
+/* Soporte para navegadores sin soporte de outline-offset */
+@supports not (outline-offset: 4px) {
+  .site-header__logo:focus-visible,
+  .site-header__link:focus-visible,
+  .site-header__toggle:focus-visible {
+    border: 2px solid var(--color-green-accent);
   }
 }

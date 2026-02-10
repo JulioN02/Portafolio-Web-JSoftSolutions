@@ -1,4 +1,4 @@
-import { renderModal } from "../components/ui/modal";
+import { renderModal } from "../ui/modal";
 
 const MODAL_SELECTOR = ".modal-overlay";
 

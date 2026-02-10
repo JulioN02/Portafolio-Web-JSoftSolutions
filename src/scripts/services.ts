@@ -1,4 +1,4 @@
-import { openServiceModal } from "./serviceModal";
+import { openServiceModal } from "../components/modals/serviceModal";
 
 export function initServiceInteractions(): void {
   document.addEventListener("click", (event) => {

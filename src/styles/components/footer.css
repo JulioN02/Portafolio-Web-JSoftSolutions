@@ -1,211 +1,471 @@
+/**
+ * ============================================================================
+ * FOOTER COMPONENT STYLES
+ * Ubicación: src/styles/components/footer.css
+ * 
+ * Responsabilidad:
+ * - Estilos visuales del footer sticky
+ * - Layout responsive en todos los dispositivos
+ * - Estados visuales (hover, focus, active)
+ * - Animaciones suaves y transiciones
+ * 
+ * Dependencias:
+ * - variables.css (colores, tipografía, transiciones)
+ * - base.css (reset de estilos)
+ * 
+ * Clases CSS:
+ * - .site-footer (contenedor principal)
+ * - .site-footer__inner (wrapper con max-width)
+ * - .site-footer__section (sección de contenido)
+ * - .site-footer__brand (marca del sitio)
+ * - .site-footer__links (lista de enlaces)
+ * - .site-footer__link (item de enlace)
+ * - .site-footer__socials (redes sociales)
+ * - .site-footer__social-link (link de red social)
+ * ============================================================================
+ */
+
+/* ============================================================================
+   CONTENEDOR PRINCIPAL - FOOTER
+   ============================================================================ */
+
 .site-footer {
-  background: linear-gradient(135deg, var(--color-blue-base) 0%, var(--color-blue-dark, #1a3a52) 100%);
-  color: var(--color-white);
-  padding: 2rem;
-  border-top: 3px solid var(--color-green-accent);
-  margin-top: 3rem;
+  /* Posicionamiento */
   position: relative;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  width: 100%;
+
+  /* Fondo degradado (marca visual) */
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-base) 0%,
+    var(--color-blue-medium) 100%
+  );
+
+  /* Color de texto */
+  color: var(--color-white);
+
+  /* Borde superior como elemento identificador */
+  border-top: 3px solid var(--color-green-accent);
+
+  /* Espaciado */
+  padding: var(--container-padding);
+  margin-top: 3rem;
+
+  /* Accesibilidad - prevenir font smoothing issues */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.site-footer.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+/* ============================================================================
+   CONTENEDOR INTERIOR - LAYOUT GRID
+   ============================================================================ */
 
 .site-footer__inner {
+  /* Grid layout para secciones */
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 2rem;
-  max-width: 1400px;
+
+  /* Contenedor */
+  max-width: var(--container-max-width);
   margin: 0 auto;
+  width: 100%;
+
+  /* Espaciado inferior */
   padding-bottom: 1.5rem;
 }
 
+/* ============================================================================
+   SECCIONES - CONTENEDORES DE CONTENIDO
+   ============================================================================ */
+
 .site-footer__section {
+  /* Layout vertical */
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
+/* Sección especial para marca */
+.site-footer__brand-section {
+  gap: 1rem;
+}
+
+/* ============================================================================
+   MARCA / BRANDING
+   ============================================================================ */
+
 .site-footer__brand {
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-green-accent);
+  /* Layout */
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  /* Tipografía */
+  font-weight: 700;
+  font-size: var(--text-md);
+  color: var(--color-green-accent);
+
+  /* Espaciado */
   margin-bottom: 0.25rem;
   letter-spacing: 0.5px;
+
+  /* Comportamiento */
+  cursor: pointer;
+
+  /* Transición */
+  transition: all var(--transition-fast);
+
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }
 
-.site-footer__text {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.5;
-  max-width: 280px;
+.site-footer__brand:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
 }
+
+.site-footer__brand:focus-visible {
+  outline-color: var(--color-green-accent);
+  border-radius: 4px;
+}
+
+/* Texto de marca */
+.site-footer__brand-text {
+  display: inline-block;
+}
+
+/* Descripción de marca */
+.site-footer__text {
+  /* Tipografía */
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+
+  /* Espaciado */
+  max-width: 320px;
+
+  /* Margen */
+  margin: 0;
+}
+
+/* ============================================================================
+   TÍTULOS DE SECCIÓN
+   ============================================================================ */
 
 .site-footer__title {
-  font-size: 0.875rem;
+  /* Tipografía */
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-white);
-  margin-bottom: 0.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.75px;
+
+  /* Espaciado */
+  margin: 0 0 0.75rem 0;
+
+  /* Opacidad */
   opacity: 0.95;
 }
 
+/* ============================================================================
+   LISTAS DE ENLACES
+   ============================================================================ */
+
 .site-footer__links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  /* Reset de lista */
   list-style: none;
   margin: 0;
   padding: 0;
+
+  /* Layout vertical */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
+
+/* Items de lista */
+.site-footer__links li {
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================================================
+   ENLACES DEL FOOTER
+   ============================================================================ */
 
 .site-footer__link {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
+  /* Tipografía */
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+
+  /* Comportamiento */
   text-decoration: none;
+  display: inline-block;
+
+  /* Espaciado */
+  padding: 0.25rem 0;
+
+  /* Transición */
   transition: all var(--transition-fast);
+
+  /* Accesibilidad */
   position: relative;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
+/* Hover state */
 .site-footer__link:hover {
   color: var(--color-green-accent);
   padding-left: 0.3rem;
 }
 
-.site-footer__socials {
-  display: flex;
-  gap: 0.6rem;
-  margin-top: 0.25rem;
+/* Focus state */
+.site-footer__link:focus-visible {
+  outline-color: var(--color-green-accent);
 }
 
+/* Active state (para links activos de navegación) */
+.site-footer__link--active {
+  color: var(--color-green-accent);
+  font-weight: 600;
+}
+
+/* Efecto underline en hover */
+.site-footer__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-green-accent);
+  transition: width var(--transition-fast);
+}
+
+.site-footer__link:hover::after {
+  width: 100%;
+}
+
+/* ============================================================================
+   REDES SOCIALES
+   ============================================================================ */
+
+.site-footer__socials {
+  /* Layout flex */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  /* Espaciado */
+  margin-top: 0.5rem;
+}
+
+/* Link de red social */
 .site-footer__social-link {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
+  /* Dimensiones */
+  width: 40px;
+  height: 40px;
+
+  /* Layout */
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Estilos */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
   color: var(--color-white);
+
+  /* Comportamiento */
   text-decoration: none;
+  cursor: pointer;
+
+  /* Transición */
   transition: all var(--transition-fast);
-  font-size: 0.9rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 4px;
 }
 
+/* Hover state */
 .site-footer__social-link:hover {
   background: var(--color-green-accent);
   color: var(--color-blue-base);
-  transform: translateY(-2px);
   border-color: var(--color-green-accent);
+  transform: translateY(-2px);
 }
+
+/* Focus state */
+.site-footer__social-link:focus-visible {
+  outline-color: var(--color-green-accent);
+}
+
+/* Active state */
+.site-footer__social-link:active {
+  transform: scale(0.95);
+}
+
+/* SVG icon dentro de social link */
+.site-footer__social-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--transition-fast);
+}
+
+.site-footer__social-link:hover .site-footer__social-icon {
+  transform: scale(1.1);
+}
+
+/* ============================================================================
+   DIVISOR
+   ============================================================================ */
 
 .site-footer__divider {
+  /* Dimensiones */
   height: 1px;
+  width: 100%;
+
+  /* Estilos */
   background: rgba(255, 255, 255, 0.1);
-  grid-column: 1 / -1;
-  margin: 0.5rem 0;
+
+  /* Espaciado */
+  margin: 1.5rem 0;
+
+  /* Accesibilidad */
+  border: none;
 }
+
+/* ============================================================================
+   SECCIÓN INFERIOR - COPYRIGHT Y LEGAL
+   ============================================================================ */
 
 .site-footer__bottom {
+  /* Layout */
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  max-width: 1400px;
+  justify-content: space-between;
+
+  /* Contenedor */
+  max-width: var(--container-max-width);
   margin: 0 auto;
+  width: 100%;
+
+  /* Espaciado */
   padding: 0;
-  grid-column: 1 / -1;
+  gap: 2rem;
 }
 
+/* Copyright text */
 .site-footer__copyright {
-  font-size: 0.7rem;
+  /* Tipografía */
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
+
+  /* Margen */
+  margin: 0;
 }
 
+/* Links legales */
 .site-footer__legal {
+  /* Layout */
   display: flex;
-  gap: 1rem;
-  font-size: 0.7rem;
+  align-items: center;
+  gap: 1.5rem;
+
+  /* Reset */
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
+/* Link legal individual */
 .site-footer__legal-link {
+  /* Tipografía */
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.6);
+
+  /* Comportamiento */
   text-decoration: none;
+
+  /* Transición */
   transition: color var(--transition-fast);
+
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+  border-radius: 2px;
+  padding: 0.25rem;
 }
 
+/* Hover state */
 .site-footer__legal-link:hover {
   color: var(--color-green-accent);
 }
 
-/* Responsive */
+/* Focus state */
+.site-footer__legal-link:focus-visible {
+  outline-color: var(--color-green-accent);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - TABLET (max-width: 1024px)
+   ============================================================================ */
+
 @media (max-width: 1024px) {
   .site-footer__inner {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .site-footer__text {
+    max-width: 100%;
   }
 }
 
+/* ============================================================================
+   RESPONSIVE DESIGN - MOBILE (max-width: 768px)
+   ============================================================================ */
+
 @media (max-width: 768px) {
   .site-footer {
-    padding: 1.5rem;
+    padding: 1.5rem var(--container-padding);
+    margin-top: 2.5rem;
   }
 
   .site-footer__inner {
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    padding-bottom: 1rem;
   }
 
-  .site-footer__bottom {
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: center;
-    padding: 0;
+  .site-footer__section {
+    gap: 0.5rem;
   }
 
-  .site-footer__legal {
-    flex-wrap: wrap;
-    justify-content: center;
+  .site-footer__brand-section {
+    grid-column: 1 / -1;
     gap: 0.75rem;
   }
 
   .site-footer__text {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 100%;
   }
 
   .site-footer__title {
     font-size: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
   .site-footer__link {
-    font-size: 0.7rem;
-  }
-
-  .site-footer__copyright {
-    font-size: 0.65rem;
-  }
-
-  .site-footer__legal-link {
-    font-size: 0.65rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-footer {
-    margin-top: 2rem;
-    padding: 1rem;
-  }
-
-  .site-footer__inner {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    font-size: 0.8rem;
   }
 
   .site-footer__socials {
@@ -213,22 +473,79 @@
   }
 
   .site-footer__social-link {
-    width: 28px;
-    height: 28px;
-    font-size: 0.8rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .site-footer__social-icon {
+    width: 16px;
+    height: 16px;
   }
 
   .site-footer__divider {
-    margin: 0.75rem 0;
+    margin: 1rem 0;
+    grid-column: 1 / -1;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 0;
+  }
+
+  .site-footer__copyright {
+    font-size: 0.7rem;
+  }
+
+  .site-footer__legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .site-footer__legal-link {
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - SMALL MOBILE (max-width: 480px)
+   ============================================================================ */
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 1rem var(--container-padding);
+    margin-top: 2rem;
+    border-top: 2px solid var(--color-green-accent);
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .site-footer__section {
+    gap: 0.4rem;
+  }
+
+  .site-footer__brand-section {
+    gap: 0.5rem;
   }
 
   .site-footer__brand {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+
+  .site-footer__brand-text {
+    display: inline;
   }
 
   .site-footer__text {
-    font-size: 0.65rem;
-    max-width: 100%;
+    font-size: 0.75rem;
+    line-height: 1.4;
   }
 
   .site-footer__title {
@@ -236,12 +553,106 @@
     margin-bottom: 0.35rem;
   }
 
-  .site-footer__link {
-    font-size: 0.65rem;
-    margin-bottom: 0.25rem;
-  }
-
   .site-footer__links {
     gap: 0.35rem;
+  }
+
+  .site-footer__link {
+    font-size: 0.75rem;
+    padding: 0.15rem 0;
+  }
+
+  .site-footer__socials {
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+  }
+
+  .site-footer__social-link {
+    width: 32px;
+    height: 32px;
+  }
+
+  .site-footer__social-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .site-footer__divider {
+    margin: 0.75rem 0;
+  }
+
+  .site-footer__bottom {
+    gap: 0.75rem;
+  }
+
+  .site-footer__copyright {
+    font-size: 0.65rem;
+  }
+
+  .site-footer__legal {
+    gap: 0.75rem;
+  }
+
+  .site-footer__legal-link {
+    font-size: 0.65rem;
+  }
+}
+
+/* ============================================================================
+   ACCESIBILIDAD - Preferencia de movimiento reducido
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__link,
+  .site-footer__social-link,
+  .site-footer__legal-link,
+  .site-footer__brand,
+  .site-footer__link::after {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* ============================================================================
+   ACCESIBILIDAD - Dark mode (opcional futura implementación)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  /* Mantener estilos actuales - ya están optimizados para dark */
+  .site-footer {
+    /* El gradiente azul ya es adecuado para dark mode */
+  }
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  .site-footer {
+    page-break-inside: avoid;
+    border-top: 1px solid var(--color-gray-medium);
+  }
+
+  .site-footer__socials {
+    display: none;
+  }
+
+  .site-footer__divider {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   UTILIDADES Y CORRECCIONES DE NAVEGADORES ANTIGUOS
+   ============================================================================ */
+
+/* Soporte para navegadores sin soporte de outline-offset */
+@supports not (outline-offset: 4px) {
+  .site-footer__link:focus-visible,
+  .site-footer__social-link:focus-visible,
+  .site-footer__legal-link:focus-visible,
+  .site-footer__brand:focus-visible {
+    border: 2px solid var(--color-green-accent);
   }
 }

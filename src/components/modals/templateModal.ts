@@ -1,5 +1,5 @@
-import { templates } from "../data/templates";
-import { renderTemplateDetail } from "../components/sections/templateDetail";
+import { templates } from "../../data/templates";
+import { renderTemplateDetail } from "../sections/templateDetail";
 import { openModal } from "./modalManager";
 
 export function openTemplateModal(templateId: string): void {

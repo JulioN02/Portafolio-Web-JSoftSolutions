@@ -1,5 +1,5 @@
-import { products } from "../data/products";
-import { renderProductDetail } from "../components/sections/productDetail";
+import { products } from "../../data/products";
+import { renderProductDetail } from "../sections/productDetail";
 import { openModal } from "./modalManager";
 
 export function openProductModal(productId: string): void {

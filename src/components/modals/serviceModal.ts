@@ -1,5 +1,5 @@
-import { services } from "../data/services";
-import { renderServiceDetail } from "../components/sections/serviceDetail";
+import { services } from "../../data/services";
+import { renderServiceDetail } from "../sections/serviceDetail";
 import { openModal } from "./modalManager";
 
 export function openServiceModal(serviceId: string): void {

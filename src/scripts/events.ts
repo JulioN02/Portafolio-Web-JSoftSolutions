@@ -1,6 +1,6 @@
-import { openServiceModal } from "./serviceModal";
-import { openProductModal } from "./productModal";
-import { openTemplateModal } from "./templateModal";
+import { openServiceModal } from "../components/modals/serviceModal";
+import { openProductModal } from "../components/modals/productModal";
+import { openTemplateModal } from "../components/modals/templateModal";
 
 export function registerGlobalEvents(): void {
   document.addEventListener("click", handleGlobalClick);
