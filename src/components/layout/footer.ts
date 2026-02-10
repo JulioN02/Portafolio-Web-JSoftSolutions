@@ -1,3 +1,4 @@
+import { externalLinks } from "../../data/links";
 export function renderFooter(): string {
   const currentYear = new Date().getFullYear();
 
@@ -100,7 +101,7 @@ export function renderFooter(): string {
           <h3 class="site-footer__title">Sígueme</h3>
           <div class="site-footer__socials" role="group" aria-label="Redes sociales">
             <a 
-              href="https://github.com" 
+              href="${externalLinks.github}" 
               class="site-footer__social-link" 
               aria-label="GitHub - Sígueme en GitHub"
               target="_blank"
@@ -119,7 +120,7 @@ export function renderFooter(): string {
               </svg>
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="${externalLinks.linkedin}" 
               class="site-footer__social-link" 
               aria-label="LinkedIn - Sígueme en LinkedIn"
               target="_blank"

@@ -1,4 +1,18 @@
+import { externalLinks } from "../data/links";
+
+// 🔹 Función para escapar caracteres HTML
+function escapeHtml(text: string): string {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
 export function renderContactView(): string {
+  const emailLink = externalLinks.getEmailLink();
+  const githubUrl = escapeHtml(externalLinks.github);
+  const linkedinUrl = escapeHtml(externalLinks.linkedin);
+  const email = escapeHtml("jsoftsolutions1@gmail.com");
+
   return `
     <section class="page page-contact">
       <header class="page-header">
@@ -19,6 +33,7 @@ export function renderContactView(): string {
               name="email"
               placeholder="tu@email.com"
               required
+              autocomplete="email"
             />
           </div>
 
@@ -30,6 +45,8 @@ export function renderContactView(): string {
               name="subject"
               placeholder="Asunto del mensaje"
               required
+              autocomplete="off"
+              maxlength="100"
             />
           </div>
 
@@ -41,10 +58,11 @@ export function renderContactView(): string {
               rows="5"
               placeholder="Cuéntame brevemente sobre tu idea o necesidad"
               required
+              maxlength="1000"
             ></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" class="ui-button">
             Enviar mensaje
           </button>
 
@@ -58,20 +76,20 @@ export function renderContactView(): string {
           <ul>
             <li>
               <strong>Email:</strong>
-              <a href="mailto:tuemail@dominio.com">
-                tuemail@dominio.com
+              <a href="${emailLink}" rel="noopener noreferrer">
+                ${email}
               </a>
             </li>
             <li>
               <strong>LinkedIn:</strong>
-              <a href="https://linkedin.com/in/tuusuario" target="_blank">
-                linkedin.com/in/tuusuario
+              <a href="${linkedinUrl}" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/julio-nieto-martinez/
               </a>
             </li>
             <li>
               <strong>GitHub:</strong>
-              <a href="https://github.com/tuusuario" target="_blank">
-                github.com/tuusuario
+              <a href="${githubUrl}" target="_blank" rel="noopener noreferrer">
+                github.com/JulioN02
               </a>
             </li>
           </ul>

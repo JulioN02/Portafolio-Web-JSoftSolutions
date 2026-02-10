@@ -1,4 +1,4 @@
-const CONTACT_EMAIL = "jsoftsolutions1@gmail.com";
+import { externalLinks } from "../data/links";
 
 export function initContactForm(): void {
   const form = document.getElementById("contact-form") as HTMLFormElement | null;
@@ -24,7 +24,7 @@ export function initContactForm(): void {
     }
 
     const mailtoLink = buildMailToLink({
-      to: CONTACT_EMAIL,
+      to: externalLinks.email,
       from: email,
       subject,
       message,
