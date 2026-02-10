@@ -1,30 +1,3 @@
-/**
- * ============================================================================
- * FOOTER COMPONENT STYLES
- * Ubicación: src/styles/components/footer.css
- * 
- * Responsabilidad:
- * - Estilos visuales del footer sticky
- * - Layout responsive en todos los dispositivos
- * - Estados visuales (hover, focus, active)
- * - Animaciones suaves y transiciones
- * 
- * Dependencias:
- * - variables.css (colores, tipografía, transiciones)
- * - base.css (reset de estilos)
- * 
- * Clases CSS:
- * - .site-footer (contenedor principal)
- * - .site-footer__inner (wrapper con max-width)
- * - .site-footer__section (sección de contenido)
- * - .site-footer__brand (marca del sitio)
- * - .site-footer__links (lista de enlaces)
- * - .site-footer__link (item de enlace)
- * - .site-footer__socials (redes sociales)
- * - .site-footer__social-link (link de red social)
- * ============================================================================
- */
-
 /* ============================================================================
    CONTENEDOR PRINCIPAL - FOOTER
    ============================================================================ */
@@ -619,9 +592,9 @@
 
 @media (prefers-color-scheme: dark) {
   /* Mantener estilos actuales - ya están optimizados para dark */
-  .site-footer {
-    /* El gradiente azul ya es adecuado para dark mode */
-  }
+  /*.site-footer {
+     El gradiente azul ya es adecuado para dark mode 
+  }*/
 }
 
 /* ============================================================================

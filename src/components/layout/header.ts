@@ -1,15 +1,3 @@
-/**
- * Header Component
- * Ubicación: src/components/layout/header.ts
- * 
- * Responsabilidad:
- * - Renderizar estructura HTML del header
- * - Proporcionar markup semántico y accesible
- * - Incluir hooks para interacción JavaScript (clases, data-* attrs)
- * 
- * No contiene: lógica de eventos, estilos, comportamientos dinámicos
- */
-
 export function renderHeader(): string {
   return `
     <header class="site-header" role="banner">
@@ -104,41 +92,3 @@ export function renderHeader(): string {
     </header>
   `;
 }
-
-/**
- * CAMBIOS REALIZADOS EN ESTA VERSIÓN:
- * 
- * 1. SEMÁNTICA HTML:
- *    ✓ <header role="banner"> → Identifica el header como banner landmark
- *    ✓ <nav id="site-nav"> → Proporciona identificación y referencia ARIA
- *    ✓ <ul><li> → Estructura semántica de lista de navegación
- *    ✓ Eliminado <span> innecesario en logo (opcional: puede tener SVG)
- * 
- * 2. ACCESIBILIDAD:
- *    ✓ aria-label en toggle → Describe la acción
- *    ✓ aria-expanded="false" → Indica estado del menú
- *    ✓ aria-controls="site-nav" → Relación entre toggle y nav
- *    ✓ aria-hidden="true" en spans decorativos
- *    ✓ title en logo → Tooltip al hover
- *    ✓ type="button" explícito
- * 
- * 3. DATA ATTRIBUTES:
- *    ✓ Conservados data-route para routing inteligente
- *    ✓ Permiten JavaScript targetear fácilmente
- * 
- * 4. ESTRUCTURA CLARA:
- *    ✓ Comentarios que explican secciones
- *    ✓ Formato legible y mantenible
- *    ✓ Indentación consistente
- * 
- * 5. PREPARACIÓN PARA CSS:
- *    ✓ Clases BEM claras y reutilizables
- *    ✓ Elementos identificables sin ambigüedad
- *    ✓ Sin clases conflictivas
- * 
- * EXTENSIONES FUTURAS (sin cambiar markup):
- * - Agregar <img> o <svg> dentro del logo
- * - Agregar dropdown menús en li específicos
- * - Agregar badge o contador de notificaciones
- * - Agregar buscador o theme toggle
- */

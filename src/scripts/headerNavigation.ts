@@ -1,17 +1,3 @@
-/**
- * ============================================================================
- * HEADER NAVIGATION SCRIPT
- * Ubicación: src/scripts/headerNavigation.ts
- * 
- * Responsabilidad:
- * - Gestionar el toggle del menú móvil
- * - Cerrar menú al navegar
- * - Detectar scroll y actualizar estilos
- * - Marcar links activos según la ruta actual
- * - Manejar accesibilidad (ARIA attributes)
- * ============================================================================
- */
-
 interface HeaderElements {
   header: HTMLElement | null;
   toggle: HTMLButtonElement | null;
@@ -213,24 +199,3 @@ export function cleanupHeaderNavigation(): void {
 
   document.body.style.overflow = '';
 }
-
-/**
- * INTEGRACIÓN EN main.ts:
- * 
- * import { setupHeaderNavigation } from './scripts/headerNavigation';
- * 
- * document.addEventListener('DOMContentLoaded', () => {
- *   setupHeaderNavigation();
- *   // ... resto de inicialización
- * });
- * 
- * // Si usas HMR (hot module replacement):
- * if (import.meta.hot) {
- *   import.meta.hot.accept('./scripts/headerNavigation', (module) => {
- *     cleanupHeaderNavigation();
- *     if (module) {
- *       module.setupHeaderNavigation();
- *     }
- *   });
- * }
- */

@@ -1,15 +1,3 @@
-/**
- * Footer Component
- * Ubicación: src/components/layout/footer.ts
- * 
- * Responsabilidad:
- * - Renderizar estructura HTML del footer
- * - Proporcionar markup semántico y accesible
- * - Incluir hooks para navegación y datos dinámicos
- * 
- * No contiene: lógica de eventos, estilos, comportamientos dinámicos
- */
-
 export function renderFooter(): string {
   const currentYear = new Date().getFullYear();
 
@@ -207,52 +195,3 @@ export function renderFooter(): string {
     </footer>
   `;
 }
-
-/**
- * ============================================================================
- * CAMBIOS REALIZADOS EN ESTA VERSIÓN
- * ============================================================================
- * 
- * 1. SEMÁNTICA HTML:
- *    ✓ role="contentinfo" en <footer>
- *    ✓ <nav> con aria-label en secciones de links
- *    ✓ aria-hidden="true" en elementos decorativos
- *    ✓ Estructura clara con comentarios HTML
- * 
- * 2. ACCESIBILIDAD:
- *    ✓ aria-label en links sociales descriptivos
- *    ✓ title attributes en enlaces
- *    ✓ Atributos para links externos (target, rel)
- *    ✓ SVG con aria-hidden (no redundante con aria-label)
- *    ✓ role="group" en sección de redes sociales
- * 
- * 3. ESTRUCTURA:
- *    ✓ data-route en enlaces internos (para SPA)
- *    ✓ 4 secciones claramente separadas
- *    ✓ Links organizados por categoría
- *    ✓ Año dinámico con new Date().getFullYear()
- * 
- * 4. MEJORAS DE UX:
- *    ✓ Descripción más completa de la marca
- *    ✓ SVG icons en lugar de texto en redes
- *    ✓ target="_blank" + rel="noopener noreferrer" en redes
- *    ✓ Title attributes para tooltips
- *    ✓ Nueva sección de Información
- *    ✓ Link a Cookies policy
- * 
- * 5. SEO Y SEMÁNTICA:
- *    ✓ Mejor estructura de contenido
- *    ✓ Más enlaces internos (ayuda crawling)
- *    ✓ Mejor jerarquía (h3 para títulos)
- *    ✓ Mejor descripción de marca
- * 
- * ============================================================================
- * COMPATIBILIDAD
- * ============================================================================
- * 
- * ✓ Trabaja con footer.css v2.0
- * ✓ Mantiene clases BEM existentes
- * ✓ Compatible con JavaScript actual
- * ✓ Sin dependencias externas
- * ✓ SVG inline (sin requests adicionales)
- */
