@@ -5,3 +5,8 @@ section {
   max-width: 100%;
   overflow-x: hidden;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

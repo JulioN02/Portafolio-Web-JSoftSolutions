@@ -21,8 +21,11 @@
   border-top: 3px solid var(--color-green-accent);
 
   /* Espaciado */
-  padding: var(--container-padding);
-  margin-top: 3rem;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  padding-top: var(--container-padding);
+  padding-bottom: var(--container-padding);
+  overflow-x: hidden;
 
   /* Accesibilidad - prevenir font smoothing issues */
   -webkit-font-smoothing: antialiased;
@@ -47,6 +50,11 @@
   /* Espaciado inferior */
   padding-bottom: 1.5rem;
 }
+.site-footer__inner,
+.site-footer__bottom {
+  max-width: 100%;
+}
+
 
 /* ============================================================================
    SECCIONES - CONTENEDORES DE CONTENIDO
