@@ -60,9 +60,6 @@ export function navigateTo(path: Route): void {
   }
 
   mainRoot.innerHTML = route.render();
-  history.pushState({}, "", path);
-
-  // 🔹 Hook post-render
   route.onMount?.();
 
   reattachNavigationListeners();
