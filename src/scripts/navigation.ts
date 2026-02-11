@@ -6,6 +6,7 @@ import { renderGuaranteesView } from "../views/guarantees";
 import { renderAboutView } from "../views/about";
 import { renderContactView } from "../views/contact";
 import { initContactForm } from "../scripts/contact";
+import { updateActiveLink } from "./header"; // <-- Nuevo import
 
 // ============================
 // ROUTES
@@ -63,6 +64,8 @@ export function navigateTo(path: Route, replace = false): void {
     : history.pushState({}, "", path);
 
   route.onMount?.();
+  // Sincronizar el header con la nueva ruta
+  updateActiveLink();
 }
 
 // ============================
