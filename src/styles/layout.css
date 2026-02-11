@@ -63,6 +63,21 @@ main {
   min-height: calc(100vh - 160px);
 }
 
+#site-main {
+  padding-top: 80px;
+}
+@media (max-width: 768px) {
+  #site-main {
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  #site-main {
+    padding-top: 56px;
+  }
+}
+
 /* ════════════════════════════════════════════════════════════════════
    RESUMEN:
    

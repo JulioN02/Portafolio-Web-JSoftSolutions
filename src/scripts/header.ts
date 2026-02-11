@@ -204,20 +204,18 @@ function initScrollLogic(header: HTMLElement | null, footer: HTMLElement | null)
    * - Show/hide header en scroll up/down
    * - Show/hide footer cuando se llega al final
    */
-  window.addEventListener(
-    "scroll",
-    () => {
-      // Debounce de 50ms para mejor performance
-      if (scrollState.scrollTimeout) {
-        clearTimeout(scrollState.scrollTimeout);
-      }
+  let ticking = false;
 
-      scrollState.scrollTimeout = setTimeout(() => {
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
         updateScrollState(scrollState, header, footer);
-      }, 50);
-    },
-    { passive: true } // Performance: el listener no llama preventDefault()
-  );
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
 
   // Actualizar estado inicial
   updateScrollState(scrollState, header, footer);
@@ -253,17 +251,34 @@ function updateHeaderVisibility(
   header: HTMLElement,
   scrollDirection: "up" | "down"
 ): void {
-  // No hide el header si estamos muy cerca del top
-  const threshold = 50;
+  const hideThreshold = 150;   // scroll mínimo para poder ocultar
+  const showDelta = 10;        // movimiento mínimo hacia arriba para mostrar
+  const delta = Math.abs(window.scrollY - state.lastScrollY);
 
-  if (scrollDirection === "down" && state.isHeaderVisible && window.scrollY > threshold) {
+  // Ignorar micro movimientos
+  if (delta < 3) return;
+
+  // Scroll hacia abajo → ocultar
+  if (
+    scrollDirection === "down" &&
+    state.isHeaderVisible &&
+    window.scrollY > hideThreshold
+  ) {
     header.classList.add("is-hidden");
     state.isHeaderVisible = false;
-  } else if (scrollDirection === "up" && !state.isHeaderVisible) {
+  }
+
+  // Scroll hacia arriba significativo → mostrar
+  if (
+    scrollDirection === "up" &&
+    !state.isHeaderVisible &&
+    delta > showDelta
+  ) {
     header.classList.remove("is-hidden");
     state.isHeaderVisible = true;
   }
 }
+
 
 /**
  * Controla la visibilidad del footer (muestra cuando se acerca al final)
