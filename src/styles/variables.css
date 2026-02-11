@@ -1,27 +1,280 @@
+/* ============================================
+   VARIABLES CSS - JSoft Solutions
+   Design System & Tokens Centralizados
+   ============================================ */
+
 :root {
-  /* Brand Colors */
-  --color-blue-base: #192950;
-  --color-blue-medium: #21497B;
-  --color-blue-ui: #25609D;
+  /* ────────────────────────────────────────
+     1. BRAND COLORS (Semantic)
+     ──────────────────────────────────────── */
 
-  --color-green-backend: #3E985D;
-  --color-green-accent: #7CBD68;
+  /* Azules - Frontend / Claridad / Confianza (75-85% de uso) */
+  --color-blue-base: #192950;      /* Fondos, hero, header, footer */
+  --color-blue-medium: #21497B;    /* Secciones, cards, paneles */
+  --color-blue-ui: #25609D;        /* Botones primarios, links activos */
+  --color-blue-light: #e0eaf5;     /* Backgrounds suaves */
 
+  /* Verdes - Backend / Seguridad / Ejecución (10-18% de uso) */
+  --color-green-backend: #3E985D;  /* Badges técnicos, indicadores */
+  --color-green-accent: #7CBD68;   /* Confirmaciones, estados positivos */
+
+  /* Neutros - Ingeniería / Legibilidad */
   --color-white: #ffffff;
-  --color-gray-light: #f4f6f8;
-  --color-gray-medium: #d1d5db;
+  --color-gray-50: #f9fafb;        /* Backgrounds ultra claros */
+  --color-gray-100: #f4f6f8;       /* Backgrounds claros */
+  --color-gray-200: #e5e7eb;       /* Borders sutiles */
+  --color-gray-300: #d1d5db;       /* Borders medios */
+  --color-gray-400: #9ca3af;       /* Text secundario */
+  --color-gray-500: #6b7280;       /* Text deshabilitado */
+  --color-gray-600: #4b5563;       /* Text primario (alto contraste) */
+  --color-gray-900: #1f2937;       /* Text muy oscuro (fallback) */
 
-  /* Typography */
+  /* Estados semánticos */
+  --color-error: #dc2626;          /* Errores, validaciones negativas */
+  --color-error-light: #fee2e2;    /* Backgrounds de error */
+  --color-warning: #f59e0b;        /* Advertencias */
+  --color-warning-light: #fef3c7;  /* Backgrounds de warning */
+  --color-success: --color-green-accent; /* Confirmaciones (reutiliza token) */
+  --color-info: --color-blue-ui;   /* Información (reutiliza token) */
+
+  /* ────────────────────────────────────────
+     2. TYPOGRAPHY (Tipografía)
+     ──────────────────────────────────────── */
+
+  /* Font Families */
   --font-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Fira Code", "Courier New", monospace;
 
-  --text-sm: 0.875rem;
-  --text-md: 1rem;
-  --text-lg: 1.25rem;
+  /* Font Sizes - Scale modular (1.125 ratio: 14→16→18→20→23→26→29→32) */
+  --text-xs: 0.75rem;       /* 12px - Labels, badges */
+  --text-sm: 0.875rem;      /* 14px - Subtítulos, ayuda */
+  --text-base: 1rem;        /* 16px - Body por defecto */
+  --text-lg: 1.125rem;      /* 18px - Subtítulos importantes */
+  --text-xl: 1.25rem;       /* 20px - Títulos pequeños */
+  --text-2xl: 1.5rem;       /* 24px - Títulos medios */
+  --text-3xl: 1.875rem;     /* 30px - Títulos grandes */
+  --text-4xl: 2.25rem;      /* 36px - Títulos hero */
 
-  /* Layout */
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.015em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+
+  /* ────────────────────────────────────────
+     3. SPACING (Escala de espaciado)
+     ──────────────────────────────────────── */
+
+  --spacing-xs: 0.25rem;    /* 4px - Micro spacing */
+  --spacing-sm: 0.5rem;     /* 8px - Separación pequeña */
+  --spacing-md: 1rem;       /* 16px - Espaciado estándar */
+  --spacing-lg: 1.5rem;     /* 24px - Espaciado generoso */
+  --spacing-xl: 2rem;       /* 32px - Separación de bloques */
+  --spacing-2xl: 3rem;      /* 48px - Separación de secciones */
+  --spacing-3xl: 4rem;      /* 64px - Separación de hero */
+
+  /* ────────────────────────────────────────
+     4. LAYOUT (Contenedores)
+     ──────────────────────────────────────── */
+
   --container-max-width: 1200px;
-  --container-padding: 1.5rem;
+  --container-width-sm: 640px;
+  --container-width-md: 768px;
+  --container-width-lg: 1024px;
+  --container-width-xl: 1280px;
 
-  /* Transitions */
-  --transition-fast: 0.2s ease-in-out;
+  /* Padding por breakpoint (manejado en media queries) */
+  --container-padding-mobile: 1rem;
+  --container-padding-tablet: 1.5rem;
+  --container-padding-desktop: 2rem;
+
+  /* ────────────────────────────────────────
+     5. BORDER RADIUS (Redondeado)
+     ──────────────────────────────────────── */
+
+  --radius-none: 0;
+  --radius-sm: 0.25rem;     /* 4px - Bordes muy sutiles */
+  --radius-md: 0.5rem;      /* 8px - Bordes estándar */
+  --radius-lg: 1rem;        /* 16px - Cards moderadas */
+  --radius-xl: 1.5rem;      /* 24px - Componentes grandes */
+  --radius-full: 9999px;    /* Píldoras, avatares */
+
+  /* ────────────────────────────────────────
+     6. SHADOWS (Sombras sutiles)
+     ──────────────────────────────────────── */
+
+  /* Sombras discretas para elevar sin dramatizar */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* Sombras de elevación para modales */
+  --shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --shadow-focus: 0 0 0 3px rgba(37, 96, 157, 0.1); /* Azul UI con alpha */
+
+  /* ────────────────────────────────────────
+     7. Z-INDEX (Capas)
+     ──────────────────────────────────────── */
+
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 401;
+  --z-notification: 500;
+  --z-tooltip: 600;
+
+  /* ────────────────────────────────────────
+     8. TRANSITIONS & ANIMATIONS
+     ──────────────────────────────────────── */
+
+  /* Velocidad de transición */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-base: 0.2s ease-in-out;
+  --transition-slow: 0.3s ease-in-out;
+  --transition-slower: 0.5s ease-in-out;
+
+  /* Easing functions */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ────────────────────────────────────────
+     9. BREAKPOINTS (Mobile-first)
+     ──────────────────────────────────────── */
+
+  /* Media queries reference (no se usan directamente en CSS variables) */
+  /* sm: 640px  (tablet pequeño) */
+  /* md: 768px  (tablet) */
+  /* lg: 1024px (laptop pequeño) */
+  /* xl: 1280px (desktop estándar) */
+
+  /* ────────────────────────────────────────
+     10. BORDERS (Líneas y separadores)
+     ──────────────────────────────────────── */
+
+  --border-width-thin: 1px;
+  --border-width-base: 2px;
+  --border-width-thick: 3px;
+
+  --border-style-solid: solid;
+  --border-style-dashed: dashed;
+  --border-color-light: var(--color-gray-200);
+  --border-color-medium: var(--color-gray-300);
+  --border-color-accent: var(--color-blue-medium);
+
+  /* ────────────────────────────────────────
+     11. OPACITY & ALPHA (Transparencias)
+     ──────────────────────────────────────── */
+
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.85;
+  --opacity-focus: 0.95;
+
+  /* ────────────────────────────────────────
+     12. COMPONENT-SPECIFIC TOKENS (Reutilización)
+     ──────────────────────────────────────── */
+
+  /* Buttons */
+  --button-height-sm: 2rem;        /* 32px */
+  --button-height-md: 2.5rem;      /* 40px */
+  --button-height-lg: 3rem;        /* 48px */
+  --button-padding-x: var(--spacing-md);
+  --button-padding-y: var(--spacing-sm);
+  --button-border-radius: var(--radius-md);
+
+  /* Cards */
+  --card-padding: var(--spacing-lg);
+  --card-border-radius: var(--radius-lg);
+  --card-shadow: var(--shadow-md);
+  --card-background: var(--color-white);
+  --card-border: var(--border-width-thin) var(--border-style-solid) var(--border-color-light);
+
+  /* Inputs */
+  --input-height: 2.5rem;          /* 40px */
+  --input-padding: var(--spacing-md);
+  --input-border-radius: var(--radius-md);
+  --input-border: var(--border-width-thin) var(--border-style-solid) var(--border-color-medium);
+  --input-focus-ring: var(--shadow-focus);
+
+  /* Modals */
+  --modal-padding: var(--spacing-xl);
+  --modal-border-radius: var(--radius-xl);
+  --modal-max-width: 600px;
+  --modal-backdrop: rgba(0, 0, 0, 0.5);
+
+  /* ────────────────────────────────────────
+     13. ACCESSIBILITY (Accesibilidad)
+     ──────────────────────────────────────── */
+
+  /* Reducir movimiento para usuarios sensibles */
+  --motion-reduce: prefers-reduced-motion: reduce;
+
+  /* Contraste mínimo WCAG AA */
+  --text-contrast-high: var(--color-gray-900);
+  --text-contrast-normal: var(--color-gray-600);
+  --text-contrast-low: var(--color-gray-400);
+
+  /* ────────────────────────────────────────
+     NOTAS FINALES
+     ──────────────────────────────────────── 
+
+     • Todos los tokens son reutilizables y composables
+     • Los colores respetan la semántica del design system
+     • Spacing, radius, shadows siguen proporciones matemáticas
+     • Z-index está estratificado para evitar conflictos
+     • Tipografía escalada con ratio 1.125
+     • Breakpoints son referencias (úsalos en media queries)
+     • Acepta cambios: este archivo evoluciona con el diseño
+
+     ──────────────────────────────────────── */
+}
+
+/* ════════════════════════════════════════════
+   MEDIA QUERIES - Ajustes de tokens por breakpoint
+   ════════════════════════════════════════════ */
+
+/* Tablet (≥640px) */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: var(--container-padding-tablet);
+  }
+}
+
+/* Tablet mediano (≥768px) */
+@media (min-width: 768px) {
+  :root {
+    --text-base: 1.025rem; /* Ligero aumento para legibilidad */
+  }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--container-padding-desktop);
+  }
+}
+
+/* Respeto a preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+    --transition-base: 0s;
+    --transition-slow: 0s;
+    --transition-slower: 0s;
+  }
 }

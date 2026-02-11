@@ -1,88 +1,671 @@
-/* ======================================================
-   CARDS
-   Base + Variants
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   CARDS.CSS - JSoft Solutions
+   Componentes de tarjetas: base, servicios, productos, plantillas
+   
+   Responsabilidad ÚNICA:
+   • Estilos de tarjetas y sus variantes
+   • Estados interactivos (hover, focus, active, disabled)
+   • Tipografía y colores dentro de tarjetas
+   • Identificadores visuales por tipo
+   • Accesibilidad
+   
+   NO maneja: Layout global, secciones, estructura de página
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- BASE CARD ---------- */
+/* ────────────────────────────────────────────────────────────────
+   TARJETA BASE - Estilos comunes a todas
+   ──────────────────────────────────────────────────────────────── */
 
 .card,
-.service-card {
+.service-card,
+.product-card,
+.template-card {
+  /* Layout */
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-
-  padding: 1.5rem;
-
-  background-color: var(--color-white);
-  border-radius: 6px;
-
-  border: 1px solid var(--color-gray-medium);
-
+  gap: var(--spacing-md);
+  
+  /* Espaciado */
+  padding: var(--card-padding);
+  
+  /* Estilos base */
+  background-color: #ffffff;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  
+  /* Border sutil gris claro */
+  border: var(--border-width-thin) var(--border-style-solid);
+  border-color: #e5e7eb;
+  
+  /* Transiciones */
   transition:
-    transform var(--transition-fast),
-    border-color var(--transition-fast);
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    border-color var(--transition-base) var(--ease-in-out),
+    background-color var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
+/* Hover base: elevación y sombra */
 .card:hover,
-.service-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-blue-ui);
+.service-card:hover,
+.product-card:hover,
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #d1d5db;
 }
 
+/* Focus: para navegación por teclado */
+.card:focus-visible,
+.service-card:focus-visible,
+.product-card:focus-visible,
+.template-card:focus-visible {
+  outline-color: #25609D;
+  box-shadow: var(--shadow-focus);
+}
 
-/* ---------- CARD TITLES ---------- */
+/* Active: presión visual */
+.card:active,
+.service-card:active,
+.product-card:active,
+.template-card:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Mobile: reducir padding */
+@media (max-width: 768px) {
+  .card,
+  .service-card,
+  .product-card,
+  .template-card {
+    padding: var(--spacing-lg);
+    gap: var(--spacing-sm);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   TÍTULOS EN TARJETAS
+   ──────────────────────────────────────────────────────────────── */
+
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6,
+.service-card h1,
+.service-card h2,
+.service-card h3,
+.service-card h4,
+.service-card h5,
+.service-card h6,
+.product-card h1,
+.product-card h2,
+.product-card h3,
+.product-card h4,
+.product-card h5,
+.product-card h6,
+.template-card h1,
+.template-card h2,
+.template-card h3,
+.template-card h4,
+.template-card h5,
+.template-card h6 {
+  /* Tipografía explícita */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  
+  /* Color azul base (explícito, sin variables) */
+  color: #192950 !important;
+  
+  /* Reset de márgenes */
+  margin: 0 !important;
+  padding: 0 !important;
+  
+  /* Sin herencia no deseada */
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* Tamaños específicos por nivel */
+.card h1,
+.service-card h1,
+.product-card h1,
+.template-card h1 {
+  font-size: 1.5rem;
+}
+
+.card h2,
+.service-card h2,
+.product-card h2,
+.template-card h2 {
+  font-size: 1.25rem;
+}
 
 .card h3,
-.service-card h3 {
-  font-size: var(--text-md);
-  font-weight: 600;
-  color: var(--color-blue-base);
-  margin: 0;
+.service-card h3,
+.product-card h3,
+.template-card h3 {
+  font-size: 1.125rem;
 }
 
+.card h4,
+.service-card h4,
+.product-card h4,
+.template-card h4,
+.card h5,
+.service-card h5,
+.product-card h5,
+.template-card h5,
+.card h6,
+.service-card h6,
+.product-card h6,
+.template-card h6 {
+  font-size: 1rem;
+}
 
-/* ---------- CARD DESCRIPTION ---------- */
+/* Mobile: reducir tamaños */
+@media (max-width: 768px) {
+  .card h1,
+  .service-card h1,
+  .product-card h1,
+  .template-card h1 {
+    font-size: 1.25rem;
+  }
+
+  .card h2,
+  .service-card h2,
+  .product-card h2,
+  .template-card h2 {
+    font-size: 1.125rem;
+  }
+
+  .card h3,
+  .service-card h3,
+  .product-card h3,
+  .template-card h3 {
+    font-size: 1rem;
+  }
+
+  .card h4,
+  .service-card h4,
+  .product-card h4,
+  .template-card h4 {
+    font-size: 0.95rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   PÁRRAFOS Y TEXTO EN TARJETAS
+   ──────────────────────────────────────────────────────────────── */
 
 .card p,
-.service-card p {
-  font-size: var(--text-sm);
-  color: var(--color-blue-medium);
-  line-height: 1.6;
+.service-card p,
+.product-card p,
+.template-card p {
+  /* Tipografía explícita */
+  font-size: 0.875rem;
+  line-height: 1.75;
+  font-weight: 400;
+  
+  /* Color gris oscuro (explícito) */
+  color: #4b5563 !important;
+  
+  /* Reset */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Espaciado entre párrafos múltiples */
+.card p + p,
+.service-card p + p,
+.product-card p + p,
+.template-card p + p {
+  margin-top: var(--spacing-md) !important;
+}
+
+/* Último párrafo sin margen */
+.card p:last-of-type,
+.service-card p:last-of-type,
+.product-card p:last-of-type,
+.template-card p:last-of-type {
+  margin-bottom: 0 !important;
+}
+
+/* Mobile: reducir tamaño */
+@media (max-width: 768px) {
+  .card p,
+  .service-card p,
+  .product-card p,
+  .template-card p {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   LISTAS EN TARJETAS
+   ──────────────────────────────────────────────────────────────── */
+
+.card ul,
+.card ol,
+.service-card ul,
+.service-card ol,
+.product-card ul,
+.product-card ol,
+.template-card ul,
+.template-card ol {
+  /* Tipografía */
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: #4b5563;
+  
+  /* Espaciado */
+  margin: var(--spacing-md) 0 0 var(--spacing-lg) !important;
+  padding: 0;
+}
+
+.card li,
+.service-card li,
+.product-card li,
+.template-card li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ENLACES EN TARJETAS
+   ──────────────────────────────────────────────────────────────── */
+
+.card a,
+.service-card a,
+.product-card a,
+.template-card a {
+  /* Color azul activo */
+  color: #25609D;
+  text-decoration: none;
+  transition: color var(--transition-base) var(--ease-in-out);
+}
+
+.card a:hover,
+.service-card a:hover,
+.product-card a:hover,
+.template-card a:hover {
+  color: #7CBD68;
+  text-decoration: underline;
+}
+
+.card a:focus-visible,
+.service-card a:focus-visible,
+.product-card a:focus-visible,
+.template-card a:focus-visible {
+  outline: 2px solid #25609D;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BOTONES EN TARJETAS
+   ──────────────────────────────────────────────────────────────── */
+
+.card .ui-button,
+.card .cta-button,
+.service-card .ui-button,
+.service-card .cta-button,
+.product-card .ui-button,
+.product-card .cta-button,
+.template-card .ui-button,
+.template-card .cta-button {
+  /* Pushear al final */
+  margin-top: auto;
+  align-self: flex-start;
+  
+  /* Transición */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+}
+
+/* Mobile: botón full-width */
+@media (max-width: 480px) {
+  .card .ui-button,
+  .card .cta-button,
+  .service-card .ui-button,
+  .service-card .cta-button,
+  .product-card .ui-button,
+  .product-card .cta-button,
+  .template-card .ui-button,
+  .template-card .cta-button {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   VARIANTE: SERVICE CARD
+   Identificador: Borde izquierdo VERDE BACKEND (#3E985D)
+   ──────────────────────────────────────────────────────────────── */
+
+.service-card {
+  border: none;
+  border-left: 3px solid #3E985D;
+}
+
+.service-card:hover {
+  border-left-color: #25609D;
+  background-color: #f9fafb;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   VARIANTE: PRODUCT CARD
+   Identificador: Borde izquierdo VERDE BACKEND (#3E985D)
+   ──────────────────────────────────────────────────────────────── */
+
+.product-card {
+  border: none;
+  border-left: 3px solid #3E985D;
+}
+
+.product-card:hover {
+  border-left-color: #7CBD68;
+  background-color: #f9fafb;
+}
+
+/* Badge/etiqueta de estado en producto */
+.product-badge {
+  /* Tipografía */
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  
+  /* Color: verde backend */
+  color: #3E985D;
+  background-color: rgba(62, 152, 93, 0.1);
+  
+  /* Espaciado */
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
   margin: 0;
 }
 
-
-/* ---------- CARD ACTION ---------- */
-
-.card .ui-button,
-.service-card .ui-button {
-  margin-top: auto;
-  align-self: flex-start;
+/* Variantes de badge */
+.product-badge--developing {
+  color: #25609D;
+  background-color: rgba(37, 96, 157, 0.1);
 }
 
-
-/* ---------- SERVICE CARD ---------- */
-
-.service-card {
-  border-left: 4px solid var(--color-blue-ui);
+.product-badge--available {
+  color: #3E985D;
+  background-color: rgba(62, 152, 93, 0.1);
 }
 
-/* ---------- PRODUCT CARD ---------- */
-
-.product-card {
-  border-left: 4px solid var(--color-green-backend);
+.product-badge--coming {
+  color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
 }
 
-/* ---------- TEMPLATE CARD ---------- */
-
-.template-card small {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-green-backend);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+/* ────────────────────────────────────────────────────────────────
+   VARIANTE: TEMPLATE CARD
+   Identificador: Borde izquierdo AZUL MEDIO (#21497B)
+   ──────────────────────────────────────────────────────────────── */
 
 .template-card {
-  border-left: 4px solid var(--color-blue-medium);
+  border: none;
+  border-left: 3px solid #21497B;
 }
+
+.template-card:hover {
+  border-left-color: #25609D;
+  background-color: #f9fafb;
+}
+
+/* Tag de nicho/categoría */
+.template-tag,
+.template-card small {
+  /* Tipografía */
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  
+  /* Color: verde backend */
+  color: #3E985D;
+  background-color: rgba(62, 152, 93, 0.1);
+  
+  /* Espaciado */
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Múltiples tags */
+.template-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.template-tags .template-tag {
+  margin-bottom: 0;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SECCIONES DENTRO DE TARJETA
+   ──────────────────────────────────────────────────────────────── */
+
+.card__section,
+.service-card__section,
+.product-card__section,
+.template-card__section {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-top: var(--border-width-thin) solid #e5e7eb;
+}
+
+.card__section:first-child,
+.service-card__section:first-child,
+.product-card__section:first-child,
+.template-card__section:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   FOOTER DE TARJETA
+   ──────────────────────────────────────────────────────────────── */
+
+.card__footer,
+.service-card__footer,
+.product-card__footer,
+.template-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-top: auto;
+  padding-top: var(--spacing-md);
+  border-top: var(--border-width-thin) solid #e5e7eb;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   VARIANTES: TAMAÑO COMPACTO
+   ──────────────────────────────────────────────────────────────── */
+
+.card--compact,
+.service-card--compact,
+.product-card--compact,
+.template-card--compact {
+  padding: var(--spacing-md);
+  gap: var(--spacing-sm);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   VARIANTES: CON IMAGEN
+   ──────────────────────────────────────────────────────────────── */
+
+.card--with-image,
+.service-card--with-image,
+.product-card--with-image,
+.template-card--with-image {
+  overflow: hidden;
+}
+
+.card__image,
+.service-card__image,
+.product-card__image,
+.template-card__image {
+  width: calc(100% + 2 * var(--card-padding));
+  height: 200px;
+  margin: calc(-1 * var(--card-padding)) calc(-1 * var(--card-padding)) var(--spacing-md) calc(-1 * var(--card-padding));
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .card__image,
+  .service-card__image,
+  .product-card__image,
+  .template-card__image {
+    height: 150px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ESTADOS: LOADING (skeleton)
+   ──────────────────────────────────────────────────────────────── */
+
+.card.is-loading,
+.service-card.is-loading,
+.product-card.is-loading,
+.template-card.is-loading {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+}
+
+.card.is-loading::after,
+.service-card.is-loading::after,
+.product-card.is-loading::after,
+.template-card.is-loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ESTADOS: DISABLED
+   ──────────────────────────────────────────────────────────────── */
+
+.card.is-disabled,
+.service-card.is-disabled,
+.product-card.is-disabled,
+.template-card.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f4f6f8;
+}
+
+.card.is-disabled:hover,
+.service-card.is-disabled:hover,
+.product-card.is-disabled:hover,
+.template-card.is-disabled:hover {
+  transform: none;
+  box-shadow: var(--card-shadow);
+  border-color: #e5e7eb;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .service-card,
+  .product-card,
+  .template-card {
+    transition: none;
+  }
+
+  .card:hover,
+  .service-card:hover,
+  .product-card:hover,
+  .template-card:hover {
+    transform: none;
+  }
+
+  .card.is-loading::after,
+  .service-card.is-loading::after,
+  .product-card.is-loading::after,
+  .template-card.is-loading::after {
+    animation: none;
+  }
+}
+
+/* Soporte para navegadores sin outline-offset */
+@supports not (outline-offset: 2px) {
+  .card:focus-visible,
+  .service-card:focus-visible,
+  .product-card:focus-visible,
+  .template-card:focus-visible {
+    border: 2px solid #25609D;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .card,
+  .service-card,
+  .product-card,
+  .template-card {
+    border-width: 2px;
+    border-color: #4b5563;
+  }
+
+  .service-card,
+  .product-card,
+  .template-card {
+    border-left-width: 2px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN - CARDS.CSS OPTIMIZADO:
+   
+   ✓ Colores EXPLÍCITOS (sin depender de variables fallidas)
+   ✓ Sin redundancias (usar !important solo donde es crítico)
+   ✓ Tres variantes claras: service (verde), product (verde), template (azul medio)
+   ✓ Estados completos: hover, focus, active, disabled, loading
+   ✓ Tipografía consistente (azul para títulos, gris para texto)
+   ✓ Badges y tags para estados y categorías
+   ✓ Accesibilidad integrada (focus, prefers-reduced-motion, contrast)
+   ✓ Responsive mobile-first con ajustes en 768px y 480px
+   ✓ Sin estilos de página (secciones, layout, header/footer)
+   ✓ Componentes reutilizables: __section, __footer, __image
+   
+   ════════════════════════════════════════════════════════════════════ */

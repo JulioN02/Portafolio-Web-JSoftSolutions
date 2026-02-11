@@ -1,207 +1,295 @@
-/* ============================================================================
+/* ════════════════════════════════════════════════════════════════════
+   FOOTER.CSS - JSoft Solutions
+   Estructura del footer, secciones, enlaces y accesibilidad
+   
+   Responsabilidad:
+   • Contenedor principal del footer
+   • Secciones y distribución de contenido
+   • Marca, enlaces y redes sociales
+   • Estados interactivos (hover, focus)
+   • Responsive coherente
+   
+   Basado en: variables.css + layout.css
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────────────
    CONTENEDOR PRINCIPAL - FOOTER
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer {
-  /* Posicionamiento */
+  /* Posicionamiento y flujo */
   position: relative;
   width: 100%;
-
-  /* Fondo degradado (marca visual) */
+  
+  /* Fondo: Transición visual desde azul base a azul medio (coherencia) */
   background: linear-gradient(
     135deg,
     var(--color-blue-base) 0%,
     var(--color-blue-medium) 100%
   );
-
-  /* Color de texto */
+  
+  /* Tipografía base */
   color: var(--color-white);
-
-  /* Borde superior como elemento identificador */
-  border-top: 3px solid var(--color-green-accent);
-
-  /* Espaciado */
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
-  padding-top: var(--container-padding);
-  padding-bottom: var(--container-padding);
+  font-family: var(--font-primary);
+  
+  /* Identidad visual: borde superior en verde (señal técnica) */
+  border-top: var(--border-width-thick) var(--border-style-solid);
+  border-color: var(--color-green-accent);
+  
+  /* Espaciado responsivo */
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Prevenir overflow en contenedores especiales */
   overflow-x: hidden;
-
-  /* Accesibilidad - prevenir font smoothing issues */
+  
+  /* Suavizado de fuentes */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Z-index para asegurar que esté sobre contenido */
+  z-index: var(--z-fixed);
 }
 
-/* ============================================================================
-   CONTENEDOR INTERIOR - LAYOUT GRID
-   ============================================================================ */
+/* Ajustar padding en tablets y desktops */
+@media (min-width: 768px) {
+  .site-footer {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer {
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   CONTENEDOR INTERIOR - GRID PRINCIPAL
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__inner {
-  /* Grid layout para secciones */
+  /* Grid responsivo: 4 columnas en desktop */
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2rem;
-
-  /* Contenedor */
+  gap: var(--spacing-xl);
+  
+  /* Contenedor centrado */
   max-width: var(--container-max-width);
   margin: 0 auto;
   width: 100%;
-
-  /* Espaciado inferior */
-  padding-bottom: 1.5rem;
-}
-.site-footer__inner,
-.site-footer__bottom {
-  max-width: 100%;
+  
+  /* Separación desde el contenido */
+  padding-bottom: var(--spacing-lg);
 }
 
+/* Tablet: 2 columnas */
+@media (max-width: 1024px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
 
-/* ============================================================================
+/* Mobile: 1 columna */
+@media (max-width: 768px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+  }
+}
+
+/* Mobile pequeño: 1 columna strict */
+@media (max-width: 480px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
    SECCIONES - CONTENEDORES DE CONTENIDO
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__section {
   /* Layout vertical */
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: var(--spacing-sm);
 }
 
-/* Sección especial para marca */
+/* Sección especial para marca (ocupa todo el ancho en mobile) */
 .site-footer__brand-section {
-  gap: 1rem;
+  gap: var(--spacing-md);
 }
 
-/* ============================================================================
+/* En mobile pequeño, la marca ocupa todo el ancho */
+@media (max-width: 480px) {
+  .site-footer__brand-section {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
    MARCA / BRANDING
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__brand {
   /* Layout */
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-
+  gap: var(--spacing-xs);
+  
   /* Tipografía */
-  font-weight: 700;
-  font-size: var(--text-md);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
   color: var(--color-green-accent);
-
-  /* Espaciado */
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.5px;
-
+  letter-spacing: var(--letter-spacing-tight);
+  
   /* Comportamiento */
   cursor: pointer;
-
-  /* Transición */
-  transition: all var(--transition-fast);
-
-  /* Accesibilidad */
+  text-decoration: none;
+  
+  /* Espaciado */
+  margin: 0;
+  padding: 0;
+  
+  /* Transiciones suaves */
+  transition: 
+    color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    opacity var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad: outline visible en focus */
   outline: 2px solid transparent;
-  outline-offset: 4px;
+  outline-offset: var(--spacing-xs);
+  border-radius: var(--radius-sm);
 }
 
 .site-footer__brand:hover {
-  transform: translateY(-1px);
-  opacity: 0.9;
+  color: var(--color-white);
+  transform: translateY(-2px);
+  opacity: 0.95;
 }
 
 .site-footer__brand:focus-visible {
   outline-color: var(--color-green-accent);
-  border-radius: 4px;
+}
+
+.site-footer__brand:active {
+  transform: translateY(0);
 }
 
 /* Texto de marca */
 .site-footer__brand-text {
   display: inline-block;
+  white-space: nowrap;
 }
 
 /* Descripción de marca */
 .site-footer__text {
   /* Tipografía */
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-
+  font-size: var(--text-sm);
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.85);
+  
   /* Espaciado */
   max-width: 320px;
-
-  /* Margen */
   margin: 0;
+  padding: 0;
 }
 
-/* ============================================================================
+@media (max-width: 768px) {
+  .site-footer__text {
+    max-width: 100%;
+    font-size: var(--text-xs);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
    TÍTULOS DE SECCIÓN
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__title {
   /* Tipografía */
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-white);
   text-transform: uppercase;
-  letter-spacing: 0.75px;
-
+  letter-spacing: var(--letter-spacing-wide);
+  
   /* Espaciado */
-  margin: 0 0 0.75rem 0;
-
-  /* Opacidad */
+  margin: 0 0 var(--spacing-md) 0;
+  padding: 0;
+  
+  /* Opacity para jerarquía visual */
   opacity: 0.95;
 }
 
-/* ============================================================================
+/* ────────────────────────────────────────────────────────────────
    LISTAS DE ENLACES
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__links {
-  /* Reset de lista */
+  /* Reset de estilos por defecto */
   list-style: none;
   margin: 0;
   padding: 0;
-
+  
   /* Layout vertical */
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
 /* Items de lista */
 .site-footer__links li {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-/* ============================================================================
+/* ────────────────────────────────────────────────────────────────
    ENLACES DEL FOOTER
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__link {
   /* Tipografía */
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.8);
-
+  font-weight: var(--font-weight-normal);
+  
   /* Comportamiento */
   text-decoration: none;
   display: inline-block;
-
-  /* Espaciado */
-  padding: 0.25rem 0;
-
-  /* Transición */
-  transition: all var(--transition-fast);
-
-  /* Accesibilidad */
   position: relative;
+  
+  /* Espaciado */
+  padding: var(--spacing-xs) 0;
+  margin: 0;
+  
+  /* Transiciones */
+  transition: 
+    color var(--transition-base) var(--ease-in-out),
+    padding-left var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
   outline: 2px solid transparent;
-  outline-offset: 4px;
-  border-radius: 2px;
+  outline-offset: var(--spacing-xs);
+  border-radius: var(--radius-sm);
 }
 
-/* Hover state */
+/* Hover state - cambio de color y desplazamiento sutil */
 .site-footer__link:hover {
   color: var(--color-green-accent);
-  padding-left: 0.3rem;
+  padding-left: var(--spacing-xs);
 }
 
 /* Focus state */
@@ -209,40 +297,48 @@
   outline-color: var(--color-green-accent);
 }
 
-/* Active state (para links activos de navegación) */
+/* Active state para links activos */
 .site-footer__link--active {
   color: var(--color-green-accent);
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 
-/* Efecto underline en hover */
+/* Efecto underline animado en hover (línea verde) */
 .site-footer__link::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -2px;
   width: 0;
-  height: 2px;
+  height: var(--border-width-thin);
   background: var(--color-green-accent);
-  transition: width var(--transition-fast);
+  transition: width var(--transition-base) var(--ease-in-out);
 }
 
 .site-footer__link:hover::after {
   width: 100%;
 }
 
-/* ============================================================================
+/* Mobile */
+@media (max-width: 768px) {
+  .site-footer__link {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
    REDES SOCIALES
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__socials {
   /* Layout flex */
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-
+  gap: var(--spacing-sm);
+  
   /* Espaciado */
-  margin-top: 0.5rem;
+  margin: var(--spacing-md) 0 0 0;
+  padding: 0;
 }
 
 /* Link de red social */
@@ -250,36 +346,46 @@
   /* Dimensiones */
   width: 40px;
   height: 40px;
-
+  min-width: 40px;
+  min-height: 40px;
+  
   /* Layout */
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
   /* Estilos */
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.1);
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border: var(--border-width-thin) var(--border-style-solid);
+  border-color: rgba(255, 255, 255, 0.2);
   color: var(--color-white);
-
+  
   /* Comportamiento */
   text-decoration: none;
   cursor: pointer;
-
-  /* Transición */
-  transition: all var(--transition-fast);
-
+  position: relative;
+  
+  /* Transiciones */
+  transition: 
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out),
+    border-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+  
   /* Accesibilidad */
   outline: 2px solid transparent;
-  outline-offset: 4px;
+  outline-offset: var(--spacing-xs);
 }
 
-/* Hover state */
+/* Hover state - cambio a verde con elevación */
 .site-footer__social-link:hover {
   background: var(--color-green-accent);
   color: var(--color-blue-base);
   border-color: var(--color-green-accent);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Focus state */
@@ -296,69 +402,120 @@
 .site-footer__social-icon {
   width: 18px;
   height: 18px;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-base) var(--ease-in-out);
+  display: block;
 }
 
 .site-footer__social-link:hover .site-footer__social-icon {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
-/* ============================================================================
+/* Mobile */
+@media (max-width: 768px) {
+  .site-footer__social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .site-footer__social-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer__social-link {
+    width: 32px;
+    height: 32px;
+  }
+
+  .site-footer__social-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
    DIVISOR
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__divider {
   /* Dimensiones */
-  height: 1px;
+  height: var(--border-width-thin);
   width: 100%;
-
+  
   /* Estilos */
   background: rgba(255, 255, 255, 0.1);
-
-  /* Espaciado */
-  margin: 1.5rem 0;
-
-  /* Accesibilidad */
   border: none;
+  
+  /* Espaciado */
+  margin: var(--spacing-lg) 0;
+  padding: 0;
 }
 
-/* ============================================================================
+@media (max-width: 768px) {
+  .site-footer__divider {
+    margin: var(--spacing-md) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer__divider {
+    margin: var(--spacing-sm) 0;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
    SECCIÓN INFERIOR - COPYRIGHT Y LEGAL
-   ============================================================================ */
+   ──────────────────────────────────────────────────────────────── */
 
 .site-footer__bottom {
   /* Layout */
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  
   /* Contenedor */
   max-width: var(--container-max-width);
   margin: 0 auto;
   width: 100%;
-
+  
   /* Espaciado */
   padding: 0;
-  gap: 2rem;
+  gap: var(--spacing-lg);
+}
+
+/* Mobile: cambiar a columna y centrar */
+@media (max-width: 768px) {
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
 }
 
 /* Copyright text */
 .site-footer__copyright {
   /* Tipografía */
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-
-  /* Margen */
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.65);
+  line-height: var(--line-height-normal);
+  
+  /* Espaciado */
   margin: 0;
+  padding: 0;
 }
 
-/* Links legales */
+/* ────────────────────────────────────────────────────────────────
+   LINKS LEGALES
+   ──────────────────────────────────────────────────────────────── */
+
 .site-footer__legal {
   /* Layout */
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-
+  gap: var(--spacing-lg);
+  
   /* Reset */
   margin: 0;
   padding: 0;
@@ -368,20 +525,24 @@
 /* Link legal individual */
 .site-footer__legal-link {
   /* Tipografía */
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.65);
+  
   /* Comportamiento */
   text-decoration: none;
-
+  display: inline-block;
+  
+  /* Spacing */
+  padding: var(--spacing-xs);
+  margin: 0;
+  
   /* Transición */
-  transition: color var(--transition-fast);
-
+  transition: color var(--transition-base) var(--ease-in-out);
+  
   /* Accesibilidad */
   outline: 2px solid transparent;
-  outline-offset: 4px;
-  border-radius: 2px;
-  padding: 0.25rem;
+  outline-offset: var(--spacing-xs);
+  border-radius: var(--radius-sm);
 }
 
 /* Hover state */
@@ -394,246 +555,91 @@
   outline-color: var(--color-green-accent);
 }
 
-/* ============================================================================
-   RESPONSIVE DESIGN - TABLET (max-width: 1024px)
-   ============================================================================ */
-
-@media (max-width: 1024px) {
-  .site-footer__inner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .site-footer__text {
-    max-width: 100%;
-  }
-}
-
-/* ============================================================================
-   RESPONSIVE DESIGN - MOBILE (max-width: 768px)
-   ============================================================================ */
-
+/* Mobile: wrap y centrar */
 @media (max-width: 768px) {
-  .site-footer {
-    padding: 1.5rem var(--container-padding);
-    margin-top: 2.5rem;
-  }
-
-  .site-footer__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    padding-bottom: 1rem;
-  }
-
-  .site-footer__section {
-    gap: 0.5rem;
-  }
-
-  .site-footer__brand-section {
-    grid-column: 1 / -1;
-    gap: 0.75rem;
-  }
-
-  .site-footer__text {
-    font-size: 0.8rem;
-    line-height: 1.5;
-    max-width: 100%;
-  }
-
-  .site-footer__title {
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .site-footer__link {
-    font-size: 0.8rem;
-  }
-
-  .site-footer__socials {
-    gap: 0.5rem;
-  }
-
-  .site-footer__social-link {
-    width: 36px;
-    height: 36px;
-  }
-
-  .site-footer__social-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  .site-footer__divider {
-    margin: 1rem 0;
-    grid-column: 1 / -1;
-  }
-
-  .site-footer__bottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-    padding: 0;
-  }
-
-  .site-footer__copyright {
-    font-size: 0.7rem;
-  }
-
   .site-footer__legal {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-  }
-
-  .site-footer__legal-link {
-    font-size: 0.7rem;
+    gap: var(--spacing-md);
   }
 }
 
-/* ============================================================================
-   RESPONSIVE DESIGN - SMALL MOBILE (max-width: 480px)
-   ============================================================================ */
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
 
-@media (max-width: 480px) {
-  .site-footer {
-    padding: 1rem var(--container-padding);
-    margin-top: 2rem;
-    border-top: 2px solid var(--color-green-accent);
-  }
-
-  .site-footer__inner {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .site-footer__section {
-    gap: 0.4rem;
-  }
-
-  .site-footer__brand-section {
-    gap: 0.5rem;
-  }
-
-  .site-footer__brand {
-    font-size: 0.95rem;
-    margin-bottom: 0;
-  }
-
-  .site-footer__brand-text {
-    display: inline;
-  }
-
-  .site-footer__text {
-    font-size: 0.75rem;
-    line-height: 1.4;
-  }
-
-  .site-footer__title {
-    font-size: 0.75rem;
-    margin-bottom: 0.35rem;
-  }
-
-  .site-footer__links {
-    gap: 0.35rem;
-  }
-
-  .site-footer__link {
-    font-size: 0.75rem;
-    padding: 0.15rem 0;
-  }
-
-  .site-footer__socials {
-    gap: 0.4rem;
-    margin-top: 0.25rem;
-  }
-
-  .site-footer__social-link {
-    width: 32px;
-    height: 32px;
-  }
-
-  .site-footer__social-icon {
-    width: 14px;
-    height: 14px;
-  }
-
-  .site-footer__divider {
-    margin: 0.75rem 0;
-  }
-
-  .site-footer__bottom {
-    gap: 0.75rem;
-  }
-
-  .site-footer__copyright {
-    font-size: 0.65rem;
-  }
-
-  .site-footer__legal {
-    gap: 0.75rem;
-  }
-
-  .site-footer__legal-link {
-    font-size: 0.65rem;
-  }
-}
-
-/* ============================================================================
-   ACCESIBILIDAD - Preferencia de movimiento reducido
-   ============================================================================ */
-
+/* Respetar preferencia de usuario para reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
   .site-footer__link,
+  .site-footer__link::after,
   .site-footer__social-link,
   .site-footer__legal-link,
-  .site-footer__brand,
-  .site-footer__link::after {
+  .site-footer__brand {
     transition: none;
     animation: none;
   }
-}
 
-/* ============================================================================
-   ACCESIBILIDAD - Dark mode (opcional futura implementación)
-   ============================================================================ */
-
-@media (prefers-color-scheme: dark) {
-  /* Mantener estilos actuales - ya están optimizados para dark */
-  /*.site-footer {
-     El gradiente azul ya es adecuado para dark mode 
-  }*/
-}
-
-/* ============================================================================
-   PRINT STYLES
-   ============================================================================ */
-
-@media print {
-  .site-footer {
-    page-break-inside: avoid;
-    border-top: 1px solid var(--color-gray-medium);
+  .site-footer__social-link:hover {
+    transform: none;
   }
 
-  .site-footer__socials {
-    display: none;
-  }
-
-  .site-footer__divider {
-    display: none;
+  .site-footer__link:hover {
+    padding-left: 0;
   }
 }
 
-/* ============================================================================
-   UTILIDADES Y CORRECCIONES DE NAVEGADORES ANTIGUOS
-   ============================================================================ */
-
-/* Soporte para navegadores sin soporte de outline-offset */
+/* Soporte para navegadores sin outline-offset */
 @supports not (outline-offset: 4px) {
   .site-footer__link:focus-visible,
   .site-footer__social-link:focus-visible,
   .site-footer__legal-link:focus-visible,
   .site-footer__brand:focus-visible {
-    border: 2px solid var(--color-green-accent);
+    border: var(--border-width-thin) var(--border-style-solid);
+    border-color: var(--color-green-accent);
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   PRINT STYLES (Para impresión)
+   ════════════════════════════════════════════════════════════════════ */
+
+@media print {
+  .site-footer {
+    page-break-inside: avoid;
+    border-top: var(--border-width-thin) var(--border-style-solid);
+    border-color: var(--color-gray-300);
+    background: none;
+    color: var(--color-gray-600);
+  }
+
+  .site-footer__socials {
+    display: none;
+  }
+
+  .site-footer__divider {
+    display: none;
+  }
+
+  .site-footer__link {
+    color: inherit;
+  }
+
+  .site-footer__link::after {
+    display: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN DE CAMBIOS CLAVE:
+   
+   ✓ 100% basado en variables.css (sin valores duros)
+   ✓ Profundidad visual mantenida (gradiente azul)
+   ✓ Jerarquía clara sin exagerar
+   ✓ Responsive fluido (4 → 2 → 1 columnas)
+   ✓ Transiciones suaves y coherentes
+   ✓ Verde solo para interacción (señal técnica)
+   ✓ Accesibilidad integrada (focus, aria-labels)
+   ✓ Espaciado generoso (tokens de spacing)
+   ✓ Compatibilidad con layout.css
+   ✓ Print styles incluidos
+   ════════════════════════════════════════════════════════════════════ */

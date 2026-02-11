@@ -1,16 +1,74 @@
-body {
-  font-family: var(--font-primary);
-  color: var(--color-blue-base);
-  background-color: var(--color-gray-light);
-  line-height: 1.6;
+/* ════════════════════════════════════════════════════════════════════
+   LAYOUT.CSS - JSoft Solutions
+   RESPONSABILIDAD MÍNIMA: Estructura base y contenedores
+   
+   Solo lo que FUNCIONA. Sin excesos.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────────────
+   HTML & BODY
+   ──────────────────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  color: #192950;
+  background-color: #f4f6f8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   CONTENEDOR PRINCIPAL
+   ──────────────────────────────────────────────────────────────── */
 
 .container {
+  width: 100%;
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--container-padding-mobile);
 }
 
-main {
-  min-height: calc(100vh - 160px); /* header + footer */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--container-padding-tablet);
+  }
 }
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--container-padding-desktop);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   MAIN - Altura mínima
+   ──────────────────────────────────────────────────────────────── */
+
+main {
+  min-height: calc(100vh - 160px);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN:
+   
+   ✓ HTML: scroll smooth + reduce motion
+   ✓ Body: estilos base mínimos
+   ✓ Container: responsive padding
+   ✓ Main: altura mínima para footer sticky
+   
+   ════════════════════════════════════════════════════════════════════ */

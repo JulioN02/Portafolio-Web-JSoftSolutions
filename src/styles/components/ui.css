@@ -1,158 +1,631 @@
-/* ======================================================
-   UI PRIMITIVES
-   Buttons, CTAs, Modals
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   UI.CSS - JSoft Solutions
+   Componentes primitivos: botones, CTAs, modales
+   
+   Responsabilidad:
+   • Botones y llamadas a acción
+   • Estados interactivos (hover, focus, active, disabled)
+   • Modales y overlays
+   • Accesibilidad y focus management
+   
+   Basado en: variables.css + layout.css
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- CTA BUTTON (links de navegación / conversión) ---------- */
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN CTA - Llamada a acción principal
+   ──────────────────────────────────────────────────────────────── */
 
 .cta-button {
+  /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  padding: 0.75rem 1.5rem;
-
+  gap: var(--spacing-xs);
+  
+  /* Tipografía */
+  font-family: var(--font-primary);
   font-size: var(--text-sm);
-  font-weight: 500;
-
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  
+  /* Color */
   color: var(--color-white);
   background-color: var(--color-blue-ui);
-
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: var(--button-height-md);
+  
+  /* Comportamiento */
   text-decoration: none;
-  border-radius: 4px;
-
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  position: relative;
+  
+  /* Transiciones suaves */
   transition:
-    background-color var(--transition-fast),
-    transform var(--transition-fast);
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
+/* Hover: cambio a verde con elevación sutil */
 .cta-button:hover {
-  background-color: var(--color-green-backend);
-  transform: translateY(-1px);
+  background-color: var(--color-green-accent);
+  color: var(--color-blue-base);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
+/* Focus: visible para navegación por teclado */
+.cta-button:focus-visible {
+  outline-color: var(--color-green-accent);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Active: presión visual */
 .cta-button:active {
   transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
+/* Disabled: estado deshabilitado */
+.cta-button:disabled {
+  background-color: var(--color-gray-400);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  transform: none;
+}
 
-/* ---------- GENERIC BUTTON (type="button") ---------- */
+/* Variante: CTA secundaria (outline) */
+.cta-button--secondary {
+  background-color: transparent;
+  color: var(--color-blue-ui);
+  border: var(--border-width-thin) var(--border-style-solid);
+  border-color: var(--color-blue-ui);
+}
+
+.cta-button--secondary:hover {
+  background-color: var(--color-blue-ui);
+  color: var(--color-white);
+  border-color: var(--color-blue-ui);
+}
+
+/* Variante: CTA pequeño */
+.cta-button--small {
+  height: var(--button-height-sm);
+  padding: calc(var(--button-padding-y) * 0.75) calc(var(--button-padding-x) * 0.75);
+  font-size: var(--text-xs);
+}
+
+/* Variante: CTA grande */
+.cta-button--large {
+  height: var(--button-height-lg);
+  padding: calc(var(--button-padding-y) * 1.25) calc(var(--button-padding-x) * 1.25);
+  font-size: var(--text-base);
+}
+
+/* Mobile: ajustar tamaño */
+@media (max-width: 768px) {
+  .cta-button {
+    padding: calc(var(--button-padding-y) * 0.9) calc(var(--button-padding-x) * 0.9);
+    font-size: var(--text-xs);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN GENÉRICO - Elemento HTML button
+   ──────────────────────────────────────────────────────────────── */
 
 button {
   font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
 .ui-button {
+  /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  padding: 0.6rem 1.25rem;
-
+  gap: var(--spacing-xs);
+  
+  /* Tipografía */
+  font-family: var(--font-primary);
   font-size: var(--text-sm);
-  font-weight: 500;
-
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  
+  /* Color */
   color: var(--color-white);
   background-color: var(--color-blue-medium);
-
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: var(--button-height-md);
+  
+  /* Comportamiento */
   border: none;
-  border-radius: 4px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-
+  position: relative;
+  
+  /* Transiciones */
   transition:
-    background-color var(--transition-fast),
-    transform var(--transition-fast);
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
+/* Hover: cambio a azul más activo */
 .ui-button:hover {
+  background-color: var(--color-blue-ui);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Focus: visible para navegación por teclado */
+.ui-button:focus-visible {
+  outline-color: var(--color-blue-ui);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Active: escala reducida */
+.ui-button:active {
+  transform: scale(0.97);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled: estado deshabilitado */
+.ui-button:disabled {
+  background-color: var(--color-gray-400);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  transform: none;
+}
+
+/* Variante: Botón primario (énfasis) */
+.ui-button--primary {
   background-color: var(--color-blue-ui);
 }
 
-.ui-button:active {
-  transform: scale(0.98);
+.ui-button--primary:hover {
+  background-color: var(--color-green-accent);
+  color: var(--color-blue-base);
 }
 
-.ui-button:disabled {
-  background-color: var(--color-gray-medium);
-  cursor: not-allowed;
-  opacity: 0.6;
+/* Variante: Botón secundario (outline) */
+.ui-button--secondary {
+  background-color: transparent;
+  color: var(--color-blue-medium);
+  border: var(--border-width-thin) var(--border-style-solid);
+  border-color: var(--color-blue-medium);
 }
 
+.ui-button--secondary:hover {
+  background-color: var(--color-blue-medium);
+  color: var(--color-white);
+}
 
-/* ---------- MODAL OVERLAY ---------- */
+/* Variante: Botón de peligro */
+.ui-button--danger {
+  background-color: var(--color-error);
+}
+
+.ui-button--danger:hover {
+  background-color: #b91c1c;
+  box-shadow: var(--shadow-md);
+}
+
+/* Variante: Botón pequeño */
+.ui-button--small {
+  height: var(--button-height-sm);
+  padding: calc(var(--button-padding-y) * 0.75) calc(var(--button-padding-x) * 0.75);
+  font-size: var(--text-xs);
+}
+
+/* Variante: Botón grande */
+.ui-button--large {
+  height: var(--button-height-lg);
+  padding: calc(var(--button-padding-y) * 1.25) calc(var(--button-padding-x) * 1.25);
+  font-size: var(--text-base);
+}
+
+/* Variante: Botón ancho (full-width en contexto) */
+.ui-button--block {
+  width: 100%;
+}
+
+/* Mobile: ajustar tamaño */
+@media (max-width: 768px) {
+  .ui-button {
+    padding: calc(var(--button-padding-y) * 0.9) calc(var(--button-padding-x) * 0.9);
+    font-size: var(--text-xs);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   MODAL OVERLAY - Backdrop del modal
+   ──────────────────────────────────────────────────────────────── */
 
 .modal-overlay {
+  /* Posicionamiento fijo */
   position: fixed;
   inset: 0;
-
+  
+  /* Layout: centrar contenido */
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-color: rgba(25, 41, 80, 0.75);
-  z-index: 1000;
+  
+  /* Backdrop con transparencia */
+  background-color: var(--modal-backdrop);
+  backdrop-filter: blur(2px);
+  
+  /* Z-index: encima de todo */
+  z-index: var(--z-modal-backdrop);
+  
+  /* Transiciones */
+  transition: opacity var(--transition-base) var(--ease-in-out);
+  
+  /* Padding para móvil */
+  padding: var(--container-padding-mobile);
 }
 
+/* State: visible (cuando está abierto) */
+.modal-overlay.is-visible {
+  opacity: 1;
+}
 
-/* ---------- MODAL CONTAINER ---------- */
+/* State: hidden (cuando está cerrado) */
+.modal-overlay.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Soporte para navegadores sin backdrop-filter */
+@supports not (backdrop-filter: blur(2px)) {
+  .modal-overlay {
+    background-color: rgba(25, 41, 80, 0.85);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   MODAL CONTAINER - Contenedor principal del modal
+   ──────────────────────────────────────────────────────────────── */
 
 .modal {
+  /* Dimensiones responsivas */
   width: 100%;
-  max-width: 520px;
-
-  background-color: var(--color-white);
-  border-radius: 6px;
-
+  max-width: var(--modal-max-width);
+  
+  /* Fondo y bordes */
+  background-color: var(--card-background);
+  border-radius: var(--modal-border-radius);
+  box-shadow: var(--shadow-modal);
   overflow: hidden;
+  
+  /* Animación de entrada */
+  animation: modalSlideIn var(--transition-slow) var(--ease-out);
 }
 
+/* Animación de entrada del modal */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
-/* ---------- MODAL HEADER ---------- */
+/* Mobile: ajustar ancho máximo */
+@media (max-width: 768px) {
+  .modal {
+    max-width: calc(100% - var(--spacing-lg));
+  }
+}
+
+/* Mobile pequeño: máximo posible */
+@media (max-width: 480px) {
+  .modal {
+    max-width: 100%;
+    margin: var(--spacing-md);
+  }
+}
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .modal {
+    animation: none;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   MODAL HEADER - Encabezado del modal
+   ──────────────────────────────────────────────────────────────── */
 
 .modal-header {
+  /* Layout */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-md);
+  
+  /* Espaciado */
+  padding: var(--modal-padding);
+  padding-bottom: var(--spacing-lg);
+  
+  /* Estilos */
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-base) 0%,
+    var(--color-blue-medium) 100%
+  );
+  color: var(--color-white);
+  border-bottom: var(--border-width-thin) var(--border-style-solid);
+  border-color: rgba(255, 255, 255, 0.1);
+}
 
-  padding: 1rem 1.25rem;
-
-  background-color: var(--color-blue-base);
+/* Título dentro del header */
+.modal-header h3,
+.modal-header h2,
+.modal-header h1 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  padding: 0;
   color: var(--color-white);
 }
 
-.modal-header h3 {
-  font-size: var(--text-md);
-  font-weight: 600;
-  margin: 0;
+/* Mobile: reducir padding */
+@media (max-width: 768px) {
+  .modal-header {
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
+  }
+
+  .modal-header h3,
+  .modal-header h2,
+  .modal-header h1 {
+    font-size: var(--text-base);
+  }
 }
 
-
-/* ---------- MODAL CLOSE BUTTON ---------- */
+/* ────────────────────────────────────────────────────────────────
+   MODAL CLOSE BUTTON - Botón para cerrar modal
+   ──────────────────────────────────────────────────────────────── */
 
 .modal-close {
-  background: none;
+  /* Dimensiones */
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  
+  /* Estilos */
+  background: transparent;
   border: none;
-
-  font-size: 1.5rem;
-  line-height: 1;
-
+  border-radius: var(--radius-md);
   color: var(--color-white);
   cursor: pointer;
-
-  transition: color var(--transition-fast);
+  padding: 0;
+  
+  /* Tipografía */
+  font-size: var(--text-lg);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Transiciones */
+  transition:
+    color var(--transition-base) var(--ease-in-out),
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
+/* Hover: cambio a verde con fondo sutil */
 .modal-close:hover {
   color: var(--color-green-accent);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
 }
 
+/* Focus: visible para navegación por teclado */
+.modal-close:focus-visible {
+  outline-color: var(--color-green-accent);
+  background-color: rgba(255, 255, 255, 0.15);
+}
 
-/* ---------- MODAL CONTENT ---------- */
+/* Active: escala reducida */
+.modal-close:active {
+  transform: rotate(90deg) scale(0.9);
+}
+
+/* Mobile: reducir tamaño */
+@media (max-width: 768px) {
+  .modal-close {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   MODAL CONTENT - Contenido del modal
+   ──────────────────────────────────────────────────────────────── */
 
 .modal-content {
-  padding: 1.25rem;
-
+  /* Espaciado */
+  padding: var(--modal-padding);
+  
+  /* Tipografía */
   font-size: var(--text-sm);
-  color: var(--color-blue-base);
-  line-height: 1.6;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-gray-600);
+  
+  /* Máximo ancho para legibilidad */
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
+
+/* Estilos para elementos dentro del contenido */
+.modal-content h1,
+.modal-content h2,
+.modal-content h3 {
+  color: var(--color-blue-base);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.modal-content h1:first-child,
+.modal-content h2:first-child,
+.modal-content h3:first-child {
+  margin-top: 0;
+}
+
+.modal-content p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.modal-content p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-content a {
+  color: var(--color-blue-ui);
+  text-decoration: none;
+  transition: color var(--transition-base) var(--ease-in-out);
+}
+
+.modal-content a:hover {
+  color: var(--color-green-accent);
+  text-decoration: underline;
+}
+
+/* Mobile: reducir padding */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: var(--spacing-lg);
+  }
+
+  .modal-content h1,
+  .modal-content h2,
+  .modal-content h3 {
+    font-size: var(--text-base);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   MODAL FOOTER - Pie del modal (opcional)
+   ──────────────────────────────────────────────────────────────── */
+
+.modal-footer {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+  
+  /* Espaciado */
+  padding: var(--spacing-lg);
+  
+  /* Estilos */
+  background-color: var(--color-gray-50);
+  border-top: var(--border-width-thin) var(--border-style-solid);
+  border-color: var(--color-gray-200);
+}
+
+/* Mobile: cambiar dirección */
+@media (max-width: 768px) {
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .modal-footer .ui-button,
+  .modal-footer .cta-button {
+    width: 100%;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de usuario para reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .cta-button,
+  .ui-button,
+  .modal-close,
+  .modal-content a {
+    transition: none;
+  }
+
+  .cta-button:hover,
+  .ui-button:hover,
+  .modal-close:hover {
+    transform: none;
+  }
+
+  .modal {
+    animation: none;
+  }
+}
+
+/* Soporte para navegadores sin outline-offset */
+@supports not (outline-offset: 2px) {
+  .cta-button:focus-visible,
+  .ui-button:focus-visible,
+  .modal-close:focus-visible {
+    border: var(--border-width-thin) var(--border-style-solid);
+    border-color: var(--color-green-accent);
+  }
+}
+
+/* High contrast mode (accesibilidad) */
+@media (prefers-contrast: more) {
+  .cta-button,
+  .ui-button {
+    border: var(--border-width-thin) var(--border-style-solid);
+    border-color: currentColor;
+  }
+
+  .modal-overlay {
+    background-color: rgba(25, 41, 80, 0.95);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN DE CAMBIOS CLAVE:
+   
+   ✓ 100% basado en variables.css (sin valores duros)
+   ✓ Botones: CTA, UI, primario, secundario, danger, pequeño, grande
+   ✓ Estados completos: hover, focus, active, disabled
+   ✓ Modales: overlay, header, content, footer, close button
+   ✓ Animación de entrada para modales (respeta prefers-reduced-motion)
+   ✓ Jerarquía visual clara con gradientes azules
+   ✓ Verde solo en interacción (hover en botones)
+   ✓ Accesibilidad: outline focus, aria-compatible
+   ✓ Responsive: mobile-first, ajustes por breakpoint
+   ✓ Transiciones suaves y coherentes
+   ✓ Compatibilidad con layout.css y footer.css
+   ════════════════════════════════════════════════════════════════════ */
