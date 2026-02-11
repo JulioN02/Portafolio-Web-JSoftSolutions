@@ -1,21 +1,18 @@
-
 /* ============================================================================
    CONTENEDOR PRINCIPAL - HEADER
    ============================================================================ */
 
 .site-header {
   /* Posicionamiento y jerarquía */
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
 
   /* Fondo degradado (marca visual) */
-  background: linear-gradient(
-    135deg,
-    var(--color-blue-base) 0%,
-    var(--color-blue-medium) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--color-blue-base) 0%,
+      var(--color-blue-medium) 100%);
 
   /* Color de texto */
   color: var(--color-white);
@@ -26,12 +23,19 @@
   /* Sombra de profundidad - subtil */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
   /* Transición para efectos dinámicos */
-  transition: box-shadow var(--transition-fast);
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Prevenir antialias en navegadores antiguos */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.site-header.is-hidden {
+  transform: translate3d(0, -100%, 0);
 }
 
 /**
@@ -84,7 +88,8 @@
   /* Comportamiento */
   text-decoration: none;
   white-space: nowrap;
-  flex-shrink: 0; /* Evita que se comprima */
+  flex-shrink: 0;
+  /* Evita que se comprima */
 
   /* Cursor */
   cursor: pointer;
@@ -122,7 +127,7 @@
 /* ============================================================================
    NAVEGACIÓN - CONTENEDOR
    ============================================================================ */
- /* 
+/* 
 .site-nav {
  Sin estilos por defecto - los estilos van en .site-header__nav 
 }
@@ -327,6 +332,7 @@
    ============================================================================ */
 
 @media (max-width: 768px) {
+
   /* Reducir altura del header */
   .site-header__inner {
     height: 64px;
@@ -361,11 +367,9 @@
     align-items: stretch;
 
     /* Estilos */
-    background: linear-gradient(
-      180deg,
-      var(--color-blue-base) 0%,
-      var(--color-blue-medium) 100%
-    );
+    background: linear-gradient(180deg,
+        var(--color-blue-base) 0%,
+        var(--color-blue-medium) 100%);
     border-top: 3px solid var(--color-green-accent);
 
     /* Espaciado */
@@ -473,6 +477,7 @@
    ============================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
+
   .site-header,
   .site-header__logo,
   .site-header__link,
@@ -527,6 +532,7 @@
 
 /* Soporte para navegadores sin soporte de outline-offset */
 @supports not (outline-offset: 4px) {
+
   .site-header__logo:focus-visible,
   .site-header__link:focus-visible,
   .site-header__toggle:focus-visible {
