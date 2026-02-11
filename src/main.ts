@@ -1,7 +1,6 @@
 import { renderHeader } from "./components/layout/header";
 import { renderFooter } from "./components/layout/footer";
 import { initNavigation, navigateTo } from "./scripts/navigation";
-import { setupHeaderNavigation } from "./scripts/headerNavigation";
 import { initServiceInteractions } from "./scripts/services";
 import { registerGlobalEvents } from "./scripts/events";
 import { renderHomeView } from "./views/home";
@@ -18,14 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Renderizar header y footer
   const headerHTML = renderHeader();
   const footerHTML = renderFooter();
-  setupHeaderNavigation();
-
+  initNavigation();
   app.insertAdjacentHTML("beforebegin", headerHTML);
   app.insertAdjacentHTML("afterend", footerHTML);
 
+  navigateTo(window.location.pathname as any, true);
+
   // Inicializar funcionalidades
   initHeader();      // ← NUEVA LÍNEA
-  initNavigation();
+  
 });
 
 // DOM references
