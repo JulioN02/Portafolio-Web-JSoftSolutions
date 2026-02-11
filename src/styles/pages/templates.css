@@ -1,108 +1,633 @@
-/* ======================================================
-   TEMPLATES VIEW
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   TEMPLATES.CSS - JSoft Solutions
+   Página de plantillas: estructura profesional, grid 3 col, imágenes, tags
+   
+   Responsabilidad:
+   • Wrapper y contenedor de página de plantillas
+   • Header con título y descripción
+   • Grid de tarjetas (máximo 3 por fila) con imágenes preview
+   • Galería responsiva con tags de nicho/categoría
+   • Plantillas web categorizadas y reutilizables
+   
+   NO maneja: Estilos de tarjetas (cards.css), estructura global (layout.css)
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- PAGE WRAPPER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   WRAPPER DE PÁGINA - Contenedor principal
+   ──────────────────────────────────────────────────────────────── */
+
 .page-templates {
-  padding: 3rem 2rem;
-  background-color: var(--color-gray-light);
-  min-height: calc(100vh - 160px);
+  /* Espaciado responsivo */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Fondo: blanco puro para contraste visual */
+  background-color: #ffffff;
+  
+  /* Altura mínima para footer sticky */
+  min-height: calc(100vh - 200px);
 }
 
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
+  .page-templates {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-templates {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor centrado */
 .page-templates .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
+  width: 100%;
 }
 
-/* ---------- PAGE HEADER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   HEADER DE PÁGINA - Título, subtítulo y descripción
+   ──────────────────────────────────────────────────────────────── */
+
 .page-templates .page-header {
+  /* Layout centrado */
   text-align: center;
-  margin-bottom: 3rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  
+  /* Espaciado generoso */
+  margin: 0 auto var(--spacing-3xl) auto;
+  padding: 0;
+  max-width: 720px;
+  width: 100%;
 }
 
+/* Título principal de página */
 .page-templates .page-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-blue-base);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  /* Tipografía profesional */
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color: azul base del design system */
+  color: #192950 !important;
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
 }
 
+/* Descripción bajo el título */
 .page-templates .page-header p {
-  font-size: var(--text-md);
-  color: var(--color-blue-medium);
-  line-height: 1.8;
+  /* Tipografía clara */
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+  
+  /* Color: gris oscuro para contraste */
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* ---------- PAGE CONTENT ---------- */
-.page-templates .page-content {
-  margin-top: 2rem;
-}
-
-/* ---------- TEMPLATES LIST (GRID) ---------- */
-.page-templates .templates-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-/* ---------- TEMPLATE CARD CONTEXT ---------- */
-.page-templates .template-card {
-  background-color: var(--color-white);
-  border-left: 5px solid var(--color-green-backend);
-  border-radius: 8px;
-  transition: all var(--transition-fast);
-}
-
-.page-templates .template-card:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-  transform: translateY(-6px);
-}
-
-.page-templates .template-card small {
-  margin-bottom: 0.25rem;
-  display: inline-block;
-  color: var(--color-green-accent);
-  font-weight: 600;
-}
-
-.page-templates .template-card .ui-button {
-  margin-top: 1.5rem;
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* Mobile: reducir tamaño de título */
 @media (max-width: 768px) {
-  .page-templates {
-    padding: 2.5rem 1.5rem;
+  .page-templates .page-header {
+    margin-bottom: var(--spacing-2xl);
   }
 
   .page-templates .page-header h1 {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md) !important;
   }
 
-  .page-templates .templates-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .page-templates .page-header p {
+    font-size: var(--text-base);
   }
 }
 
+/* Mobile pequeño: mucho más comprimido */
 @media (max-width: 480px) {
-  .page-templates {
-    padding: 2rem 1rem;
+  .page-templates .page-header {
+    margin-bottom: var(--spacing-xl);
   }
 
   .page-templates .page-header h1 {
-    font-size: 1.6rem;
+    font-size: var(--text-xl);
   }
 
   .page-templates .page-header p {
     font-size: var(--text-sm);
   }
+}
 
+/* ────────────────────────────────────────────────────────────────
+   CONTENIDO DE PÁGINA
+   ──────────────────────────────────────────────────────────────── */
+
+.page-templates .page-content {
+  /* Espaciado superior */
+  margin-top: var(--spacing-xl);
+  width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   LISTA DE PLANTILLAS - Grid profesional 3 columnas
+   Máximo 3 plantillas por fila. Imágenes preview. Galería responsiva.
+   ──────────────────────────────────────────────────────────────── */
+
+.page-templates .templates-list {
+  /* Grid: MÁXIMO 3 COLUMNAS en desktop */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  
+  /* Reset */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tablet: 2 columnas */
+@media (max-width: 1024px) {
   .page-templates .templates-list {
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
   }
 }
+
+/* Mobile: 1 columna */
+@media (max-width: 768px) {
+  .page-templates .templates-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Mobile pequeño: gap reducido */
+@media (max-width: 480px) {
+  .page-templates .templates-list {
+    gap: var(--spacing-md);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   TEMPLATE CARD DENTRO DE TEMPLATES PAGE
+   ──────────────────────────────────────────────────────────────── */
+
+.page-templates .template-card {
+  /* IMPORTANTE: Asegurar que sea flex column */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  
+  /* Imagen preview en la tarjeta */
+  overflow: hidden;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   IMAGEN PREVIEW DE PLANTILLA
+   Contenedor para imagen que muestre el diseño de la plantilla
+   ──────────────────────────────────────────────────────────────── */
+
+.template-card__image-container {
+  /* Dimensiones y aspecto */
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  
+  /* Background placeholder gris */
+  background: linear-gradient(
+    135deg,
+    #f3f4f6 0%,
+    #e5e7eb 100%
+  );
+  
+  /* Flexbox para centrar imagen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Transición suave */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+}
+
+/* Imagen dentro del contenedor */
+.template-card__image {
+  /* Dimensiones responsivas */
+  width: 100%;
+  height: 100%;
+  
+  /* Contener la imagen sin distorsión */
+  object-fit: cover;
+  object-position: center;
+  
+  /* Transición para zoom en hover */
+  transition:
+    transform var(--transition-base) var(--ease-in-out),
+    filter var(--transition-base) var(--ease-in-out);
+  
+  /* Línea base para evitar espacios */
+  display: block;
+}
+
+/* Hover en tarjeta: zoom en imagen */
+.page-templates .template-card:hover .template-card__image {
+  transform: scale(1.08);
+  filter: brightness(0.92);
+}
+
+/* Placeholder SVG o texto cuando no hay imagen */
+.template-card__image-placeholder {
+  /* Tipografía */
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: #9ca3af;
+  
+  /* Centrado */
+  text-align: center;
+  padding: var(--spacing-lg);
+  
+  /* Icono SVG si se añade */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   TAGS DE NICHO/CATEGORÍA
+   Identificadores de industria o propósito de la plantilla
+   ──────────────────────────────────────────────────────────────── */
+
+.template-card__tags {
+  /* Layout para tags */
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  
+  /* Espaciado */
+  padding: var(--card-padding) var(--card-padding) 0 var(--card-padding);
+  
+  /* Border separador sutil */
+  border-bottom: var(--border-width-thin) solid #e5e7eb;
+  padding-bottom: var(--spacing-md);
+}
+
+/* Tag individual */
+.template-card__tag {
+  /* Tipografía */
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  
+  /* Color: verde backend */
+  color: #3E985D;
+  background-color: rgba(62, 152, 93, 0.1);
+  
+  /* Espaciado */
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  
+  /* Transición */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out);
+  
+  /* Display inline */
+  display: inline-block;
+}
+
+/* Hover en tag */
+.page-templates .template-card:hover .template-card__tag {
+  background-color: rgba(62, 152, 93, 0.2);
+  color: #2d7643;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   CONTENIDO DE TARJETA (TITULO, DESCRIPCIÓN, BOTÓN)
+   ──────────────────────────────────────────────────────────────── */
+
+.template-card__content {
+  /* Padding del contenedor de texto */
+  padding: var(--card-padding);
+  
+  /* Flex para distribuir botón al final */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  flex: 1;
+}
+
+/* Título dentro de tarjeta */
+.template-card__title {
+  /* Hereda de cards.css pero aquí aseguramos */
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: #192950 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: var(--line-height-tight);
+}
+
+/* Descripción dentro de tarjeta */
+.template-card__description {
+  /* Tipografía */
+  font-size: var(--text-sm);
+  line-height: var(--line-height-relaxed);
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Meta información (industria, características) */
+.template-card__meta {
+  /* Tipografía pequeña */
+  font-size: 0.8125rem;
+  color: #6b7280;
+  
+  /* Spacing */
+  margin-top: var(--spacing-xs) !important;
+}
+
+/* Características o nivel de personalización */
+.template-card__features {
+  /* Tipografía pequeña */
+  font-size: 0.8125rem;
+  color: #6b7280;
+  
+  /* Layout */
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  
+  /* Spacing */
+  margin-top: var(--spacing-xs) !important;
+}
+
+.template-card__feature-item {
+  /* Pequeño indicador */
+  padding: 2px 6px;
+  background-color: #f3f4f6;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
+
+/* Botón dentro de tarjeta */
+.template-card__button {
+  /* Pushear al final */
+  margin-top: auto;
+  align-self: flex-start;
+  
+  /* Transición */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+}
+
+/* Mobile: botón full-width */
+@media (max-width: 480px) {
+  .template-card__button {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ESTADOS DE TARJETA
+   ──────────────────────────────────────────────────────────────── */
+
+/* Hover en tarjeta completa */
+.page-templates .template-card:hover {
+  /* Elevación */
+  transform: translateY(-4px);
+  
+  /* Sombra aumentada */
+  box-shadow: var(--shadow-lg);
+  
+  /* Border color cambia a azul activo */
+  border-left-color: #25609D;
+  
+  /* Background ligeramente más claro */
+  background-color: #fafbfc;
+}
+
+/* Focus visible */
+.page-templates .template-card:focus-visible {
+  outline-color: #25609D;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   FOOTER DE PLANTILLAS - Sección final (opcional)
+   ──────────────────────────────────────────────────────────────── */
+
+.templates-footer {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  
+  /* Espaciado */
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-lg);
+  
+  /* Separador visual sutil */
+  border-top: var(--border-width-thin) solid #e5e7eb;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN CTA EN FOOTER (OPCIONAL)
+   ──────────────────────────────────────────────────────────────── */
+
+.templates-footer .cta-button {
+  /* Tipografía profesional */
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  
+  /* Colores: verde backend con texto blanco */
+  background-color: #3E985D;
+  color: #ffffff;
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: auto;
+  
+  /* Comportamiento */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-thin) solid #3E985D;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  
+  /* Transiciones suaves */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out),
+    border-color var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Hover: invertir colores con elevación */
+.templates-footer .cta-button:hover {
+  background-color: #ffffff;
+  color: #3E985D;
+  border-color: #3E985D;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Focus: outline verde */
+.templates-footer .cta-button:focus-visible {
+  outline-color: #3E985D;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Active: presión visual */
+.templates-footer .cta-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled: estado deshabilitado */
+.templates-footer .cta-button:disabled {
+  background-color: #d1d5db;
+  color: rgba(255, 255, 255, 0.6);
+  border-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  transform: none;
+}
+
+/* Mobile: ajustar espaciado */
+@media (max-width: 768px) {
+  .templates-footer {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-lg);
+  }
+
+  .templates-footer .cta-button {
+    font-size: var(--text-sm);
+    padding: calc(var(--button-padding-y) * 0.9) calc(var(--button-padding-x) * 0.9);
+  }
+}
+
+/* Mobile pequeño: botón full-width */
+@media (max-width: 480px) {
+  .templates-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+  }
+
+  .templates-footer .cta-button {
+    width: 100%;
+    font-size: var(--text-sm);
+    padding: calc(var(--button-padding-y) * 0.85) var(--spacing-md);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .page-templates .template-card,
+  .page-templates .template-card:hover .template-card__image,
+  .page-templates .template-card:hover .template-card__tag,
+  .templates-footer .cta-button {
+    transition: none;
+  }
+
+  .page-templates .template-card:hover,
+  .page-templates .template-card:hover .template-card__image,
+  .page-templates .template-card:hover .template-card__tag,
+  .templates-footer .cta-button:hover {
+    transform: none;
+  }
+}
+
+/* Soporte para navegadores sin outline-offset */
+@supports not (outline-offset: 2px) {
+  .templates-footer .cta-button:focus-visible {
+    border: var(--border-width-thin) solid #3E985D;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .page-templates .page-header h1,
+  .page-templates .page-header p {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .page-templates .template-card {
+    border-width: 2px;
+  }
+
+  .templates-footer .cta-button {
+    border-width: 2px;
+  }
+
+  .template-card__tag {
+    border: 1px solid #3E985D;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN - TEMPLATES.CSS PROFESIONAL OPTIMIZADO:
+   
+   ✓ Grid MÁXIMO 3 columnas (galería dinámica)
+   ✓ Imagen preview en cada plantilla (240px con zoom hover)
+   ✓ Tags de nicho/categoría con hover interactivo
+   ✓ Contenedor flexible para imagen + contenido + tags
+   ✓ Meta información discreta (industria, características)
+   ✓ Colores explícitos del design system
+   ✓ Tipografía profesional con variables
+   ✓ Espaciado generoso (respiración visual)
+   ✓ Transiciones suaves (imagen zoom, tags, elevación tarjeta)
+   ✓ Responsive perfecto: 3 col → 2 col → 1 col
+   ✓ CTA footer opcional con inversión de colores
+   ✓ Estados completos: hover, focus, active, disabled
+   ✓ Accesibilidad: prefers-reduced-motion, contrast, outline
+   ✓ Sin cambio de etiquetas (compatible con HTML existente)
+   
+   LISTO PARA AGREGAR PLANTILLAS:
+   - Máximo 3 por fila en desktop (2 en tablet, 1 en mobile)
+   - Cada nueva fila se crea automáticamente con grid
+   - Imágenes y tags se pueden añadir fácilmente
+   - Diseño responsive automático
+   - Tags distinguen nicho/categoría de plantilla
+   - Meta información muestra características clave
+   
+   ════════════════════════════════════════════════════════════════════ */

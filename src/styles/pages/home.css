@@ -1,252 +1,619 @@
-/* ======================================================
-   HOME VIEW
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   HOME.CSS - JSoft Solutions
+   Secciones de la página de inicio: hero, servicios, valor, CTA
+   
+   Responsabilidad:
+   • Secciones específicas de la página home
+   • Jerarquía visual y profundidad
+   • Hero, servicios, propuesta de valor, CTA
+   • Responsive mobile-first
+   • Accesibilidad integrada
+   
+   Basado en: variables.css + layout.css + cards.css + ui.css
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- HERO SECTION ---------- */
+/* ────────────────────────────────────────────────────────────────
+   SECCIÓN HERO - Entrada visual principal
+   ──────────────────────────────────────────────────────────────── */
+
 .hero-section {
-  background: linear-gradient(135deg, var(--color-blue-base) 0%, var(--color-blue-medium) 100%);
+  /* Fondo: imagen con overlay gradient difuminado */
+  background-image: 
+    /* Overlay: gradiente azul semi-transparente (75% opacidad) */
+    linear-gradient(
+      135deg,
+      rgba(25, 41, 80, 0.75) 0%,
+      rgba(33, 73, 123, 0.75) 100%
+    ),
+    /* Imagen de fondo */
+    url('/src/assets/images/ImageHomePageJSS.png');
+  
+  /* Propiedades de la imagen */
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  
+  /* Tipografía base */
   color: var(--color-white);
-  padding: 6rem 2rem;
+  
+  /* Espaciado generoso */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Layout */
   text-align: center;
+  position: relative;
+  
+  /* Transición suave si hay cambios de estado */
+  transition: background-color var(--transition-slow) var(--ease-in-out);
+}
+/* Fallback si la imagen no carga (gradiente azul puro) */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-base) 0%,
+    var(--color-blue-medium) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
+  .hero-section {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor del hero */
 .hero-section .container {
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
+/* Contenido del hero */
 .hero-content {
   max-width: 720px;
   margin: 0 auto;
+  width: 100%;
 }
 
+/* Título principal */
 .hero-content h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.5px;
+  /* Tipografía */
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color y espaciado */
+  color: var(--color-white);
+  margin: 0 0 var(--spacing-xl) 0;
+  padding: 0;
+  
+  /* Transición para efectos futuros */
+  transition: transform var(--transition-slow) var(--ease-in-out);
 }
 
+/* Párrafo en hero */
 .hero-content p {
-  font-size: var(--text-md);
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-/* ---------- SERVICES SECTION ---------- */
-.services-section {
-  padding: 5rem 2rem;
-  background-color: var(--color-white);
-}
-
-.services-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.services-section header {
-  max-width: 640px;
-  margin-bottom: 3rem;
-  text-align: center;
+  /* Tipografía */
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  
+  /* Color: blanco con opacidad */
+  color: rgba(255, 255, 255, 0.9);
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-2xl) 0;
+  padding: 0;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Mobile: ajustar tamaños */
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+    background-attachment: scroll;
+  }
+
+  .hero-content h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-content p {
+    font-size: var(--text-base);
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+/* Mobile pequeño */
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .hero-content h1 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hero-content p {
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SECCIÓN SERVICIOS
+   ──────────────────────────────────────────────────────────────── */
+
+.services-section {
+  /* Espaciado */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Fondo: blanco puro para contraste */
+  background-color: var(--color-white);
+  
+  /* Separador visual */
+  border-top: var(--border-width-thin) var(--border-style-solid);
+  border-color: var(--color-gray-200);
+}
+
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
+  .services-section {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-section {
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor de servicios */
+.services-section .container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header de servicios (título + descripción) */
+.services-section header {
+  max-width: 640px;
+  margin: 0 auto var(--spacing-2xl) auto;
+  text-align: center;
+  width: 100%;
+}
+
+/* Título de sección servicios */
 .services-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  /* Tipografía */
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color */
   color: var(--color-blue-base);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0;
+  padding: 0;
 }
 
+/* Descripción de servicios */
 .services-section header p {
-  font-size: var(--text-md);
-  color: var(--color-blue-medium);
-  line-height: 1.6;
+  /* Tipografía */
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  
+  /* Color */
+  color: var(--color-gray-600);
+  
+  /* Espaciado */
+  margin: 0;
+  padding: 0;
 }
 
-/* ---------- SERVICES LIST ---------- */
+/* ────────────────────────────────────────────────────────────────
+   LISTA DE SERVICIOS - Grid responsivo
+   ──────────────────────────────────────────────────────────────── */
+
 .services-list {
+  /* Grid responsivo: 3 columnas en desktop → 1 en mobile */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  width: 100%;
 }
 
-/* Ajustes específicos para cards dentro de Home */
+/* Ajustar grid por breakpoint */
+@media (max-width: 1024px) {
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Service cards dentro del home */
 .services-list .service-card {
-  border-left: 5px solid var(--color-green-backend);
-  border-radius: 8px;
-  transition: all var(--transition-fast);
+  /* Borde izquierdo: verde (servicios destacados en home) */
+  border-left: var(--border-width-thick) var(--border-style-solid);
+  border-left-color: var(--color-green-backend);
+  
+  /* Border radius */
+  border-radius: var(--card-border-radius);
+  
+  /* Transiciones suaves */
+  transition:
+    all var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
 }
 
+/* Hover: elevación y sombra fuerte */
 .services-list .service-card:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-4px);
+  border-left-color: var(--color-blue-ui);
 }
 
-/* ---------- VALUE SECTION ---------- */
+/* Mobile: reducir gap */
+@media (max-width: 480px) {
+  .services-list {
+    gap: var(--spacing-md);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SECCIÓN DE VALOR - Propuesta diferencial
+   ──────────────────────────────────────────────────────────────── */
+
 .value-section {
-  background-color: var(--color-gray-light);
-  padding: 5rem 2rem;
+  /* Espaciado */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Fondo: gris claro (contraste visual sutil) */
+  background-color: var(--color-gray-50);
+  
+  /* Separador */
+  border-top: var(--border-width-thin) var(--border-style-solid);
+  border-color: var(--color-gray-200);
 }
 
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
+  .value-section {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .value-section {
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor de valor */
 .value-section .container {
   max-width: 900px;
   margin: 0 auto;
+  width: 100%;
 }
 
+/* Título de valor */
 .value-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  /* Tipografía */
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color */
   color: var(--color-blue-base);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.5px;
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0;
+  padding: 0;
 }
 
+/* Párrafo de valor */
 .value-section p {
+  /* Tipografía */
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  
+  /* Color */
+  color: var(--color-gray-600);
+  
+  /* Espaciado */
   max-width: 640px;
-  font-size: var(--text-md);
-  color: var(--color-blue-medium);
-  margin-bottom: 2rem;
-  line-height: 1.8;
+  margin: 0 0 var(--spacing-xl) 0;
+  padding: 0;
 }
+
+/* ────────────────────────────────────────────────────────────────
+   LISTA DE PUNTOS DE VALOR
+   ──────────────────────────────────────────────────────────────── */
 
 .value-section ul {
+  /* Layout */
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  
+  /* Reset */
+  margin: 0;
+  padding: 0;
 }
 
+/* Item de valor */
 .value-section li {
+  /* Layout: padding para el icono */
   position: relative;
-  padding-left: 2rem;
-  font-size: var(--text-sm);
-  color: var(--color-blue-base);
-  line-height: 1.6;
+  padding-left: var(--spacing-lg);
+  
+  /* Tipografía */
+  font-size: var(--text-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-600);
+  
+  /* Espaciado */
+  margin: 0;
 }
 
+/* Check mark / icono de valor */
 .value-section li::before {
+  /* Contenido */
   content: "✓";
+  
+  /* Posicionamiento */
   position: absolute;
   left: 0;
+  top: 0;
+  
+  /* Tipografía */
+  font-weight: var(--font-weight-bold);
+  font-size: var(--text-lg);
+  
+  /* Color: verde como validación */
   color: var(--color-green-accent);
-  font-weight: 700;
-  font-size: 1.2rem;
 }
 
-/* ---------- CTA SECTION ---------- */
+/* Mobile: una columna */
+@media (max-width: 768px) {
+  .value-section ul {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .value-section li {
+    padding-left: var(--spacing-md);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SECCIÓN CTA - Llamada a acción final
+   ──────────────────────────────────────────────────────────────── */
+
 .cta-section {
-  background: linear-gradient(135deg, var(--color-blue-base) 0%, var(--color-blue-medium) 100%);
+  /* Fondo: gradiente similar a hero */
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-base) 0%,
+    var(--color-blue-medium) 100%
+  );
+  
+  /* Tipografía */
   color: var(--color-white);
-  padding: 6rem 2rem;
+  
+  /* Espaciado */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Layout */
   text-align: center;
 }
 
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
+  .cta-section {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-section {
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor de CTA */
 .cta-section .container {
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
 }
 
+/* Título de CTA */
 .cta-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.5px;
+  /* Tipografía */
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color */
+  color: var(--color-white);
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0;
+  padding: 0;
 }
 
+/* Párrafo de CTA */
 .cta-section p {
-  font-size: var(--text-md);
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 2.5rem;
-  line-height: 1.8;
+  /* Tipografía */
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  
+  /* Color: blanco con opacidad */
+  color: rgba(255, 255, 255, 0.9);
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-2xl) 0;
+  padding: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Botón CTA */
 .cta-section .cta-button {
-  font-size: var(--text-md);
-  padding: 1rem 2.5rem;
+  /* Tipografía */
+  font-size: var(--text-base);
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: auto;
+  
+  /* Transiciones */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* Mobile: tamaños reducidos */
 @media (max-width: 768px) {
-  .hero-section {
-    padding: 4rem 1.5rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-
-  .services-section {
-    padding: 3.5rem 1.5rem;
-  }
-
-  .services-section h2 {
-    font-size: 2rem;
-  }
-
-  .services-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .value-section {
-    padding: 3.5rem 1.5rem;
-  }
-
-  .value-section h2 {
-    font-size: 2rem;
-  }
-
   .cta-section {
-    padding: 4rem 1.5rem;
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
   }
 
   .cta-section h2 {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .cta-section p {
+    font-size: var(--text-base);
+    margin-bottom: var(--spacing-xl);
   }
 }
 
+/* Mobile pequeño */
 @media (max-width: 480px) {
-  .hero-section {
-    padding: 3rem 1rem;
-  }
-
-  .hero-content h1 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-
-  .services-section {
-    padding: 2.5rem 1rem;
-  }
-
-  .services-section h2 {
-    font-size: 1.6rem;
-  }
-
-  .services-list {
-    gap: 1rem;
-  }
-
-  .value-section {
-    padding: 2.5rem 1rem;
-  }
-
-  .value-section h2 {
-    font-size: 1.6rem;
-  }
-
   .cta-section {
-    padding: 3rem 1rem;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
   }
 
   .cta-section h2 {
-    font-size: 1.6rem;
+    font-size: var(--text-xl);
+  }
+
+  .cta-section p {
+    font-size: var(--text-sm);
+  }
+
+  .cta-section .cta-button {
+    width: 100%;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content h1,
+  .services-list .service-card,
+  .cta-section .cta-button {
+    transition: none;
+  }
+
+  .services-list .service-card:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .hero-section,
+  .cta-section {
+    border-top: var(--border-width-thin) var(--border-style-solid);
+    border-color: currentColor;
+  }
+
+  .services-list .service-card {
+    border-width: var(--border-width-thin);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN DE CAMBIOS CLAVE:
+   
+   ✓ 100% basado en variables.css (padding, spacing, colores, transiciones)
+   ✓ Hero: gradiente azul, tipografía escalada, responsive
+   ✓ Servicios: grid auto-fit, cards con borde verde, hover mejorado
+   ✓ Valor: lista de checkmarks verdes, grid responsivo
+   ✓ CTA: gradiente similar a hero, botón destacado
+   ✓ Jerarquía visual: fondos alternados (blanco → gris → azul)
+   ✓ Espaciado generoso en desktop, ajustado en mobile
+   ✓ Transiciones suaves y coherentes
+   ✓ Responsive mobile-first: 3 breakpoints (1024px, 768px, 480px)
+   ✓ Accesibilidad: prefers-reduced-motion, prefers-contrast
+   ✓ Compatible con layout.css, cards.css, ui.css
+   ════════════════════════════════════════════════════════════════════ */

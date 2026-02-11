@@ -1,102 +1,619 @@
-/* ======================================================
-   PRODUCTS VIEW
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   PRODUCTS.CSS - JSoft Solutions
+   Página de productos: estructura profesional, grid 3 col, imágenes, badges
+   
+   Responsabilidad:
+   • Wrapper y contenedor de página de productos
+   • Header con título y descripción
+   • Grid de tarjetas (máximo 3 por fila) con imágenes preview
+   • Galería responsiva con badges de estado
+   • Productos técnicos con identificadores visuales
+   
+   NO maneja: Estilos de tarjetas (cards.css), estructura global (layout.css)
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- PAGE WRAPPER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   WRAPPER DE PÁGINA - Contenedor principal
+   ──────────────────────────────────────────────────────────────── */
+
 .page-products {
-  padding: 3rem 2rem;
-  background-color: var(--color-gray-light);
-  min-height: calc(100vh - 160px);
+  /* Espaciado responsivo */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Fondo: blanco puro para contraste visual */
+  background-color: #ffffff;
+  
+  /* Altura mínima para footer sticky */
+  min-height: calc(100vh - 200px);
 }
 
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
+  .page-products {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-products {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor centrado */
 .page-products .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
+  width: 100%;
 }
 
-/* ---------- PAGE HEADER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   HEADER DE PÁGINA - Título, subtítulo y descripción
+   ──────────────────────────────────────────────────────────────── */
+
 .page-products .page-header {
+  /* Layout centrado */
   text-align: center;
-  margin-bottom: 3rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  
+  /* Espaciado generoso */
+  margin: 0 auto var(--spacing-3xl) auto;
+  padding: 0;
+  max-width: 720px;
+  width: 100%;
 }
 
+/* Título principal de página */
 .page-products .page-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-blue-base);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  /* Tipografía profesional */
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color: azul base del design system */
+  color: #192950 !important;
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
 }
 
+/* Descripción bajo el título */
 .page-products .page-header p {
-  font-size: var(--text-md);
-  color: var(--color-blue-medium);
-  line-height: 1.8;
+  /* Tipografía clara */
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+  
+  /* Color: gris oscuro para contraste */
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* ---------- PAGE CONTENT ---------- */
-.page-products .page-content {
-  margin-top: 2rem;
-}
-
-/* ---------- PRODUCTS LIST (GRID) ---------- */
-.page-products .products-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-/* ---------- PRODUCT CARD CONTEXT ---------- */
-.page-products .product-card {
-  background-color: var(--color-white);
-  border-left: 5px solid var(--color-green-backend);
-  border-radius: 8px;
-  transition: all var(--transition-fast);
-}
-
-.page-products .product-card:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-  transform: translateY(-6px);
-  border-left-color: var(--color-green-accent);
-}
-
-.page-products .product-card .ui-button {
-  margin-top: 1.5rem;
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* Mobile: reducir tamaño de título */
 @media (max-width: 768px) {
-  .page-products {
-    padding: 2.5rem 1.5rem;
+  .page-products .page-header {
+    margin-bottom: var(--spacing-2xl);
   }
 
   .page-products .page-header h1 {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md) !important;
   }
 
-  .page-products .products-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .page-products .page-header p {
+    font-size: var(--text-base);
   }
 }
 
+/* Mobile pequeño: mucho más comprimido */
 @media (max-width: 480px) {
-  .page-products {
-    padding: 2rem 1rem;
+  .page-products .page-header {
+    margin-bottom: var(--spacing-xl);
   }
 
   .page-products .page-header h1 {
-    font-size: 1.6rem;
+    font-size: var(--text-xl);
   }
 
   .page-products .page-header p {
     font-size: var(--text-sm);
   }
+}
 
+/* ────────────────────────────────────────────────────────────────
+   CONTENIDO DE PÁGINA
+   ──────────────────────────────────────────────────────────────── */
+
+.page-products .page-content {
+  /* Espaciado superior */
+  margin-top: var(--spacing-xl);
+  width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   LISTA DE PRODUCTOS - Grid profesional 3 columnas
+   Máximo 3 productos por fila. Imágenes preview. Galería responsiva.
+   ──────────────────────────────────────────────────────────────── */
+
+.page-products .products-list {
+  /* Grid: MÁXIMO 3 COLUMNAS en desktop */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  
+  /* Reset */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tablet: 2 columnas */
+@media (max-width: 1024px) {
   .page-products .products-list {
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
   }
 }
+
+/* Mobile: 1 columna */
+@media (max-width: 768px) {
+  .page-products .products-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Mobile pequeño: gap reducido */
+@media (max-width: 480px) {
+  .page-products .products-list {
+    gap: var(--spacing-md);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   PRODUCT CARD DENTRO DE PRODUCTS PAGE
+   ──────────────────────────────────────────────────────────────── */
+
+.page-products .product-card {
+  /* IMPORTANTE: Asegurar que sea flex column */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  
+  /* Imagen preview en la tarjeta */
+  overflow: hidden;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   IMAGEN PREVIEW DE PRODUCTO
+   Contenedor para imagen que muestre el producto o interfaz
+   ──────────────────────────────────────────────────────────────── */
+
+.product-card__image-container {
+  /* Dimensiones y aspecto */
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  
+  /* Background placeholder gris */
+  background: linear-gradient(
+    135deg,
+    #f3f4f6 0%,
+    #e5e7eb 100%
+  );
+  
+  /* Flexbox para centrar imagen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Posición relativa para badge */
+  position: relative;
+  
+  /* Transición suave */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+}
+
+/* Imagen dentro del contenedor */
+.product-card__image {
+  /* Dimensiones responsivas */
+  width: 100%;
+  height: 100%;
+  
+  /* Contener la imagen sin distorsión */
+  object-fit: cover;
+  object-position: center;
+  
+  /* Transición para zoom en hover */
+  transition:
+    transform var(--transition-base) var(--ease-in-out),
+    filter var(--transition-base) var(--ease-in-out);
+  
+  /* Línea base para evitar espacios */
+  display: block;
+}
+
+/* Hover en tarjeta: zoom en imagen */
+.page-products .product-card:hover .product-card__image {
+  transform: scale(1.08);
+  filter: brightness(0.92);
+}
+
+/* Placeholder SVG o texto cuando no hay imagen */
+.product-card__image-placeholder {
+  /* Tipografía */
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: #9ca3af;
+  
+  /* Centrado */
+  text-align: center;
+  padding: var(--spacing-lg);
+  
+  /* Icono SVG si se añade */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BADGE DE ESTADO DEL PRODUCTO
+   Disponible, En desarrollo, Próximamente
+   ──────────────────────────────────────────────────────────────── */
+
+.product-card__badge {
+  /* Posición absoluta en esquina */
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  
+  /* Tipografía */
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  
+  /* Color por defecto: verde disponible */
+  color: #3E985D;
+  background-color: rgba(62, 152, 93, 0.95);
+  
+  /* Espaciado */
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  
+  /* Sombra sutil */
+  box-shadow: var(--shadow-md);
+  
+  /* Transición */
+  transition:
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+}
+
+/* Badge: en desarrollo */
+.product-card__badge--developing {
+  color: #ffffff;
+  background-color: rgba(37, 96, 157, 0.95);
+}
+
+/* Badge: disponible */
+.product-card__badge--available {
+  color: #ffffff;
+  background-color: rgba(62, 152, 93, 0.95);
+}
+
+/* Badge: próximamente */
+.product-card__badge--coming {
+  color: #ffffff;
+  background-color: rgba(245, 158, 11, 0.95);
+}
+
+/* Hover en badge */
+.page-products .product-card:hover .product-card__badge {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   CONTENIDO DE TARJETA (TITULO, DESCRIPCIÓN, BOTÓN)
+   ──────────────────────────────────────────────────────────────── */
+
+.product-card__content {
+  /* Padding del contenedor de texto */
+  padding: var(--card-padding);
+  
+  /* Flex para distribuir botón al final */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  flex: 1;
+}
+
+/* Título dentro de tarjeta */
+.product-card__title {
+  /* Hereda de cards.css pero aquí aseguramos */
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: #192950 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: var(--line-height-tight);
+}
+
+/* Descripción dentro de tarjeta */
+.product-card__description {
+  /* Tipografía */
+  font-size: var(--text-sm);
+  line-height: var(--line-height-relaxed);
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Meta información (versión, tipo) */
+.product-card__meta {
+  /* Tipografía pequeña */
+  font-size: 0.8125rem;
+  color: #6b7280;
+  
+  /* Spacing */
+  margin-top: var(--spacing-xs) !important;
+}
+
+/* Botón dentro de tarjeta */
+.product-card__button {
+  /* Pushear al final */
+  margin-top: auto;
+  align-self: flex-start;
+  
+  /* Transición */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+}
+
+/* Mobile: botón full-width */
+@media (max-width: 480px) {
+  .product-card__button {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ESTADOS DE TARJETA
+   ──────────────────────────────────────────────────────────────── */
+
+/* Hover en tarjeta completa */
+.page-products .product-card:hover {
+  /* Elevación */
+  transform: translateY(-4px);
+  
+  /* Sombra aumentada */
+  box-shadow: var(--shadow-lg);
+  
+  /* Border color cambia a verde acento */
+  border-left-color: #7CBD68;
+  
+  /* Background ligeramente más claro */
+  background-color: #fafbfc;
+}
+
+/* Focus visible */
+.page-products .product-card:focus-visible {
+  outline-color: #25609D;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   FOOTER DE PRODUCTOS - Sección final (opcional)
+   ──────────────────────────────────────────────────────────────── */
+
+.products-footer {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  
+  /* Espaciado */
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-lg);
+  
+  /* Separador visual sutil */
+  border-top: var(--border-width-thin) solid #e5e7eb;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN CTA EN FOOTER (OPCIONAL)
+   ──────────────────────────────────────────────────────────────── */
+
+.products-footer .cta-button {
+  /* Tipografía profesional */
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  
+  /* Colores: verde backend con texto blanco */
+  background-color: #3E985D;
+  color: #ffffff;
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: auto;
+  
+  /* Comportamiento */
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-thin) solid #3E985D;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  
+  /* Transiciones suaves */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out),
+    border-color var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Hover: invertir colores con elevación */
+.products-footer .cta-button:hover {
+  background-color: #ffffff;
+  color: #3E985D;
+  border-color: #3E985D;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Focus: outline verde */
+.products-footer .cta-button:focus-visible {
+  outline-color: #3E985D;
+  box-shadow: var(--shadow-focus);
+}
+
+/* Active: presión visual */
+.products-footer .cta-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled: estado deshabilitado */
+.products-footer .cta-button:disabled {
+  background-color: #d1d5db;
+  color: rgba(255, 255, 255, 0.6);
+  border-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  transform: none;
+}
+
+/* Mobile: ajustar espaciado */
+@media (max-width: 768px) {
+  .products-footer {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-lg);
+  }
+
+  .products-footer .cta-button {
+    font-size: var(--text-sm);
+    padding: calc(var(--button-padding-y) * 0.9) calc(var(--button-padding-x) * 0.9);
+  }
+}
+
+/* Mobile pequeño: botón full-width */
+@media (max-width: 480px) {
+  .products-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+  }
+
+  .products-footer .cta-button {
+    width: 100%;
+    font-size: var(--text-sm);
+    padding: calc(var(--button-padding-y) * 0.85) var(--spacing-md);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .page-products .product-card,
+  .page-products .product-card:hover .product-card__image,
+  .page-products .product-card:hover .product-card__badge,
+  .products-footer .cta-button {
+    transition: none;
+  }
+
+  .page-products .product-card:hover,
+  .page-products .product-card:hover .product-card__image,
+  .page-products .product-card:hover .product-card__badge,
+  .products-footer .cta-button:hover {
+    transform: none;
+  }
+}
+
+/* Soporte para navegadores sin outline-offset */
+@supports not (outline-offset: 2px) {
+  .products-footer .cta-button:focus-visible {
+    border: var(--border-width-thin) solid #3E985D;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .page-products .page-header h1,
+  .page-products .page-header p {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .page-products .product-card {
+    border-width: 2px;
+  }
+
+  .products-footer .cta-button {
+    border-width: 2px;
+  }
+
+  .product-card__badge {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN - PRODUCTS.CSS PROFESIONAL OPTIMIZADO:
+   
+   ✓ Grid MÁXIMO 3 columnas (galería dinámica)
+   ✓ Imagen preview en cada producto (240px con zoom hover)
+   ✓ Badges de estado (Disponible, En desarrollo, Próximamente)
+   ✓ Contenedor flexible para imagen + contenido
+   ✓ Colores explícitos del design system
+   ✓ Tipografía profesional con variables
+   ✓ Espaciado generoso (respiración visual)
+   ✓ Transiciones suaves (imagen zoom, elevación tarjeta, badge)
+   ✓ Responsive perfecto: 3 col → 2 col → 1 col
+   ✓ CTA footer opcional con inversión de colores
+   ✓ Estados completos: hover, focus, active, disabled
+   ✓ Accesibilidad: prefers-reduced-motion, contrast, outline
+   ✓ Sin cambio de etiquetas (compatible con HTML existente)
+   
+   LISTO PARA AGREGAR PRODUCTOS:
+   - Máximo 3 por fila en desktop (2 en tablet, 1 en mobile)
+   - Cada nueva fila se crea automáticamente con grid
+   - Imágenes y badges se pueden añadir fácilmente
+   - Diseño responsive automático
+   - Badges distinguen estado del producto
+   
+   ════════════════════════════════════════════════════════════════════ */

@@ -1,159 +1,540 @@
-/* ======================================================
-   SERVICES VIEW
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   SERVICES.CSS - JSoft Solutions
+   Página de servicios: estructura profesional, grid 2 col, imágenes, galería
+   
+   Responsabilidad:
+   • Wrapper y contenedor de página de servicios
+   • Header con título y descripción
+   • Grid de tarjetas (máximo 2 por fila) con imágenes preview
+   • Galería responsiva y profesional
+   • Footer con CTA final
+   
+   NO maneja: Estilos de tarjetas (cards.css), estructura global (layout.css)
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- PAGE WRAPPER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   WRAPPER DE PÁGINA - Contenedor principal
+   ──────────────────────────────────────────────────────────────── */
+
 .page-services {
-  padding: 3rem 2rem;
-  background-color: var(--color-gray-light);
-  min-height: calc(100vh - 160px);
+  /* Espaciado responsivo */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Fondo: blanco puro para contraste visual */
+  background-color: #ffffff;
+  
+  /* Altura mínima para footer sticky */
+  min-height: calc(100vh - 200px);
 }
 
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
+  .page-services {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-services {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor centrado */
 .page-services .container {
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
+  width: 100%;
 }
 
-/* ---------- PAGE HEADER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   HEADER DE PÁGINA - Título, subtítulo y descripción
+   ──────────────────────────────────────────────────────────────── */
+
 .page-services .page-header {
+  /* Layout centrado */
   text-align: center;
-  margin-bottom: 3rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  
+  /* Espaciado generoso */
+  margin: 0 auto var(--spacing-3xl) auto;
+  padding: 0;
+  max-width: 720px;
+  width: 100%;
 }
 
+/* Título principal de página */
 .page-services .page-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-blue-base);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  /* Tipografía profesional */
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color: azul base del design system */
+  color: #192950 !important;
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
 }
 
+/* Descripción bajo el título */
 .page-services .page-header p {
-  font-size: var(--text-md);
-  color: var(--color-blue-medium);
-  line-height: 1.8;
+  /* Tipografía clara */
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+  
+  /* Color: gris oscuro para contraste */
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* ---------- PAGE CONTENT ---------- */
-.page-services .page-content {
-  margin-top: 2rem;
-}
-
-/* ---------- SERVICES LIST (GRID) ---------- */
-.page-services .services-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-
-/* ---------- SERVICE CARD CONTEXT ---------- */
-.page-services .service-card {
-  background-color: var(--color-white);
-  border-left: 5px solid var(--color-green-backend);
-  border-radius: 8px;
-  transition: all var(--transition-fast);
-}
-
-.page-services .service-card:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
-  transform: translateY(-6px);
-}
-
-.page-services .service-card .ui-button {
-  margin-top: 1.5rem;
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* Mobile: reducir tamaño de título */
 @media (max-width: 768px) {
-  .page-services {
-    padding: 2.5rem 1.5rem;
+  .page-services .page-header {
+    margin-bottom: var(--spacing-2xl);
   }
 
   .page-services .page-header h1 {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md) !important;
   }
 
-  .page-services .services-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .page-services .page-header p {
+    font-size: var(--text-base);
   }
 }
 
+/* Mobile pequeño: mucho más comprimido */
 @media (max-width: 480px) {
-  .page-services {
-    padding: 2rem 1rem;
+  .page-services .page-header {
+    margin-bottom: var(--spacing-xl);
   }
 
   .page-services .page-header h1 {
-    font-size: 1.6rem;
+    font-size: var(--text-xl);
   }
 
   .page-services .page-header p {
     font-size: var(--text-sm);
   }
+}
 
+/* ────────────────────────────────────────────────────────────────
+   CONTENIDO DE PÁGINA
+   ──────────────────────────────────────────────────────────────── */
+
+.page-services .page-content {
+  /* Espaciado superior */
+  margin-top: var(--spacing-xl);
+  width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   LISTA DE SERVICIOS - Grid profesional 2 columnas
+   Máximo 2 servicios por fila. Imágenes preview. Galería responsiva.
+   ──────────────────────────────────────────────────────────────── */
+
+.page-services .services-list {
+  /* Grid: MÁXIMO 2 COLUMNAS en desktop */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-xl);
+  
+  /* Reset */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tablet: mantener 2 columnas con gap reducido */
+@media (max-width: 1024px) {
   .page-services .services-list {
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
   }
 }
 
-/* ---------- SERVICES FOOTER ---------- */
-.services-footer {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-gray-light);
+/* Mobile: 1 columna */
+@media (max-width: 768px) {
+  .page-services .services-list {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
 }
+
+/* Mobile pequeño: gap reducido */
+@media (max-width: 480px) {
+  .page-services .services-list {
+    gap: var(--spacing-md);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SERVICE CARD DENTRO DE SERVICES PAGE
+   ──────────────────────────────────────────────────────────────── */
+
+.page-services .service-card {
+  /* IMPORTANTE: Asegurar que sea flex column */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  
+  /* Imagen preview en la tarjeta */
+  overflow: hidden;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   IMAGEN PREVIEW DE SERVICIO
+   Contenedor para imagen que muestre lo que se puede hacer
+   ──────────────────────────────────────────────────────────────── */
+
+.service-card__image-container {
+  /* Dimensiones y aspecto */
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  
+  /* Background placeholder gris */
+  background: linear-gradient(
+    135deg,
+    #f3f4f6 0%,
+    #e5e7eb 100%
+  );
+  
+  /* Flexbox para centrar imagen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Transición suave */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+}
+
+/* Imagen dentro del contenedor */
+.service-card__image {
+  /* Dimensiones responsivas */
+  width: 100%;
+  height: 100%;
+  
+  /* Contener la imagen sin distorsión */
+  object-fit: cover;
+  object-position: center;
+  
+  /* Transición para zoom en hover */
+  transition:
+    transform var(--transition-base) var(--ease-in-out),
+    filter var(--transition-base) var(--ease-in-out);
+  
+  /* Línea base para evitar espacios */
+  display: block;
+}
+
+/* Hover en tarjeta: zoom en imagen */
+.page-services .service-card:hover .service-card__image {
+  transform: scale(1.05);
+  filter: brightness(0.95);
+}
+
+/* Placeholder SVG o texto cuando no hay imagen */
+.service-card__image-placeholder {
+  /* Tipografía */
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: #9ca3af;
+  
+  /* Centrado */
+  text-align: center;
+  padding: var(--spacing-lg);
+  
+  /* Icono SVG si se añade */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   CONTENIDO DE TARJETA (TITULO, DESCRIPCIÓN, BOTÓN)
+   ──────────────────────────────────────────────────────────────── */
+
+.service-card__content {
+  /* Padding del contenedor de texto */
+  padding: var(--card-padding);
+  
+  /* Flex para distribuir botón al final */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  flex: 1;
+}
+
+/* Título dentro de tarjeta */
+.service-card__title {
+  /* Hereda de cards.css pero aquí aseguramos */
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: #192950 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: var(--line-height-tight);
+}
+
+/* Descripción dentro de tarjeta */
+.service-card__description {
+  /* Tipografía */
+  font-size: var(--text-sm);
+  line-height: var(--line-height-relaxed);
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Botón dentro de tarjeta */
+.service-card__button {
+  /* Pushear al final */
+  margin-top: auto;
+  align-self: flex-start;
+  
+  /* Transición */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+}
+
+/* Mobile: botón full-width */
+@media (max-width: 480px) {
+  .service-card__button {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ESTADOS DE TARJETA
+   ──────────────────────────────────────────────────────────────── */
+
+/* Hover en tarjeta completa */
+.page-services .service-card:hover {
+  /* Elevación */
+  transform: translateY(-4px);
+  
+  /* Sombra aumentada */
+  box-shadow: var(--shadow-lg);
+  
+  /* Border color cambia */
+  border-left-color: #25609D;
+  
+  /* Background ligeramente más claro */
+  background-color: #fafbfc;
+}
+
+/* Focus visible */
+.page-services .service-card:focus-visible {
+  outline-color: #25609D;
+  box-shadow: var(--shadow-focus);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   FOOTER DE SERVICIOS - Sección final con CTA
+   ──────────────────────────────────────────────────────────────── */
+
+.services-footer {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  
+  /* Espaciado */
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-2xl);
+  padding-bottom: var(--spacing-lg);
+  
+  /* Separador visual sutil */
+  border-top: var(--border-width-thin) solid #e5e7eb;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN CTA EN FOOTER
+   ──────────────────────────────────────────────────────────────── */
 
 .services-footer .cta-button {
-  background-color: var(--color-green-backend);
-  color: var(--color-white);
-  padding: 1rem 2.5rem;
-  font-size: var(--text-md);
-  font-weight: 600;
-  border-radius: 8px;
+  /* Tipografía profesional */
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  
+  /* Colores: verde backend con texto blanco */
+  background-color: #3E985D;
+  color: #ffffff;
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: auto;
+  
+  /* Comportamiento */
   text-decoration: none;
-  transition: all var(--transition-fast);
-  display: inline-block;
-  border: 2px solid var(--color-green-backend);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-thin) solid #3E985D;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  
+  /* Transiciones suaves */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out),
+    border-color var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
+/* Hover: invertir colores con elevación */
 .services-footer .cta-button:hover {
-  background-color: var(--color-white);
-  color: var(--color-green-backend);
-  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.2);
+  background-color: #ffffff;
+  color: #3E985D;
+  border-color: #3E985D;
+  box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
-.services-footer .cta-button:active {
-  transform: translateY(0);
+/* Focus: outline verde */
+.services-footer .cta-button:focus-visible {
+  outline-color: #3E985D;
+  box-shadow: var(--shadow-focus);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* Active: presión visual */
+.services-footer .cta-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled: estado deshabilitado */
+.services-footer .cta-button:disabled {
+  background-color: #d1d5db;
+  color: rgba(255, 255, 255, 0.6);
+  border-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  transform: none;
+}
+
+/* Mobile: ajustar espaciado */
 @media (max-width: 768px) {
   .services-footer {
-    margin-top: 2.5rem;
-    padding-top: 1.5rem;
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-lg);
   }
 
   .services-footer .cta-button {
-    padding: 0.875rem 2rem;
     font-size: var(--text-sm);
+    padding: calc(var(--button-padding-y) * 0.9) calc(var(--button-padding-x) * 0.9);
   }
 }
 
+/* Mobile pequeño: botón full-width */
 @media (max-width: 480px) {
   .services-footer {
-    margin-top: 2rem;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
   }
 
   .services-footer .cta-button {
     width: 100%;
-    text-align: center;
-    padding: 0.875rem 1.5rem;
+    font-size: var(--text-sm);
+    padding: calc(var(--button-padding-y) * 0.85) var(--spacing-md);
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .page-services .service-card,
+  .page-services .service-card:hover .service-card__image,
+  .services-footer .cta-button {
+    transition: none;
+  }
+
+  .page-services .service-card:hover,
+  .page-services .service-card:hover .service-card__image,
+  .services-footer .cta-button:hover {
+    transform: none;
+  }
+}
+
+/* Soporte para navegadores sin outline-offset */
+@supports not (outline-offset: 2px) {
+  .services-footer .cta-button:focus-visible {
+    border: var(--border-width-thin) solid #3E985D;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .page-services .page-header h1,
+  .page-services .page-header p {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .page-services .service-card {
+    border-width: 2px;
+  }
+
+  .services-footer .cta-button {
+    border-width: 2px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN - SERVICES.CSS PROFESIONAL OPTIMIZADO:
+   
+   ✓ Grid MÁXIMO 2 columnas (galería profesional)
+   ✓ Imagen preview en cada tarjeta (280px con zoom hover)
+   ✓ Contenedor flexible para imagen + contenido
+   ✓ Colores explícitos del design system
+   ✓ Tipografía profesional con variables
+   ✓ Espaciado generoso (respiración visual)
+   ✓ Transiciones suaves (imagen zoom, elevación tarjeta)
+   ✓ CTA footer con inversión de colores en hover
+   ✓ Responsive perfecto: 2 col → 1 col en mobile
+   ✓ Estados completos: hover, focus, active, disabled
+   ✓ Accesibilidad: prefers-reduced-motion, contrast, outline
+   ✓ Sin cambio de etiquetas (compatible con HTML existente)
+   
+   LISTO PARA AGREGAR SERVICIOS:
+   - Máximo 2 por fila en desktop
+   - Cada nueva fila se crea automáticamente con grid
+   - Imágenes se pueden añadir fácilmente
+   - Diseño responsive automático
+   
+   ════════════════════════════════════════════════════════════════════ */

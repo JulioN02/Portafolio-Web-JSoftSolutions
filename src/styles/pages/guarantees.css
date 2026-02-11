@@ -1,168 +1,384 @@
-/* ======================================================
-   GUARANTEES VIEW
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   GUARANTEES.CSS - JSoft Solutions
+   Página de garantías: estructura clara, transparencia, confianza
+   
+   Responsabilidad:
+   • Wrapper y contenedor de página de garantías
+   • Header con título y introducción
+   • Lista de garantías con iconos e items interactivos
+   • Sección de alcances y límites
+   • Diseño de confianza y profesionalismo
+   
+   NO maneja: Estilos de tarjetas (cards.css), estructura global (layout.css)
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- PAGE WRAPPER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   WRAPPER DE PÁGINA - Contenedor principal
+   ──────────────────────────────────────────────────────────────── */
+
 .page-guarantees {
-  padding: 3rem 2rem;
-  background-color: var(--color-gray-light);
-  min-height: calc(100vh - 160px);
+  /* Espaciado responsivo */
+  padding-top: var(--spacing-3xl);
+  padding-bottom: var(--spacing-3xl);
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+  
+  /* Fondo: blanco puro para contraste visual */
+  background-color: #ffffff;
+  
+  /* Altura mínima para footer sticky */
+  min-height: calc(100vh - 200px);
 }
 
-.page-guarantees .container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* ---------- PAGE HEADER ---------- */
-.page-guarantees .page-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 4rem;
-}
-
-.page-guarantees .page-header h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--color-blue-base);
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.5px;
-}
-
-.page-guarantees .page-header p {
-  font-size: var(--text-md);
-  color: var(--color-blue-medium);
-  line-height: 1.8;
-}
-
-/* ---------- PAGE CONTENT ---------- */
-.page-guarantees .page-content {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: var(--text-sm);
-  line-height: 1.8;
-  color: var(--color-blue-base);
-}
-
-/* ---------- GUARANTEE ITEMS ---------- */
-.guarantee-item {
-  background-color: var(--color-white);
-  padding: 2.5rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  border-left: 5px solid var(--color-green-backend);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: all var(--transition-fast);
-}
-
-.guarantee-item:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-  border-left-color: var(--color-green-accent);
-}
-
-.guarantee-item h3 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-blue-base);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.guarantee-item h3::before {
-  content: "✓";
-  width: 28px;
-  height: 28px;
-  background: linear-gradient(135deg, var(--color-green-backend) 0%, var(--color-green-accent) 100%);
-  color: var(--color-white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.guarantee-item p {
-  font-size: var(--text-sm);
-  color: var(--color-blue-medium);
-  line-height: 1.7;
-  margin-bottom: 1rem;
-}
-
-.guarantee-item p:last-child {
-  margin-bottom: 0;
-}
-
-.guarantee-item ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0 0;
-}
-
-.guarantee-item li {
-  font-size: var(--text-sm);
-  color: var(--color-blue-medium);
-  padding: 0.5rem 0;
-  padding-left: 1.75rem;
-  position: relative;
-  line-height: 1.6;
-}
-
-.guarantee-item li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--color-green-accent);
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-/* ---------- GUARANTEE BADGE ---------- */
-.guarantee-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--color-green-backend) 0%, var(--color-green-accent) 100%);
-  color: var(--color-white);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 1rem;
-  display: inline-block;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
+/* Ajustar padding por breakpoint */
+@media (min-width: 768px) {
   .page-guarantees {
-    padding: 2.5rem 1.5rem;
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-guarantees {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Contenedor centrado con max-width */
+.page-guarantees .container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   HEADER DE PÁGINA - Título y descripción intro
+   ──────────────────────────────────────────────────────────────── */
+
+.page-guarantees .page-header {
+  /* Layout centrado */
+  text-align: center;
+  
+  /* Espaciado generoso */
+  margin: 0 auto var(--spacing-3xl) auto;
+  padding: 0;
+  max-width: 720px;
+  width: 100%;
+}
+
+/* Título principal de página */
+.page-guarantees .page-header h1 {
+  /* Tipografía profesional y confiable */
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  
+  /* Color: azul base del design system */
+  color: #192950 !important;
+  
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
+}
+
+/* Descripción introductoria */
+.page-guarantees .page-header p {
+  /* Tipografía clara */
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+  
+  /* Color: gris oscuro para contraste */
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Mobile: reducir tamaño de título */
+@media (max-width: 768px) {
+  .page-guarantees .page-header {
+    margin-bottom: var(--spacing-2xl);
   }
 
   .page-guarantees .page-header h1 {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md) !important;
+  }
+
+  .page-guarantees .page-header p {
+    font-size: var(--text-base);
+  }
+}
+
+/* Mobile pequeño: mucho más comprimido */
+@media (max-width: 480px) {
+  .page-guarantees .page-header {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .page-guarantees .page-header h1 {
+    font-size: var(--text-xl);
   }
 
   .page-guarantees .page-header p {
     font-size: var(--text-sm);
   }
+}
 
-  .guarantee-item {
-    padding: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
+/* ────────────────────────────────────────────────────────────────
+   CONTENIDO DE PÁGINA
+   ──────────────────────────────────────────────────────────────── */
 
+.page-guarantees .page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   LISTA DE GARANTÍAS - Items verticales con interacción
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantees-list {
+  /* Layout vertical */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  
+  /* Espaciado */
+  margin-bottom: var(--spacing-3xl);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   ITEM DE GARANTÍA - Garantía individual
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantee-item {
+  /* Contenedor flexible */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  
+  /* Espaciado */
+  padding: var(--spacing-2xl);
+  
+  /* Estilos */
+  background-color: #ffffff;
+  border-radius: var(--card-border-radius);
+  border-left: 3px solid #3E985D;
+  
+  /* Sombra sutil */
+  box-shadow: var(--shadow-md);
+  
+  /* Transiciones suaves */
+  transition:
+    all var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    border-left-color var(--transition-base) var(--ease-in-out);
+}
+
+/* Hover: elevación y cambio visual */
+.guarantee-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-left-color: #7CBD68;
+  background-color: #fafbfc;
+}
+
+/* Focus visible */
+.guarantee-item:focus-visible {
+  outline: 2px solid #25609D;
+  outline-offset: 2px;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   TÍTULO DE GARANTÍA - Con icono dinámico
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantee-item h3 {
+  /* Layout: icono + texto */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  
+  /* Tipografía */
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: #192950 !important;
+  
+  /* Reset */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Icono del check dinámico */
+.guarantee-item h3::before {
+  content: "✓";
+  
+  /* Dimensiones */
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  flex-shrink: 0;
+  
+  /* Background: gradiente verde */
+  background: linear-gradient(
+    135deg,
+    #3E985D 0%,
+    #7CBD68 100%
+  );
+  
+  /* Color y alineación */
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Tipografía */
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  
+  /* Sombra sutil */
+  box-shadow: var(--shadow-sm);
+  
+  /* Transición */
+  transition:
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+}
+
+/* Hover: icono reacciona */
+.guarantee-item:hover h3::before {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* Mobile: reducir tamaño de icono */
+@media (max-width: 768px) {
   .guarantee-item h3 {
-    font-size: 1.1rem;
+    font-size: var(--text-base);
+    gap: var(--spacing-sm);
   }
 
   .guarantee-item h3::before {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile pequeño: aún más comprimido */
+@media (max-width: 480px) {
+  .guarantee-item h3 {
+    font-size: 0.95rem;
+    gap: var(--spacing-xs);
+  }
+
+  .guarantee-item h3::before {
+    width: 26px;
+    height: 26px;
     font-size: 0.8rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   DESCRIPCIÓN DE GARANTÍA
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantee-item p {
+  /* Tipografía */
+  font-size: var(--text-base);
+  line-height: var(--line-height-relaxed);
+  color: #4b5563 !important;
+  
+  /* Espaciado */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Párrafo adicional */
+.guarantee-item p + p {
+  margin-top: var(--spacing-md) !important;
+}
+
+/* Último párrafo */
+.guarantee-item p:last-of-type {
+  margin-bottom: 0 !important;
+}
+
+/* Mobile: reducir tamaño */
+@media (max-width: 768px) {
+  .guarantee-item p {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Mobile pequeño: muy pequeño */
+@media (max-width: 480px) {
+  .guarantee-item p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   LISTAS DENTRO DE GARANTÍAS (si las hay)
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantee-item ul {
+  /* Layout */
+  list-style: none;
+  
+  /* Reset */
+  margin: var(--spacing-md) 0 0 0 !important;
+  padding: 0 !important;
+}
+
+.guarantee-item li {
+  /* Tipografía */
+  font-size: var(--text-sm);
+  line-height: var(--line-height-normal);
+  color: #4b5563;
+  
+  /* Layout: bullet + texto */
+  position: relative;
+  padding-left: var(--spacing-lg);
+  
+  /* Espaciado */
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Bullet personalizado */
+.guarantee-item li::before {
+  content: "→";
+  
+  /* Posición */
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  /* Tipografía */
+  color: #7CBD68;
+  font-weight: var(--font-weight-bold);
+  font-size: 1.1rem;
+}
+
+/* Mobile: ajustar padding */
+@media (max-width: 768px) {
+  .guarantee-item li {
+    font-size: 0.9rem;
+    padding-left: var(--spacing-md);
   }
 
   .guarantee-item li::before {
@@ -170,47 +386,260 @@
   }
 }
 
+/* Mobile pequeño */
 @media (max-width: 480px) {
-  .page-guarantees {
-    padding: 2rem 1rem;
+  .guarantee-item li {
+    font-size: 0.85rem;
+    padding-left: var(--spacing-md);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BADGE DE GARANTÍA (opcional)
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantee-badge {
+  /* Display */
+  display: inline-block;
+  
+  /* Background: gradiente verde */
+  background: linear-gradient(
+    135deg,
+    #3E985D 0%,
+    #7CBD68 100%
+  );
+  
+  /* Texto */
+  color: #ffffff;
+  
+  /* Tipografía */
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  
+  /* Espaciado */
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  
+  /* Estilo */
+  border-radius: 20px;
+  
+  /* Transición */
+  transition:
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+  
+  /* Sombra */
+  box-shadow: var(--shadow-sm);
+}
+
+/* Hover en badge */
+.guarantee-item:hover .guarantee-badge {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Mobile: reducir tamaño de badge */
+@media (max-width: 768px) {
+  .guarantee-badge {
+    font-size: 0.65rem;
+    padding: calc(var(--spacing-xs) * 0.8) calc(var(--spacing-sm) * 0.8);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   SECCIÓN DE ALCANCES Y LÍMITES
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantees-limits {
+  /* Layout */
+  margin-top: var(--spacing-3xl);
+  padding-top: var(--spacing-2xl);
+  border-top: var(--border-width-thin) solid #e5e7eb;
+}
+
+/* Título de límites */
+.guarantees-limits h2 {
+  /* Tipografía */
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: #192950 !important;
+  
+  text-align: center;
+  /* Espaciado */
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
+}
+
+/* Lista de límites */
+.guarantees-limits ul {
+  /* Layout */
+  list-style: none;
+  
+  /* Reset */
+  margin: 0 !important;
+  padding: 0 !important;
+  
+  /* Display: columnas en desktop */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+/* 2 columnas en tablet */
+@media (min-width: 768px) {
+  .guarantees-limits ul {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Item de límite */
+.guarantees-limits li {
+  /* Tipografía */
+  font-size: var(--text-base);
+  line-height: var(--line-height-normal);
+  color: #4b5563;
+  
+  /* Layout: con icono */
+  position: relative;
+  padding-left: var(--spacing-xl);
+  padding: var(--spacing-md);
+  
+  /* Background sutil */
+  background-color: #f9fafb;
+  border-radius: var(--radius-md);
+  border-left: 2px solid #e5e7eb;
+  
+  /* Transición */
+  transition:
+    all var(--transition-base) var(--ease-in-out);
+}
+
+/* Hover en item de límite */
+.guarantees-limits li:hover {
+  background-color: #f3f4f6;
+  border-left-color: #d1d5db;
+}
+
+/* Mobile: ajustar límites */
+@media (max-width: 768px) {
+  .guarantees-limits h2 {
+    font-size: var(--text-xl);
   }
 
-  .page-guarantees .page-header h1 {
-    font-size: 1.6rem;
-    margin-bottom: 0.75rem;
+  .guarantees-limits li {
+    font-size: var(--text-sm);
+    padding: var(--spacing-md);
+  }
+}
+
+/* Mobile pequeño */
+@media (max-width: 480px) {
+  .guarantees-limits h2 {
+    font-size: var(--text-lg);
   }
 
-  .page-guarantees .page-header p {
-    font-size: 0.9rem;
+  .guarantees-limits li {
+    font-size: 0.85rem;
+    padding: var(--spacing-sm) var(--spacing-md);
   }
+}
 
+/* ────────────────────────────────────────────────────────────────
+   PADDING Y ESPACIADO GLOBAL
+   ──────────────────────────────────────────────────────────────── */
+
+.guarantee-item {
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
   .guarantee-item {
-    padding: 1.5rem;
-    margin-bottom: 1rem;
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .guarantee-item {
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .guarantee-item,
+  .guarantee-item h3::before,
+  .guarantee-badge {
+    transition: none;
   }
 
-  .guarantee-item h3 {
-    font-size: 1rem;
-    gap: 0.5rem;
+  .guarantee-item:hover,
+  .guarantee-item:hover h3::before,
+  .guarantee-item:hover .guarantee-badge {
+    transform: none;
+  }
+}
+
+/* Soporte para navegadores sin outline-offset */
+@supports not (outline-offset: 2px) {
+  .guarantee-item:focus-visible {
+    border: 2px solid #25609D;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  .guarantee-item {
+    border-width: 2px;
+  }
+
+  .guarantee-item h3,
+  .guarantees-limits h2 {
+    font-weight: var(--font-weight-bold);
   }
 
   .guarantee-item h3::before {
-    width: 22px;
-    height: 22px;
-    font-size: 0.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
   }
 
-  .guarantee-item p {
-    font-size: 0.85rem;
-  }
-
-  .guarantee-item li {
-    font-size: 0.85rem;
-    padding-left: 1.5rem;
-  }
-
-  .guarantee-badge {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.7rem;
+  .guarantees-limits li {
+    border-width: 2px;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN - GUARANTEES.CSS PROFESIONAL OPTIMIZADO:
+   
+   ✓ Estructura vertical clara (transparencia visual)
+   ✓ Items con iconos dinámicos (gradiente verde)
+   ✓ Interacción completa (hover, elevación, cambio color)
+   ✓ Colores explícitos del design system
+   ✓ Tipografía profesional con variables
+   ✓ Espaciado generoso (respiración visual)
+   ✓ Transiciones suaves (icono zoom, elevación item)
+   ✓ Sección de límites con grid responsivo
+   ✓ Badges opcionales con gradiente
+   ✓ Responsive perfecto: 2 col límites → 1 col mobile
+   ✓ Estados completos: hover, focus
+   ✓ Accesibilidad: prefers-reduced-motion, contrast, outline
+   ✓ Sin cambio de etiquetas (compatible con HTML existente)
+   
+   CARACTERÍSTICAS CLAVE:
+   - Iconos check dinámicos con reacción en hover
+   - Items de garantía con elevación y cambio de borde
+   - Sección de límites con diseño de grid
+   - Badges opcionales para destacar garantías
+   - Estructura que comunica confianza y profesionalismo
+   - Responsive automático en todos los dispositivos
+   
+   ════════════════════════════════════════════════════════════════════ */
