@@ -8,6 +8,7 @@ import { initHeader } from "./scripts/header";
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  initNavigation();
   const app = document.getElementById("app");
   
   if (!app) {
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Renderizar header y footer
   const headerHTML = renderHeader();
   const footerHTML = renderFooter();
-  initNavigation();
+  
   app.insertAdjacentHTML("beforebegin", headerHTML);
   app.insertAdjacentHTML("afterend", footerHTML);
 

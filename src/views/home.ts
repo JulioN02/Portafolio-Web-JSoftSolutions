@@ -61,7 +61,7 @@ export function renderHomeView(): string {
     <section class="cta-section">
       <h2>¿Tienes un proyecto en mente?</h2>
       <p>Hablemos y definamos la mejor forma de construirlo.</p>
-      <a href="#" class="cta-button">Contacto</a>
+      <a href="/contact" data-route="/contact" class="cta-button">Contacto</a>
     </section>
   `;
 }

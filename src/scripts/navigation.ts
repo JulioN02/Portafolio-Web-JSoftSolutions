@@ -58,12 +58,27 @@ export function navigateTo(path: Route, replace = false): void {
 
   currentRoute = path;
   mainRoot.innerHTML = route.render();
-
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+      
+      // Backup para navegadores antiguos o contenedores específicos
+      document.documentElement.scrollTop = 0;
+      mainRoot.scrollTop = 0; 
+    });
+  });
+  
+  window.scrollTo(0, 0);
   replace
     ? history.replaceState({}, "", path)
     : history.pushState({}, "", path);
 
   route.onMount?.();
+  
   // Sincronizar el header con la nueva ruta
   updateActiveLink();
 }

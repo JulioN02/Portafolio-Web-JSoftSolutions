@@ -8,7 +8,7 @@ export function renderFooter(): string {
         
         <!-- Sección: Marca y descripción -->
         <div class="site-footer__section site-footer__brand-section">
-          <div class="site-footer__brand" title="J-Soft Solutions">
+          <div class="site-footer__brand "title="J-Soft Solutions">
             <span class="site-footer__brand-text">J-Soft Solutions</span>
           </div>
           <p class="site-footer__text">
