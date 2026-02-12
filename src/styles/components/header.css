@@ -72,7 +72,18 @@
 /* ============================================================================
    LOGO / MARCA
    ============================================================================ */
-
+.site-header__logo-img {
+  height: 58px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 13px;
+}
+@media (max-width: 768px) {
+  .site-header__logo-img {
+    height: 26px;
+  }
+}
 .site-header__logo {
   /* Display y alignment */
   display: flex;

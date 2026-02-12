@@ -1,9 +1,16 @@
+import logo from "../../assets/icons/LogoJSS.png";
+
 export function renderHeader(): string {
   return `
     <header class="site-header" role="banner">
       <div class="site-header__inner">
         <!-- Logo / Marca -->
         <a href="/" class="site-header__logo" title="Volver a inicio">
+          <img 
+            src="${logo}" 
+            alt="Logo J-Soft Solutions" 
+            class="site-header__logo-img"
+          />
           <span class="site-header__logo-text">J-Soft Solutions</span>
         </a>
 
