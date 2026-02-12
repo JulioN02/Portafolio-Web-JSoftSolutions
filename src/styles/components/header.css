@@ -81,7 +81,8 @@
 }
 @media (max-width: 768px) {
   .site-header__logo-img {
-    height: 26px;
+    height: 42px;
+    border-radius: 10px;
   }
 }
 .site-header__logo {

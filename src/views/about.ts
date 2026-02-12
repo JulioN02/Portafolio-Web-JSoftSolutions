@@ -1,9 +1,10 @@
 import { initAboutToggle } from "../scripts/aboutToggle";
+import headerBg from "../assets/images/imagenAboutMe2.png";
 
 export function renderAboutView(): string {
   const html = `
     <section class="about-view">
-      <header class="about-header">
+      <header class="about-header" style="--about-bg: url('${headerBg}')">
         <h1>J-Soft Solutions · Ingeniería Web Estructurada</h1>
           <p>
             J-Soft Solutions es la expresión de una visión técnica aplicada al desarrollo web.

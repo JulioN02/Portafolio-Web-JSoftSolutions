@@ -22,10 +22,10 @@
   padding-bottom: var(--spacing-3xl);
   padding-left: var(--container-padding-mobile);
   padding-right: var(--container-padding-mobile);
-  
+
   /* Fondo: blanco puro para contraste visual */
   background-color: #ffffff;
-  
+
   /* Altura mínima para footer sticky */
   min-height: calc(100vh - 200px);
 }
@@ -61,13 +61,64 @@
    ──────────────────────────────────────────────────────────────── */
 
 .about-header {
-  /* Layout centrado */
+  position: relative;
   text-align: center;
-  
-  /* Espaciado */
+
   margin: 0 auto var(--spacing-3xl) auto;
-  padding: 0;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+
   width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  /* crea nuevo stacking context */
+  border-radius: 20px;
+
+  color: #ffffff;
+}
+
+.about-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: var(--about-bg);
+  background-size: cover;
+  background-position: center 42%;
+  background-repeat: no-repeat;
+  
+
+  filter: blur(1px);
+  transform: scale(1.00);
+  /* evita bordes blancos al difuminar */
+
+  z-index: -2;
+}
+
+.about-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(3deg,
+      rgba(10, 25, 50, 0.70),
+      rgba(25, 41, 80, 0.25));
+
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .about-header {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+  .about-header::before{
+    background-position: center 48%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-header {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
 }
 
 /* Título principal */
@@ -77,10 +128,10 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
-  
+
   /* Color: azul base */
-  color: #192950 !important;
-  
+  color: #ffffff !important;
+
   /* Espaciado */
   margin: 0 0 var(--spacing-lg) 0 !important;
   padding: 0 !important;
@@ -92,10 +143,10 @@
   font-size: var(--text-lg);
   line-height: var(--line-height-relaxed);
   font-weight: var(--font-weight-normal);
-  
+
   /* Color: gris oscuro */
-  color: #4b5563 !important;
-  
+  color: #ffffff !important;
+
   /* Espaciado */
   max-width: 600px;
   margin: 0 auto !important;
@@ -143,18 +194,18 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  
+
   /* Espaciado */
   margin: var(--spacing-2xl) auto;
   padding: var(--spacing-sm);
-  
+
   /* Estilos */
   background-color: #192950;
   border-radius: var(--radius-xl);
-  
+
   /* Sombra */
   box-shadow: var(--shadow-md);
-  
+
   /* Width auto con máximo */
   width: fit-content;
 }
@@ -164,19 +215,19 @@
   /* Tipografía */
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
-  
+
   /* Colores */
   color: rgba(255, 255, 255, 0.8);
   background: transparent;
   border: none;
-  
+
   /* Espaciado */
   padding: var(--spacing-md) var(--spacing-lg);
-  
+
   /* Estilo */
   border-radius: var(--radius-lg);
   cursor: pointer;
-  
+
   /* Transiciones */
   transition:
     background-color var(--transition-base) var(--ease-in-out),
@@ -194,11 +245,9 @@
 
 /* Botón activo: gradiente verde */
 .about-selector button.active {
-  background: linear-gradient(
-    135deg,
-    #3E985D 0%,
-    #7CBD68 100%
-  );
+  background: linear-gradient(135deg,
+      #3E985D 0%,
+      #7CBD68 100%);
   color: #ffffff;
   font-weight: var(--font-weight-semibold);
   box-shadow: var(--shadow-lg);
@@ -248,7 +297,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
-  
+
   /* Reset */
   margin: 0;
   padding: 0;
@@ -263,18 +312,18 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  
+
   /* Espaciado */
   padding: var(--spacing-2xl);
-  
+
   /* Estilos */
   background-color: #ffffff;
   border-radius: var(--card-border-radius);
   border-left: 3px solid #3E985D;
-  
+
   /* Sombra */
   box-shadow: var(--shadow-md);
-  
+
   /* Transiciones */
   transition:
     all var(--transition-base) var(--ease-in-out),
@@ -299,13 +348,13 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
-  
+
   /* Tipografía */
   font-size: var(--text-lg);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   color: #192950 !important;
-  
+
   /* Reset */
   margin: 0 !important;
   padding: 0 !important;
@@ -314,17 +363,17 @@
 /* Punto decorativo antes del título */
 .about-section h3::before {
   content: "";
-  
+
   /* Dimensiones */
   width: 6px;
   height: 6px;
   min-width: 6px;
   flex-shrink: 0;
-  
+
   /* Estilo */
   border-radius: 50%;
   background-color: #7CBD68;
-  
+
   /* Transición */
   transition:
     transform var(--transition-base) var(--ease-in-out),
@@ -359,14 +408,14 @@
   font-size: var(--text-base);
   line-height: var(--line-height-relaxed);
   color: #4b5563 !important;
-  
+
   /* Espaciado */
   margin: 0 !important;
   padding: 0 !important;
 }
 
 /* Párrafos múltiples */
-.about-section p + p {
+.about-section p+p {
   margin-top: var(--spacing-md) !important;
 }
 
@@ -399,11 +448,11 @@
   font-size: var(--text-base);
   line-height: var(--line-height-relaxed);
   color: #4b5563;
-  
+
   /* Espaciado */
   margin: var(--spacing-md) 0 0 var(--spacing-lg) !important;
   padding: 0 !important;
-  
+
   /* Lista */
   list-style-position: inside;
 }
@@ -413,7 +462,7 @@
   font-size: var(--text-base);
   line-height: var(--line-height-relaxed);
   color: #4b5563;
-  
+
   /* Espaciado */
   margin-bottom: var(--spacing-sm);
 }
@@ -431,6 +480,7 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+
   .about-section ul,
   .about-section ol {
     font-size: var(--text-sm);
@@ -444,6 +494,7 @@
 
 /* Mobile pequeño */
 @media (max-width: 480px) {
+
   .about-section ul,
   .about-section ol {
     font-size: 0.85rem;
@@ -464,7 +515,7 @@
   /* Color azul activo */
   color: #25609D;
   text-decoration: none;
-  
+
   /* Transición */
   transition: color var(--transition-base) var(--ease-in-out);
 }
@@ -485,6 +536,7 @@
 
 /* Respetar preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
+
   .about-selector button,
   .about-section,
   .about-section h3::before {
@@ -500,6 +552,7 @@
 
 /* Soporte para navegadores sin outline-offset */
 @supports not (outline-offset: 2px) {
+
   .about-selector button:focus-visible,
   .about-section a:focus-visible {
     border: 2px solid #25609D;
@@ -508,6 +561,7 @@
 
 /* High contrast mode */
 @media (prefers-contrast: more) {
+
   .about-header h1,
   .about-section h3 {
     font-weight: var(--font-weight-bold);
