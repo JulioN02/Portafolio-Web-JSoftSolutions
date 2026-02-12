@@ -1,194 +1,487 @@
-/* ======================================================
-   CONTACT VIEW
-   ====================================================== */
+/* ════════════════════════════════════════════════════════════════════
+   CONTACT.CSS - JSoft Solutions
+   Página de contacto: formulario y canales, estructura clara y centrada
+   
+   Responsabilidad:
+   • Wrapper y contenedor de página de contacto
+   • Header con título y descripción
+   • Formulario de contacto
+   • Canales de contacto alternativos
+   • Mensajes de validación y estado
+   
+   NO maneja: Estilos de tarjetas (cards.css), estructura global (layout.css)
+   ════════════════════════════════════════════════════════════════════ */
 
-/* ---------- PAGE WRAPPER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   WRAPPER DE PÁGINA - Contenedor principal
+   ──────────────────────────────────────────────────────────────── */
+
 .page-contact {
-  padding: 3rem 2rem;
-  background-color: var(--color-gray-light);
+  padding: var(--spacing-3xl) var(--spacing-2xl);
+  background-color: #ffffff;
   min-height: calc(100vh - 160px);
 }
 
 .page-contact .container {
-  max-width: 1000px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
 }
 
-/* ---------- PAGE HEADER ---------- */
+/* ────────────────────────────────────────────────────────────────
+   HEADER DE PÁGINA - Título y descripción
+   ──────────────────────────────────────────────────────────────── */
+
 .page-contact .page-header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 3rem;
+  margin: 0 auto var(--spacing-3xl) auto;
+  padding: 0;
 }
 
 .page-contact .page-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-blue-base);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  color: #192950 !important;
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
 }
 
 .page-contact .page-header p {
-  font-size: var(--text-md);
-  color: var(--color-blue-medium);
-  line-height: 1.8;
+  font-size: var(--text-lg);
+  color: #4b5563 !important;
+  line-height: var(--line-height-relaxed);
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* ---------- CONTENT LAYOUT ---------- */
-.contact-content {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 3rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* ---------- FORM ---------- */
-.contact-form {
-  background-color: var(--color-white);
-  padding: 2.5rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-gray-medium);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-
-/* ---------- FORM GROUP ---------- */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--color-blue-base);
-  margin-bottom: 0.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-  font-size: var(--text-sm);
-  padding: 0.75rem;
-  border-radius: 6px;
-  border: 1px solid var(--color-gray-medium);
-  background-color: var(--color-white);
-  transition: all var(--transition-fast);
-  font-family: var(--font-primary);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-green-backend);
-  box-shadow: 0 0 0 3px rgba(62, 152, 93, 0.1);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-/* ---------- SUBMIT BUTTON ---------- */
-.contact-form button[type="submit"] {
-  margin-top: 1.5rem;
-  width: 100%;
-}
-
-/* ---------- FORM NOTE ---------- */
-.form-note {
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  color: var(--color-blue-medium);
-  line-height: 1.5;
-}
-
-/* ---------- CONTACT CHANNELS ---------- */
-.contact-channels {
-  background-color: var(--color-white);
-  padding: 2.5rem;
-  border-radius: 8px;
-  border-left: 5px solid var(--color-green-backend);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-
-.contact-channels h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-blue-base);
-  margin-bottom: 1.5rem;
-}
-
-.contact-channels ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.contact-channels li {
-  font-size: var(--text-sm);
-  color: var(--color-blue-medium);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.contact-channels li:last-child {
-  margin-bottom: 0;
-}
-
-.contact-channels a {
-  color: var(--color-green-backend);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color var(--transition-fast);
-}
-
-.contact-channels a:hover {
-  color: var(--color-green-accent);
-}
-
-/* ---------- RESPONSIVE ---------- */
+/* Mobile: reducir tamaño */
 @media (max-width: 768px) {
   .page-contact {
-    padding: 2.5rem 1.5rem;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .page-contact .page-header {
+    margin-bottom: var(--spacing-2xl);
   }
 
   .page-contact .page-header h1 {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--spacing-md) !important;
   }
 
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .contact-form,
-  .contact-channels {
-    padding: 2rem;
+  .page-contact .page-header p {
+    font-size: var(--text-base);
   }
 }
 
+/* Mobile pequeño */
 @media (max-width: 480px) {
   .page-contact {
-    padding: 2rem 1rem;
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .page-contact .page-header {
+    margin-bottom: var(--spacing-xl);
   }
 
   .page-contact .page-header h1 {
-    font-size: 1.6rem;
+    font-size: var(--text-xl);
   }
 
   .page-contact .page-header p {
     font-size: var(--text-sm);
   }
+}
 
+/* ────────────────────────────────────────────────────────────────
+   LAYOUT DE CONTENIDO - Grid 2 columnas
+   ──────────────────────────────────────────────────────────────── */
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--spacing-3xl);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* Tablet: ajustar grid */
+@media (max-width: 1024px) {
+  .contact-content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* Mobile: una columna */
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   FORMULARIO DE CONTACTO
+   ════════════════════════════════════════════════════════════════════ */
+
+.contact-form {
+  background-color: #ffffff;
+  padding: var(--spacing-2xl);
+  border-radius: var(--card-border-radius);
+  border-left: 3px solid #3E985D;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base) var(--ease-in-out);
+}
+
+.contact-form:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* ────────────────────────────────────────────────────────────────
+   GRUPO DE FORMULARIO
+   ──────────────────────────────────────────────────────────────── */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Etiqueta */
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: #192950 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Input y Textarea */
+.form-group input,
+.form-group textarea {
+  font-size: var(--text-base);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: var(--border-width-thin) solid #d1d5db;
+  background-color: #ffffff;
+  color: #192950;
+  font-family: var(--font-primary);
+  
+  transition:
+    border-color var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    background-color var(--transition-base) var(--ease-in-out);
+}
+
+/* Focus: azul activo */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #25609D;
+  box-shadow: 0 0 0 3px rgba(37, 96, 157, 0.1);
+  background-color: #fafbfc;
+}
+
+/* Hover */
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: #9ca3af;
+}
+
+/* Textarea específico */
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Error en campo */
+.form-group input.error,
+.form-group textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group input.error:focus,
+.form-group textarea.error:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+/* Mensaje de error */
+.form-error {
+  font-size: 0.8rem;
+  color: #ef4444;
+  font-weight: var(--font-weight-medium);
+  margin: 0 !important;
+  padding: 0 !important;
+  display: none;
+}
+
+.form-error.show {
+  display: block;
+}
+
+/* Mobile: aumentar tamaño de input */
+@media (max-width: 768px) {
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Prevenir zoom en iOS */
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN DE ENVÍO
+   ──────────────────────────────────────────────────────────────── */
+
+.contact-form button[type="submit"] {
+  margin-top: var(--spacing-lg);
+  width: 100%;
+  
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--spacing-md) var(--spacing-lg);
+  
+  background-color: #3E985D;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+  
+  box-shadow: var(--shadow-sm);
+}
+
+/* Hover */
+.contact-form button[type="submit"]:hover:not(:disabled) {
+  background-color: #2d7643;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Focus */
+.contact-form button[type="submit"]:focus-visible {
+  outline: 2px solid #25609D;
+  outline-offset: 2px;
+}
+
+/* Active */
+.contact-form button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled/Loading */
+.contact-form button[type="submit"]:disabled {
+  background-color: #d1d5db;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.contact-form button[type="submit"].loading {
+  background-color: #7CBD68;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   NOTA DEL FORMULARIO
+   ──────────────────────────────────────────────────────────────── */
+
+.form-note {
+  margin-top: var(--spacing-md);
+  font-size: var(--text-xs);
+  color: #6b7280;
+  line-height: var(--line-height-normal);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   CANALES DE CONTACTO
+   ════════════════════════════════════════════════════════════════════ */
+
+.contact-channels {
+  background-color: #ffffff;
+  padding: var(--spacing-2xl);
+  border-radius: var(--card-border-radius);
+  border-left: 3px solid #3E985D;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base) var(--ease-in-out);
+}
+
+.contact-channels:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Título de canales */
+.contact-channels h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: #192950 !important;
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
+  line-height: var(--line-height-tight);
+}
+
+/* Lista de canales */
+.contact-channels ul {
+  list-style: none;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Item de canal */
+.contact-channels li {
+  font-size: var(--text-sm);
+  color: #4b5563 !important;
+  line-height: var(--line-height-normal);
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.contact-channels li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Links en canales */
+.contact-channels a {
+  color: #3E985D;
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  
+  transition: color var(--transition-base) var(--ease-in-out);
+}
+
+.contact-channels a:hover {
+  color: #7CBD68;
+}
+
+.contact-channels a:focus-visible {
+  outline: 2px solid #25609D;
+  outline-offset: 2px;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   MENSAJES DE ESTADO - Alertas
+   ════════════════════════════════════════════════════════════════════ */
+
+.contact-message {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid transparent;
+  font-size: var(--text-sm);
+  line-height: var(--line-height-normal);
+  
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mensaje de error */
+.contact-message.error {
+  background-color: #fef2f2;
+  border-left-color: #ef4444;
+  color: #991b1b;
+}
+
+/* Mensaje de éxito */
+.contact-message.success {
+  background-color: #f0fdf4;
+  border-left-color: #22c55e;
+  color: #166534;
+}
+
+/* Mensaje de información */
+.contact-message.info {
+  background-color: #eff6ff;
+  border-left-color: #3b82f6;
+  color: #1e3a8a;
+}
+
+/* Hidden */
+.contact-message.hidden {
+  display: none;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .contact-form,
+  .contact-channels,
+  .contact-form button[type="submit"]:hover,
+  .contact-message {
+    transition: none;
+    animation: none;
+  }
+
+  .contact-form:hover,
+  .contact-channels:hover,
+  .contact-form button[type="submit"]:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
   .contact-form,
   .contact-channels {
-    padding: 1.5rem;
+    border-width: 2px;
   }
 
   .form-group input,
   .form-group textarea {
-    padding: 0.65rem;
+    border-width: 2px;
+  }
+
+  .contact-form button[type="submit"] {
+    border: 2px solid transparent;
+  }
+
+  .contact-message {
+    border-width: 2px;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN - CONTACT.CSS REFACTORIZADO:
+   
+   ✓ Estructura idéntica a about.css (familiar y consistente)
+   ✓ Header centrado y profesional
+   ✓ Layout grid 2 columnas (formulario + canales)
+   ✓ Formulario con validación visual (error/focus/hover)
+   ✓ Canales de contacto alternativos
+   ✓ Mensajes de estado (error, éxito, info)
+   ✓ Botón verde con estados completos
+   ✓ Colores explícitos del design system
+   ✓ Tipografía con variables
+   ✓ Espaciado generoso (respiración visual)
+   ✓ Transiciones suaves en todos lados
+   ✓ Responsive perfecto: 2 col → 1 col en mobile
+   ✓ Accesibilidad: prefers-reduced-motion, contrast, outline
+   ✓ Animación slideIn para mensajes
+   ✓ Sin cambio de etiquetas (compatible con HTML)
+   
+   ════════════════════════════════════════════════════════════════════ */
