@@ -1,6 +1,7 @@
 import { templates } from "../data/templates";
 import { renderTemplateCard } from "../components/cards/templateCard";
 import { renderPageHeader } from "../components/sections/pageHeader";
+import templatesBg from "../assets/images/templates.png";
 
 export function renderTemplatesView(): string {
   const templatesHTML = templates
@@ -19,6 +20,7 @@ export function renderTemplatesView(): string {
       ${renderPageHeader({
         title: "Plantillas Web",
         description: "Bases reutilizables adaptadas a distintos nichos.",
+        bgImage: templatesBg,
       })}
 
       <div class="page-content templates-list">

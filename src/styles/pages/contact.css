@@ -36,24 +36,85 @@
   max-width: 700px;
   margin: 0 auto var(--spacing-3xl) auto;
   padding: 0;
+  position: relative;
+}
+
+/* Header con imagen de fondo */
+.page-contact .page-header.has-bg {
+  /* Contenedor full width respecto al padre, pero con max-width controlado */
+  max-width: 100%;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  isolation: isolate;
+  margin-bottom: var(--spacing-3xl);
+  
+  /* Texto blanco por defecto sobre imagen */
+  color: #ffffff;
+}
+
+/* Background Image Layer */
+.page-contact .page-header.has-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  /* Imagen */
+  background-image: var(--header-bg);
+  background-size: cover;
+  background-position: center 48.5%;
+  background-repeat: no-repeat;
+  
+  /* Z-index para estar detrás del contenido */
+  z-index: -2;
+}
+
+/* Overlay sutil para legibilidad */
+.page-contact .page-header.has-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 25, 50, 0.4); 
+  z-index: -1;
+}
+
+/* Contenido relativo para estar sobre la imagen */
+.page-contact .page-header .header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .page-contact .page-header h1 {
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-bold);
-  color: #192950 !important;
-  margin: 0 0 var(--spacing-lg) 0 !important;
-  padding: 0 !important;
+  color: #192950;
+  margin: 0 0 var(--spacing-lg) 0;
+  padding: 0;
   letter-spacing: var(--letter-spacing-tight);
   line-height: var(--line-height-tight);
 }
 
+/* Título cuando hay fondo (texto blanco) */
+.page-contact .page-header.has-bg h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 .page-contact .page-header p {
   font-size: var(--text-lg);
-  color: #4b5563 !important;
+  color: #4b5563;
   line-height: var(--line-height-relaxed);
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Descripción cuando hay fondo (texto blanco) */
+.page-contact .page-header.has-bg p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  max-width: 600px;
+  margin: 0 auto !important;
 }
 
 /* Mobile: reducir tamaño */

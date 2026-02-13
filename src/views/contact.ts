@@ -1,4 +1,6 @@
 import { externalLinks } from "../data/links";
+import { renderPageHeader } from "../components/sections/pageHeader";
+import contactBg from "../assets/images/contact.png";
 
 // 🔹 Función para escapar caracteres HTML
 function escapeHtml(text: string): string {
@@ -15,13 +17,11 @@ export function renderContactView(): string {
 
   return `
     <section class="page page-contact">
-      <header class="page-header">
-        <h1>Contacto</h1>
-        <p>
-          ¿Tienes un proyecto, una idea o una oportunidad profesional?
-          Puedes escribirme directamente o usar el formulario.
-        </p>
-      </header>
+      ${renderPageHeader({
+        title: "Contacto",
+        description: "¿Tienes un proyecto, una idea o una oportunidad profesional? Puedes escribirme directamente o usar el formulario.",
+        bgImage: contactBg,
+      })}
 
       <div class="page-content contact-content">
         <form id="contact-form" class="contact-form">
