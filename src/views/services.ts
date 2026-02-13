@@ -1,6 +1,7 @@
 import { services } from "../data/services";
 import { renderPageHeader } from "../components/sections/pageHeader";
 import { renderServiceCard } from "../components/cards/serviceCard";
+import servicesBg from "../assets/images/servicesHome.png";
 
 export function renderServicesView(): string {
   const servicesHTML = services
@@ -18,6 +19,7 @@ export function renderServicesView(): string {
       ${renderPageHeader({
         title: "Servicios",
         description: "Soluciones web diseñadas con criterio técnico y enfoque práctico.",
+        bgImage: servicesBg,
       })}
 
       <div class="page-content services-list">

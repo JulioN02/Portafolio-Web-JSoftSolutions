@@ -64,14 +64,62 @@
   /* Layout centrado */
   text-align: center;
   
-  /* Espaciado generoso */
+  /* Espaciado generoso - Default */
   margin: 0 auto var(--spacing-3xl) auto;
   padding: 0;
   max-width: 720px;
   width: 100%;
+  position: relative;
 }
 
-/* Título principal de página */
+/* Header con imagen de fondo */
+.page-services .page-header.has-bg {
+  /* Contenedor full width respecto al padre, pero con max-width controlado */
+  max-width: 100%;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  isolation: isolate;
+  margin-bottom: var(--spacing-3xl);
+  
+  /* Texto blanco por defecto sobre imagen */
+  color: #ffffff;
+}
+
+/* Background Image Layer */
+.page-services .page-header.has-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  /* Imagen */
+  background-image: var(--header-bg);
+  background-size: cover;
+  background-position: center 58%; /* Centrado perfecto como pidió el usuario */
+  background-repeat: no-repeat;
+  
+  /* Z-index para estar detrás del contenido */
+  z-index: -2;
+}
+
+/* Overlay sutil para legibilidad (sin gradiente complejo, solo oscurecimiento plano) */
+.page-services .page-header.has-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 25, 50, 0.4); /* Capa oscura simple para contraste */
+  z-index: -1;
+}
+
+/* Contenido relativo para estar sobre la imagen */
+.page-services .page-header .header-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Título principal de página - Ajustes generales */
 .page-services .page-header h1 {
   /* Tipografía profesional */
   font-size: var(--text-3xl);
@@ -79,27 +127,40 @@
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
   
-  /* Color: azul base del design system */
-  color: #192950 !important;
+  /* Color: azul base del design system (default) */
+  color: #192950;
   
   /* Espaciado */
-  margin: 0 0 var(--spacing-lg) 0 !important;
-  padding: 0 !important;
+  margin: 0 0 var(--spacing-lg) 0;
+  padding: 0;
 }
 
-/* Descripción bajo el título */
+/* Título cuando hay fondo (texto blanco) */
+.page-services .page-header.has-bg h1 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Descripción bajo el título - Ajustes generales */
 .page-services .page-header p {
   /* Tipografía clara */
   font-size: var(--text-lg);
   line-height: var(--line-height-relaxed);
   font-weight: var(--font-weight-normal);
   
-  /* Color: gris oscuro para contraste */
-  color: #4b5563 !important;
+  /* Color: gris oscuro para contraste (default) */
+  color: #4b5563;
   
   /* Espaciado */
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Descripción cuando hay fondo (texto blanco) */
+.page-services .page-header.has-bg p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  max-width: 600px;
+  margin: 0 auto !important;
 }
 
 /* Mobile: reducir tamaño de título */

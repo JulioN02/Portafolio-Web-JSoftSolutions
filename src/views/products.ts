@@ -1,6 +1,7 @@
 import { products } from "../data/products";
 import { renderProductCard } from "../components/cards/productCard";
 import { renderPageHeader } from "../components/sections/pageHeader";
+import productsBg from "../assets/images/products.png";
 
 export function renderProductsView(): string {
   const productsHTML = products
@@ -18,6 +19,7 @@ export function renderProductsView(): string {
       ${renderPageHeader({
         title: "Productos",
         description: "Herramientas web funcionales listas para usar.",
+        bgImage: productsBg,
       })}
 
       <div class="page-content products-list">
