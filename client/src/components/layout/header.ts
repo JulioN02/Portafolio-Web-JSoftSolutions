@@ -10,6 +10,9 @@ export function renderHeader(): string {
             src="${logo}" 
             alt="Logo J-Soft Solutions" 
             class="site-header__logo-img"
+            width="40"
+            height="40"
+            fetchpriority="high"
           />
           <span class="site-header__logo-text">J-Soft Solutions</span>
         </a>
@@ -28,7 +31,7 @@ export function renderHeader(): string {
         </button>
 
         <!-- Navegación Principal -->
-        <nav class="site-nav" id="site-nav">
+        <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
           <ul class="site-header__nav">
             <li>
               <a 

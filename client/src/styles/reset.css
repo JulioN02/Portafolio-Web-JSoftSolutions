@@ -10,3 +10,17 @@ section {
 *::after {
   box-sizing: border-box;
 }
+
+/* ────────────────────────────────────────────────────────────────
+   FOCUS VISIBLE — Accesibilidad: solo teclado
+   ──────────────────────────────────────────────────────────────── */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-blue-ui, #25609D);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

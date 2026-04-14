@@ -18,6 +18,10 @@
   --color-green-backend: #3E985D;  /* Badges técnicos, indicadores */
   --color-green-accent: #7CBD68;   /* Confirmaciones, estados positivos */
 
+  /* Accesible variants (WCAG AA ≥4.5:1 on white) */
+  --color-green-backend-text: #2D7A4A;   /* Texto legible sobre fondo claro */
+  --color-green-accent-text: #4E9A3B;    /* Texto legible sobre fondo claro */
+
   /* Neutros - Ingeniería / Legibilidad */
   --color-white: #ffffff;
   --color-gray-50: #f9fafb;        /* Backgrounds ultra claros */

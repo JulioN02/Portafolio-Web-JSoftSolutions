@@ -163,7 +163,7 @@
 }
 
 .service-package__benefits .service-package__label {
-  color: var(--color-green-backend);
+  color: var(--color-green-backend-text);
 }
 
 .service-package__block p {
@@ -199,7 +199,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   font-weight: var(--font-weight-bold);
 }
 
@@ -293,7 +293,7 @@
 .process-step__number {
   font-size: var(--text-3xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   margin-bottom: var(--spacing-sm);
 }
 

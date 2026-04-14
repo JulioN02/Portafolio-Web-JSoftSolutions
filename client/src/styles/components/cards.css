@@ -296,7 +296,7 @@
 .service-card a:hover,
 .product-card a:hover,
 .template-card a:hover {
-  color: #7CBD68;
+  color: #4E9A3B;
   text-decoration: underline;
 }
 
@@ -372,7 +372,7 @@
 }
 
 .product-card:hover {
-  border-left-color: #7CBD68;
+  border-left-color: #4E9A3B;
   background-color: #f9fafb;
 }
 
@@ -385,7 +385,7 @@
   letter-spacing: 0.75px;
   
   /* Color: verde backend */
-  color: #3E985D;
+  color: #2D7A4A;
   background-color: rgba(62, 152, 93, 0.1);
   
   /* Espaciado */
@@ -403,7 +403,7 @@
 }
 
 .product-badge--available {
-  color: #3E985D;
+  color: #2D7A4A;
   background-color: rgba(62, 152, 93, 0.1);
 }
 
@@ -437,7 +437,7 @@
   letter-spacing: 0.75px;
   
   /* Color: verde backend */
-  color: #3E985D;
+  color: #2D7A4A;
   background-color: rgba(62, 152, 93, 0.1);
   
   /* Espaciado */

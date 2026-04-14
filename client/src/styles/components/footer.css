@@ -34,7 +34,7 @@
   
   /* Identidad visual: borde superior en verde (señal técnica) */
   border-top: var(--border-width-thick) var(--border-style-solid);
-  border-color: var(--color-green-accent);
+  border-color: var(--color-green-accent-text);
   
   /* Espaciado responsivo */
   padding-top: var(--spacing-2xl);
@@ -149,7 +149,7 @@
   /* Tipografía */
   font-size: var(--text-lg);
   font-weight: var(--font-weight-bold);
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   letter-spacing: var(--letter-spacing-tight);
   
   /* Comportamiento */
@@ -179,7 +179,7 @@
 }
 
 .site-footer__brand:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
 }
 
 .site-footer__brand:active {
@@ -288,18 +288,18 @@
 
 /* Hover state - cambio de color y desplazamiento sutil */
 .site-footer__link:hover {
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   padding-left: var(--spacing-xs);
 }
 
 /* Focus state */
 .site-footer__link:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
 }
 
 /* Active state para links activos */
 .site-footer__link--active {
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   font-weight: var(--font-weight-semibold);
 }
 
@@ -384,14 +384,14 @@
 .site-footer__social-link:hover {
   background: var(--color-green-accent);
   color: var(--color-blue-base);
-  border-color: var(--color-green-accent);
+  border-color: var(--color-green-accent-text);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 /* Focus state */
 .site-footer__social-link:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
 }
 
 /* Active state */
@@ -548,12 +548,12 @@
 
 /* Hover state */
 .site-footer__legal-link:hover {
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
 }
 
 /* Focus state */
 .site-footer__legal-link:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
 }
 
 /* Mobile: wrap y centrar */
@@ -596,7 +596,7 @@
   .site-footer__legal-link:focus-visible,
   .site-footer__brand:focus-visible {
     border: var(--border-width-thin) var(--border-style-solid);
-    border-color: var(--color-green-accent);
+    border-color: var(--color-green-accent-text);
   }
 }
 

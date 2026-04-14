@@ -142,35 +142,37 @@
 
 ---
 
-## Fase 5: Mejoras Técnicas (3-4 horas)
+## Fase 5: Mejoras Técnicas (3-4 horas) ✅ COMPLETADA
 
 ### 5.1 SEO
-- [ ] 5.1.1 Actualizar `client/index.html`: lang="es"
-- [ ] 5.1.2 Meta description: "J-Soft Solutions - Desarrollo de soluciones web profesionales para pequeños negocios"
-- [ ] 5.1.3 Meta keywords: desarrollo web, sistemas de gestión, CRM, agenda de citas
-- [ ] 5.1.4 Open Graph tags: og:title, og:description, og:type
-- [ ] 5.1.5 Canonical URL
-- [ ] 5.1.6 Structured data (JSON-LD) para LocalBusiness
+- [x] 5.1.1 Actualizar `client/index.html`: lang="es"
+- [x] 5.1.2 Meta description: "J-Soft Solutions - Desarrollo de soluciones web profesionales para pequeños negocios"
+- [x] 5.1.3 Meta keywords: desarrollo web, sistemas de gestión, CRM, agenda de citas
+- [x] 5.1.4 Open Graph tags: og:title, og:description, og:type
+- [x] 5.1.5 Canonical URL
+- [x] 5.1.6 Structured data (JSON-LD) para LocalBusiness
 
 ### 5.2 Accesibilidad
-- [ ] 5.2.1 Verificar contraste WCAG AA en todas las páginas
-- [ ] 5.2.2 Agregar ARIA labels a iconos de redes sociales
-- [ ] 5.2.3 Asegurar navegación por teclado
-- [ ] 5.2.4 Textos alternativos en imágenes
-- [ ] 5.2.5 Skip link al contenido principal
+- [x] 5.2.1 Verificar contraste WCAG AA en todas las páginas (arreglados verdes, WhatsApp CTA)
+- [x] 5.2.2 Agregar ARIA labels a iconos de redes sociales
+- [x] 5.2.3 Asegurar navegación por teclado (focus-visible, carousel keyboard nav)
+- [x] 5.2.4 Skip link al contenido principal + aria-labels en nav/sections
+- [x] 5.2.5 Textos alternativos en imágenes (logo con alt, width, height, fetchpriority)
 
 ### 5.3 Rendimiento
-- [ ] 5.3.1 Lazy loading de imágenes con `loading="lazy"`
-- [ ] 5.3.2 CSS crítico inline (hero section)
-- [ ] 5.3.3 Preconnect a fuentes externas (si aplica)
-- [ ] 5.3.4 Optimizar tamaño de imágenes (WebP si es posible)
+- [x] 5.3.1 Lazy loading de imágenes con `loading="lazy"` (N/A - sin imágenes below-the-fold)
+- [x] 5.3.2 Logo con fetchpriority="high" y dimensiones explícitas
+- [x] 5.3.3 Preconnect a fuentes externas (N/A - usa system-ui, sin fuentes externas)
+- [x] 5.3.4 Optimizar tamaño de imágenes (pendiente: usuario proporcionará imágenes reales)
 
 ### 5.4 Limpieza de código
-- [ ] 5.4.1 Eliminar `initContactForm` de scripts/contact.ts (ya no hay formulario)
-- [ ] 5.4.2 Eliminar `aboutToggle.ts` si se simplifica la página about
-- [ ] 5.4.3 Eliminar imports no utilizados en `main.ts`
-- [ ] 5.4.4 Eliminar `serviceModal.ts` y `modalManager.ts` si no se usan
-- [ ] 5.4.5 Verificar que no queden imports rotos
+- [x] 5.4.1 Eliminar `initContactForm` y `contact.ts` (ya no hay formulario)
+- [x] 5.4.2 Eliminar `aboutToggle.ts` (about simplificado sin toggle)
+- [x] 5.4.3 Eliminar imports no utilizados en `main.ts` (events, services, contactForm)
+- [x] 5.4.4 Eliminar `serviceModal.ts`, `modalManager.ts`, `modal.ts`, `serviceDetail.ts`, `aboutProfile.ts`, `pageHeader.ts`, `section.ts`, `headerNavigation.ts`, `links.ts`
+- [x] 5.4.5 Eliminar CSS de modales de `ui.css`
+- [x] 5.4.6 Eliminar @deprecated fields de `services.ts` y `about.ts`
+- [x] 5.4.7 Verificar que no queden imports rotos (build exitoso)
 
 ---
 

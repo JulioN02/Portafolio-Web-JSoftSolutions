@@ -116,13 +116,13 @@
 
 /* Estado: Hover */
 .site-header__logo:hover {
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   transform: translateY(-1px);
 }
 
 /* Estado: Focus (navegación por teclado) */
 .site-header__logo:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
   border-radius: 4px;
 }
 
@@ -205,18 +205,18 @@
 
 /* Estado: Hover */
 .site-header__link:hover {
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   background-color: rgba(122, 203, 104, 0.08);
 }
 
 /* Estado: Focus (teclado) */
 .site-header__link:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
 }
 
 /* Estado: Active (link activo según ruta) */
 .site-header__link--active {
-  color: var(--color-green-accent);
+  color: var(--color-green-accent-text);
   font-weight: 600;
   background-color: rgba(122, 203, 104, 0.12);
 }
@@ -283,7 +283,7 @@
 
 /* Estado: Focus (teclado) */
 .site-header__toggle:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
 }
 
 /* Estado: Active (presionado) */

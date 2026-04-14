@@ -1,11 +1,8 @@
 import { renderHeader } from "./components/layout/header";
 import { renderFooter } from "./components/layout/footer";
 import { initNavigation, navigateTo } from "./scripts/navigation";
-import { initServiceInteractions } from "./scripts/services";
-import { registerGlobalEvents } from "./scripts/events";
-import { renderHomeView } from "./views/home";
 import { initHeader } from "./scripts/header";
-
+import { renderHomeView } from "./views/home";
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
@@ -25,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   navigateTo(window.location.pathname as any, true);
 
   // Inicializar funcionalidades
-  initHeader();      // ← NUEVA LÍNEA
-  
+  initHeader();
 });
 
 // DOM references
@@ -45,11 +41,3 @@ initNavigation();
 
 // Initial route
 navigateTo(window.location.pathname as any);
-
-initServiceInteractions();
-
-function initApp(): void {
-  registerGlobalEvents();
-}
-
-initApp();

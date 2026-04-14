@@ -60,9 +60,6 @@ export const personalProfile: AboutProfile = {
   ],
 };
 
-/** @deprecated Use personalProfile instead. Kept for backward compat until Phase 3. */
-export const technicalProfile: AboutProfile = personalProfile;
-
 export const nichos = [
   "Salones de belleza, peluquerías y estilistas",
   "Clínicas veterinarias pequeñas",

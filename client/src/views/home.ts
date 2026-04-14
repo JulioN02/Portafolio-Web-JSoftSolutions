@@ -91,7 +91,7 @@ export function renderHomeView(): string {
   return `
 
     <!-- HERO -->
-    <section class="hero-section">
+    <section class="hero-section" aria-label="Introducción">
       <div class="hero-content">
         <h1>Soluciones Web que Hacen Crecer tu Negocio</h1>
         <p>Transformo ideas en herramientas digitales que simplifican operaciones y aumentan ventas.</p>
@@ -103,7 +103,7 @@ export function renderHomeView(): string {
     ${renderHomeCarousel()}
 
     <!-- SERVICIOS RESUMEN -->
-    <section class="services-section">
+    <section class="services-section" aria-label="Resumen de servicios">
       <header>
         <h2>Lo que puedo hacer por ti</h2>
         <p>Sitios web + software administrativo personalizado para salones de belleza, veterinarias, academias, lavanderías y más.</p>
@@ -133,7 +133,7 @@ export function renderHomeView(): string {
     </section>
 
     <!-- CTA FINAL -->
-    <section class="cta-section">
+    <section class="cta-section" aria-label="Llamada a la acción">
       <h2>¿Tienes un proyecto en mente?</h2>
       <p>Cuéntame qué necesitas y te digo cómo puedo ayudarte. Sin compromiso.</p>
       <a href="${whatsappLink}" class="cta-button cta-whatsapp" target="_blank" rel="noopener noreferrer">

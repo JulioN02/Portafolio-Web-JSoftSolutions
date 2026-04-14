@@ -57,7 +57,7 @@
 
 /* Hover: cambio a verde con elevación sutil */
 .cta-button:hover {
-  background-color: var(--color-green-accent);
+  background-color: var(--color-green-accent-text);
   color: var(--color-blue-base);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
@@ -65,7 +65,7 @@
 
 /* Focus: visible para navegación por teclado */
 .cta-button:focus-visible {
-  outline-color: var(--color-green-accent);
+  outline-color: var(--color-green-accent-text);
   box-shadow: var(--shadow-focus);
 }
 
@@ -201,7 +201,7 @@ button {
 }
 
 .ui-button--primary:hover {
-  background-color: var(--color-green-accent);
+  background-color: var(--color-green-accent-text);
   color: var(--color-blue-base);
 }
 
@@ -255,318 +255,6 @@ button {
   }
 }
 
-/* ────────────────────────────────────────────────────────────────
-   MODAL OVERLAY - Backdrop del modal
-   ──────────────────────────────────────────────────────────────── */
-
-.modal-overlay {
-  /* Posicionamiento fijo */
-  position: fixed;
-  inset: 0;
-  
-  /* Layout: centrar contenido */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Backdrop con transparencia */
-  background-color: var(--modal-backdrop);
-  backdrop-filter: blur(2px);
-  
-  /* Z-index: encima de todo */
-  z-index: var(--z-modal-backdrop);
-  
-  /* Transiciones */
-  transition: opacity var(--transition-base) var(--ease-in-out);
-  
-  /* Padding para móvil */
-  padding: var(--container-padding-mobile);
-}
-
-/* State: visible (cuando está abierto) */
-.modal-overlay.is-visible {
-  opacity: 1;
-}
-
-/* State: hidden (cuando está cerrado) */
-.modal-overlay.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Soporte para navegadores sin backdrop-filter */
-@supports not (backdrop-filter: blur(2px)) {
-  .modal-overlay {
-    background-color: rgba(25, 41, 80, 0.85);
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   MODAL CONTAINER - Contenedor principal del modal
-   ──────────────────────────────────────────────────────────────── */
-
-.modal {
-  /* Dimensiones responsivas */
-  width: 100%;
-  max-width: var(--modal-max-width);
-  
-  /* Fondo y bordes */
-  background-color: var(--card-background);
-  border-radius: var(--modal-border-radius);
-  box-shadow: var(--shadow-modal);
-  overflow: hidden;
-  
-  /* Animación de entrada */
-  animation: modalSlideIn var(--transition-slow) var(--ease-out);
-}
-
-/* Animación de entrada del modal */
-@keyframes modalSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Mobile: ajustar ancho máximo */
-@media (max-width: 768px) {
-  .modal {
-    max-width: calc(100% - var(--spacing-lg));
-  }
-}
-
-/* Mobile pequeño: máximo posible */
-@media (max-width: 480px) {
-  .modal {
-    max-width: 100%;
-    margin: var(--spacing-md);
-  }
-}
-
-/* Respetar preferencia de movimiento reducido */
-@media (prefers-reduced-motion: reduce) {
-  .modal {
-    animation: none;
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   MODAL HEADER - Encabezado del modal
-   ──────────────────────────────────────────────────────────────── */
-
-.modal-header {
-  /* Layout */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spacing-md);
-  
-  /* Espaciado */
-  padding: var(--modal-padding);
-  padding-bottom: var(--spacing-lg);
-  
-  /* Estilos */
-  background: linear-gradient(
-    135deg,
-    var(--color-blue-base) 0%,
-    var(--color-blue-medium) 100%
-  );
-  color: var(--color-white);
-  border-bottom: var(--border-width-thin) var(--border-style-solid);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Título dentro del header */
-.modal-header h3,
-.modal-header h2,
-.modal-header h1 {
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
-  margin: 0;
-  padding: 0;
-  color: var(--color-white);
-}
-
-/* Mobile: reducir padding */
-@media (max-width: 768px) {
-  .modal-header {
-    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
-  }
-
-  .modal-header h3,
-  .modal-header h2,
-  .modal-header h1 {
-    font-size: var(--text-base);
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   MODAL CLOSE BUTTON - Botón para cerrar modal
-   ──────────────────────────────────────────────────────────────── */
-
-.modal-close {
-  /* Dimensiones */
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
-  
-  /* Estilos */
-  background: transparent;
-  border: none;
-  border-radius: var(--radius-md);
-  color: var(--color-white);
-  cursor: pointer;
-  padding: 0;
-  
-  /* Tipografía */
-  font-size: var(--text-lg);
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  /* Transiciones */
-  transition:
-    color var(--transition-base) var(--ease-in-out),
-    background-color var(--transition-base) var(--ease-in-out),
-    transform var(--transition-base) var(--ease-in-out);
-  
-  /* Accesibilidad */
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-/* Hover: cambio a verde con fondo sutil */
-.modal-close:hover {
-  color: var(--color-green-accent);
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: rotate(90deg);
-}
-
-/* Focus: visible para navegación por teclado */
-.modal-close:focus-visible {
-  outline-color: var(--color-green-accent);
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* Active: escala reducida */
-.modal-close:active {
-  transform: rotate(90deg) scale(0.9);
-}
-
-/* Mobile: reducir tamaño */
-@media (max-width: 768px) {
-  .modal-close {
-    width: 36px;
-    height: 36px;
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   MODAL CONTENT - Contenido del modal
-   ──────────────────────────────────────────────────────────────── */
-
-.modal-content {
-  /* Espaciado */
-  padding: var(--modal-padding);
-  
-  /* Tipografía */
-  font-size: var(--text-sm);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-gray-600);
-  
-  /* Máximo ancho para legibilidad */
-  max-height: calc(100vh - 200px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-
-/* Estilos para elementos dentro del contenido */
-.modal-content h1,
-.modal-content h2,
-.modal-content h3 {
-  color: var(--color-blue-base);
-  font-weight: var(--font-weight-bold);
-  margin-top: var(--spacing-lg);
-  margin-bottom: var(--spacing-md);
-}
-
-.modal-content h1:first-child,
-.modal-content h2:first-child,
-.modal-content h3:first-child {
-  margin-top: 0;
-}
-
-.modal-content p {
-  margin-top: 0;
-  margin-bottom: var(--spacing-md);
-}
-
-.modal-content p:last-child {
-  margin-bottom: 0;
-}
-
-.modal-content a {
-  color: var(--color-blue-ui);
-  text-decoration: none;
-  transition: color var(--transition-base) var(--ease-in-out);
-}
-
-.modal-content a:hover {
-  color: var(--color-green-accent);
-  text-decoration: underline;
-}
-
-/* Mobile: reducir padding */
-@media (max-width: 768px) {
-  .modal-content {
-    padding: var(--spacing-lg);
-  }
-
-  .modal-content h1,
-  .modal-content h2,
-  .modal-content h3 {
-    font-size: var(--text-base);
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   MODAL FOOTER - Pie del modal (opcional)
-   ──────────────────────────────────────────────────────────────── */
-
-.modal-footer {
-  /* Layout */
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--spacing-md);
-  
-  /* Espaciado */
-  padding: var(--spacing-lg);
-  
-  /* Estilos */
-  background-color: var(--color-gray-50);
-  border-top: var(--border-width-thin) var(--border-style-solid);
-  border-color: var(--color-gray-200);
-}
-
-/* Mobile: cambiar dirección */
-@media (max-width: 768px) {
-  .modal-footer {
-    flex-direction: column-reverse;
-  }
-
-  .modal-footer .ui-button,
-  .modal-footer .cta-button {
-    width: 100%;
-  }
-}
-
 /* ════════════════════════════════════════════════════════════════════
    ACCESIBILIDAD
    ════════════════════════════════════════════════════════════════════ */
@@ -574,30 +262,22 @@ button {
 /* Respetar preferencia de usuario para reducir movimiento */
 @media (prefers-reduced-motion: reduce) {
   .cta-button,
-  .ui-button,
-  .modal-close,
-  .modal-content a {
+  .ui-button {
     transition: none;
   }
 
   .cta-button:hover,
-  .ui-button:hover,
-  .modal-close:hover {
+  .ui-button:hover {
     transform: none;
-  }
-
-  .modal {
-    animation: none;
   }
 }
 
 /* Soporte para navegadores sin outline-offset */
 @supports not (outline-offset: 2px) {
   .cta-button:focus-visible,
-  .ui-button:focus-visible,
-  .modal-close:focus-visible {
+  .ui-button:focus-visible {
     border: var(--border-width-thin) var(--border-style-solid);
-    border-color: var(--color-green-accent);
+    border-color: var(--color-green-accent-text);
   }
 }
 
@@ -608,10 +288,6 @@ button {
     border: var(--border-width-thin) var(--border-style-solid);
     border-color: currentColor;
   }
-
-  .modal-overlay {
-    background-color: rgba(25, 41, 80, 0.95);
-  }
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -620,11 +296,9 @@ button {
    ✓ 100% basado en variables.css (sin valores duros)
    ✓ Botones: CTA, UI, primario, secundario, danger, pequeño, grande
    ✓ Estados completos: hover, focus, active, disabled
-   ✓ Modales: overlay, header, content, footer, close button
-   ✓ Animación de entrada para modales (respeta prefers-reduced-motion)
    ✓ Jerarquía visual clara con gradientes azules
    ✓ Verde solo en interacción (hover en botones)
-   ✓ Accesibilidad: outline focus, aria-compatible
+   ✓ Accesibilidad: outline focus, aria-compatible, prefers-reduced-motion
    ✓ Responsive: mobile-first, ajustes por breakpoint
    ✓ Transiciones suaves y coherentes
    ✓ Compatibilidad con layout.css y footer.css

@@ -6,10 +6,6 @@ export type Service = {
   benefits: string;
   includes: string[];
   niches: string[];
-  /** @deprecated Use problem instead. Kept for backward compat until Phase 3. */
-  description: string;
-  /** @deprecated Use solution instead. Kept for backward compat until Phase 3. */
-  details: string;
 };
 
 export const services: Service[] = [
@@ -33,8 +29,6 @@ export const services: Service[] = [
       "Veterinarias",
       "Academias",
     ],
-    description: "Información dispersa en cuadernos, Excel o la memoria. Olvidas quién vino, qué servicio tomó, cuánto pagó.",
-    details: "Un sistema donde cada cliente tiene su historial completo: servicios, pagos, preferencias y fechas.",
   },
   {
     id: "agenda-citas",
@@ -56,8 +50,6 @@ export const services: Service[] = [
       "Veterinarias",
       "Gimnasios",
     ],
-    description: "Llamadas constantes, doble reservas, cancelaciones de última hora. Tu teléfono no para.",
-    details: "Un calendario online donde tus clientes reservan solos, con confirmación automática y recordatorios.",
   },
   {
     id: "mini-crm",
@@ -78,8 +70,6 @@ export const services: Service[] = [
       "Agencias de seguros",
       "Academias",
     ],
-    description: "Leads que preguntan y desaparecen. Seguimiento manual que se te escapa. Oportunidades perdidas.",
-    details: "Un panel donde ves cada cliente potencial, su estado y próximos pasos. Nada se te pierde.",
   },
   {
     id: "landing-whatsapp",
@@ -99,7 +89,5 @@ export const services: Service[] = [
     niches: [
       "Todos los negocios",
     ],
-    description: "Tu negocio no aparece en internet. Los clientes no te encuentran. El boca a boca ya no alcanza.",
-    details: "Una página profesional que muestra tu negocio + botón directo a WhatsApp para contacto inmediato.",
   },
 ];

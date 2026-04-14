@@ -105,7 +105,7 @@
 /* Hero CTA button */
 .hero-cta {
   display: inline-block;
-  background-color: var(--color-green-backend);
+  background-color: var(--color-green-backend-text);
   color: var(--color-white);
   font-size: var(--text-base);
   font-weight: var(--font-weight-semibold);
@@ -119,8 +119,8 @@
 }
 
 .hero-cta:hover {
-  background-color: var(--color-green-accent);
-  color: var(--color-blue-base);
+  background-color: var(--color-green-backend);
+  color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -279,7 +279,7 @@
 }
 
 .service-summary-link:hover {
-  color: var(--color-green-backend);
+  color: var(--color-green-backend-text);
 }
 
 /* ────────────────────────────────────────────────────────────────
@@ -439,7 +439,7 @@
 }
 
 .why-card-icon {
-  color: var(--color-green-backend);
+  color: var(--color-green-backend-text);
   margin-bottom: var(--spacing-md);
 }
 
@@ -511,7 +511,7 @@
 
 .cta-button {
   display: inline-block;
-  background-color: var(--color-green-backend);
+  background-color: var(--color-green-backend-text);
   color: var(--color-white);
   font-size: var(--text-base);
   font-weight: var(--font-weight-semibold);
@@ -525,19 +525,19 @@
 }
 
 .cta-button:hover {
-  background-color: var(--color-green-accent);
-  color: var(--color-blue-base);
+  background-color: var(--color-green-backend);
+  color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
 /* WhatsApp CTA variant */
 .cta-whatsapp {
-  background-color: #25D366;
+  background-color: #128C7E;
 }
 
 .cta-whatsapp:hover {
-  background-color: #128C7E;
+  background-color: #0E7A6E;
   color: var(--color-white);
 }
 

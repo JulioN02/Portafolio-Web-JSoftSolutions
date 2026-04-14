@@ -7,9 +7,10 @@ export function renderContactView(): string {
     <a
       href="${s.url}"
       class="contact-card"
+      aria-label="Contactar por ${s.label}"
       ${s.name === "email" ? "" : 'target="_blank" rel="noopener noreferrer"'}
     >
-      <div class="contact-card__icon">${s.icon}</div>
+      <div class="contact-card__icon" aria-hidden="true">${s.icon}</div>
       <div class="contact-card__info">
         <span class="contact-card__label">${s.label}</span>
         <span class="contact-card__value">${s.name === "email" ? "jsoftsolutions1@gmail.com" : `Ir a ${s.label}`}</span>
