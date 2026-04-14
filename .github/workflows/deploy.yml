@@ -24,11 +24,11 @@ jobs:
           node-version: 20
           cache: 'npm'
 
-      - name: 3. Instalar dependencias
-        run: npm install
+      - name: 3. Instalar dependencias del cliente
+        run: cd client && npm install
 
       - name: 4. Compilar proyecto (TS a JS con Vite)
-        run: npm run build
+        run: cd client && npm run build
 
       - name: 5. Configurar GitHub Pages
         uses: actions/configure-pages@v4
@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Vite guarda todo lo listo para producción en la carpeta 'dist'
-          path: './dist'
+          path: './client/dist'
 
       - name: 7. Ejecutar el despliegue final
         id: deployment
