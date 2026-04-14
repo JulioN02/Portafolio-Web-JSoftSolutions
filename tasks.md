@@ -1,35 +1,36 @@
 # Tasks: Rediseño Portafolio Web-JSoftSolutions
 
-## Fase 1: Preparación y Limpieza (2-3 horas)
+## Fase 1: Preparación y Limpieza (2-3 horas) ✅ COMPLETADA
 
 ### 1.1 Backup y Git
-- [ ] 1.1.1 Crear branch `feat/portfolio-redesign` desde `main`
-- [ ] 1.1.2 Commit inicial: "chore: backup antes de rediseño"
+- [x] 1.1.1 Crear branch `feat/portfolio-redesign` desde `main`
+- [x] 1.1.2 Commit inicial: "chore: backup antes de rediseño"
 
 ### 1.2 Eliminar páginas obsoletas
-- [ ] 1.2.1 Eliminar `client/src/views/products.ts`
-- [ ] 1.2.2 Eliminar `client/src/views/templates.ts`
-- [ ] 1.2.3 Eliminar `client/src/views/guarantees.ts`
-- [ ] 1.2.4 Eliminar `client/src/data/products.ts`
-- [ ] 1.2.5 Eliminar `client/src/data/templates.ts`
-- [ ] 1.2.6 Eliminar `client/src/data/guarantees.ts`
-- [ ] 1.2.7 Eliminar `client/src/styles/pages/products.css`
-- [ ] 1.2.8 Eliminar `client/src/styles/pages/templates.css`
-- [ ] 1.2.9 Eliminar `client/src/styles/pages/guarantees.css`
-- [ ] 1.2.10 Eliminar componentes huérfanos: `productCard.ts`, `templateCard.ts`, `productModal.ts`, `templateModal.ts`, `productDetail.ts`, `templateDetail.ts`
-- [ ] 1.2.11 Eliminar `serviceDetails.ts` (vista huérfana)
+- [x] 1.2.1 Eliminar `client/src/views/products.ts`
+- [x] 1.2.2 Eliminar `client/src/views/templates.ts`
+- [x] 1.2.3 Eliminar `client/src/views/guarantees.ts`
+- [x] 1.2.4 Eliminar `client/src/data/products.ts`
+- [x] 1.2.5 Eliminar `client/src/data/templates.ts`
+- [x] 1.2.6 Eliminar `client/src/data/guarantees.ts`
+- [x] 1.2.7 Eliminar `client/src/styles/pages/products.css`
+- [x] 1.2.8 Eliminar `client/src/styles/pages/templates.css`
+- [x] 1.2.9 Eliminar `client/src/styles/pages/guarantees.css`
+- [x] 1.2.10 Eliminar componentes huérfanos: `productCard.ts`, `templateCard.ts`, `productModal.ts`, `templateModal.ts`, `productDetail.ts`, `templateDetail.ts`
+- [x] 1.2.11 Eliminar `serviceDetails.ts` (vista huérfana)
 
 ### 1.3 Limpiar imports rotos
-- [ ] 1.3.1 Eliminar imports de `products`, `templates`, `guarantees` en `client/src/scripts/navigation.ts`
-- [ ] 1.3.2 Eliminar rutas `/products`, `/templates`, `/guarantees` del objeto `routes`
-- [ ] 1.3.3 Actualizar tipo `Route` para incluir solo 4 rutas
-- [ ] 1.3.4 Eliminar imports de CSS obsoletos en `client/src/styles/main.css`
+- [x] 1.3.1 Eliminar imports de `products`, `templates`, `guarantees` en `client/src/scripts/navigation.ts`
+- [x] 1.3.2 Eliminar rutas `/products`, `/templates`, `/guarantees` del objeto `routes`
+- [x] 1.3.3 Actualizar tipo `Route` para incluir solo 4 rutas
+- [x] 1.3.4 Eliminar imports de CSS obsoletos en `client/src/styles/main.css`
+- [x] 1.3.5 (Extra) Limpiar imports huérfanos de `productModal`/`templateModal` en `events.ts`
 
 ### 1.4 Actualizar navegación
-- [ ] 1.4.1 Reducir header a 4 items: Inicio, Servicios, Sobre mí, Contacto
-- [ ] 1.4.2 Cambiar texto "Marca" → "Inicio" en header
-- [ ] 1.4.3 Eliminar links de footer a `/products`, `/templates`, `/guarantees`
-- [ ] 1.4.4 Actualizar footer con 4 links principales: Inicio, Servicios, Sobre mí, Contacto
+- [x] 1.4.1 Reducir header a 4 items: Inicio, Servicios, Sobre mí, Contacto
+- [x] 1.4.2 Cambiar texto "Marca" → "Inicio" en header
+- [x] 1.4.3 Eliminar links de footer a `/products`, `/templates`, `/guarantees`
+- [x] 1.4.4 Actualizar footer con 4 links principales: Inicio, Servicios, Sobre mí, Contacto
 
 ---
 
