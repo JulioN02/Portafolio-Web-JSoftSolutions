@@ -1,43 +1,86 @@
-import { initAboutToggle } from "../scripts/aboutToggle";
-import headerBg from "../assets/images/imagenAboutMe2.png";
+import { professionalProfile, personalProfile } from "../data/about";
+import { socialLinks } from "../data/social-links";
 
 export function renderAboutView(): string {
-  const html = `
+  const socialsHTML = socialLinks
+    .map(
+      (s) => `
+    <a
+      href="${s.url}"
+      class="about-social-link"
+      aria-label="${s.label}"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="${s.label}"
+    >
+      ${s.icon}
+      <span>${s.label}</span>
+    </a>
+  `
+    )
+    .join("");
+
+  const professionalSectionsHTML = professionalProfile.sections
+    .map(
+      (sec) => `
+    <div class="about-section">
+      <h3>${sec.title}</h3>
+      ${sec.paragraphs.map((p) => `<p>${p}</p>`).join("")}
+    </div>
+  `
+    )
+    .join("");
+
+  const personalSectionsHTML = personalProfile.sections
+    .map(
+      (sec) => `
+    <div class="about-section">
+      <h3>${sec.title}</h3>
+      ${sec.paragraphs.map((p) => `<p>${p}</p>`).join("")}
+    </div>
+  `
+    )
+    .join("");
+
+  return `
     <section class="about-view">
-      <header class="about-header" style="--about-bg: url('${headerBg}')">
-        <h1>J-Soft Solutions · Ingeniería Web Estructurada</h1>
-          <p>
-            J-Soft Solutions es la expresión de una visión técnica aplicada al desarrollo web.
-            Como desarrollador Fullstack, construyo soluciones con arquitectura clara,
-            separación por capas y enfoque en escalabilidad, combinando frontend, backend y modelo de datos
-            en sistemas coherentes y mantenibles.
-          </p>
+
+      <!-- HEADER -->
+      <header class="about-header">
+        <h1>Sobre mí</h1>
+        <p>Te ayudo a que tu negocio aparezca en internet y se organice por dentro.</p>
       </header>
 
-
-      <div class="about-selector">
-        <button 
-          id="profile-professional" 
-          class="about-btn active" 
-          data-profile="professional">
-          J-Soft Solution
-        </button>
-
-        <button 
-          id="profile-personal" 
-          class="about-btn" 
-          data-profile="personal">
-          Julio Manuel Martinez
-        </button>
+      <!-- J-SOFT SOLUTIONS -->
+      <div class="about-profile">
+        <div class="about-profile__header">
+          <h2>${professionalProfile.name}</h2>
+          <p class="about-profile__tagline">${professionalProfile.tagline}</p>
+        </div>
+        <div class="about-profile__sections">
+          ${professionalSectionsHTML}
+        </div>
       </div>
 
-      <div id="about-content" class="about-content"></div>
+      <!-- JULIO MARTINEZ -->
+      <div class="about-profile">
+        <div class="about-profile__header">
+          <h2>${personalProfile.name}</h2>
+          <p class="about-profile__tagline">${personalProfile.tagline}</p>
+        </div>
+        <div class="about-profile__sections">
+          ${personalSectionsHTML}
+        </div>
+      </div>
+
+      <!-- REDES SOCIALES -->
+      <div class="about-socials">
+        <h2>Encuéntrame en</h2>
+        <div class="about-socials-grid">
+          ${socialsHTML}
+        </div>
+      </div>
+
     </section>
   `;
-
-  queueMicrotask(() => {
-    initAboutToggle();
-  });
-
-  return html;
 }

@@ -73,9 +73,9 @@
    ──────────────────────────────────────────────────────────────── */
 
 .site-footer__inner {
-  /* Grid responsivo: 4 columnas en desktop */
+  /* Grid responsivo: 3 columnas en desktop */
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: var(--spacing-xl);
   
   /* Contenedor centrado */
@@ -333,11 +333,12 @@
 .site-footer__socials {
   /* Layout flex */
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--spacing-sm);
   
   /* Espaciado */
-  margin: var(--spacing-md) 0 0 0;
+  margin: var(--spacing-sm) 0 0 0;
   padding: 0;
 }
 

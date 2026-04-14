@@ -1,40 +1,26 @@
 /* ════════════════════════════════════════════════════════════════════
    ABOUT.CSS - JSoft Solutions
-   Página sobre mí: vista dual (Profesional/Técnico), perfiles intercambiables
+   Página sobre mí: dos perfiles (J-Soft Solutions + Julio Martinez)
+   y sección de redes sociales
    
-   Responsabilidad:
-   • Wrapper y contenedor de página sobre mí
-   • Header con título y descripción
-   • Selector de modo (Profesional ↔ Técnico)
-   • Secciones dinámicas con información personal
-   • Diseño que comunica experiencia y especialización
-   
-   NO maneja: Estilos de tarjetas (cards.css), estructura global (layout.css)
+   Basado en: variables.css + layout.css + ui.css
    ════════════════════════════════════════════════════════════════════ */
 
 /* ────────────────────────────────────────────────────────────────
-   WRAPPER DE PÁGINA - Contenedor principal
+   WRAPPER DE PÁGINA
    ──────────────────────────────────────────────────────────────── */
 
 .about-view {
-  /* Espaciado responsivo */
   padding-top: var(--spacing-3xl);
   padding-bottom: var(--spacing-3xl);
   padding-left: var(--container-padding-mobile);
   padding-right: var(--container-padding-mobile);
-
-  /* Fondo: blanco puro para contraste visual */
   background-color: #ffffff;
-
-  /* Altura mínima para footer sticky */
   min-height: calc(100vh - 200px);
 }
 
-/* Ajustar padding por breakpoint */
 @media (min-width: 768px) {
   .about-view {
-    padding-top: var(--spacing-3xl);
-    padding-bottom: var(--spacing-3xl);
     padding-left: var(--container-padding-tablet);
     padding-right: var(--container-padding-tablet);
   }
@@ -42,568 +28,281 @@
 
 @media (min-width: 1024px) {
   .about-view {
-    padding-top: var(--spacing-3xl);
-    padding-bottom: var(--spacing-3xl);
     padding-left: var(--container-padding-desktop);
     padding-right: var(--container-padding-desktop);
   }
 }
 
-/* Contenedor centrado */
-.about-view .container {
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
-}
-
 /* ────────────────────────────────────────────────────────────────
-   HEADER DE PÁGINA - Título y descripción
+   HEADER
    ──────────────────────────────────────────────────────────────── */
 
 .about-header {
-  position: relative;
   text-align: center;
-
+  max-width: 720px;
   margin: 0 auto var(--spacing-3xl) auto;
   padding: var(--spacing-3xl) var(--spacing-lg);
-
-  width: 100%;
-  overflow: hidden;
-  isolation: isolate;
-  /* crea nuevo stacking context */
-  border-radius: 20px;
-
+  background: linear-gradient(
+    135deg,
+    var(--color-blue-base) 0%,
+    var(--color-blue-medium) 100%
+  );
+  border-radius: var(--radius-xl);
   color: #ffffff;
 }
 
-.about-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background-image: var(--about-bg);
-  background-size: cover;
-  background-position: center 42%;
-  background-repeat: no-repeat;
-  
-
-  filter: blur(1px);
-  transform: scale(1.00);
-  /* evita bordes blancos al difuminar */
-
-  z-index: -2;
+.about-header h1 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: #ffffff !important;
+  margin: 0 0 var(--spacing-lg) 0 !important;
+  padding: 0 !important;
 }
 
-.about-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(3deg,
-      rgba(10, 25, 50, 0.70),
-      rgba(25, 41, 80, 0.25));
-
-  z-index: -1;
+.about-header p {
+  font-size: var(--text-lg);
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.92) !important;
+  max-width: 600px;
+  margin: 0 auto !important;
+  padding: 0 !important;
 }
 
 @media (max-width: 768px) {
   .about-header {
     padding: var(--spacing-2xl) var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
   }
-  .about-header::before{
-    background-position: center 48%;
+
+  .about-header h1 {
+    font-size: var(--text-2xl);
+  }
+
+  .about-header p {
+    font-size: var(--text-base);
   }
 }
 
 @media (max-width: 480px) {
   .about-header {
     padding: var(--spacing-xl) var(--spacing-sm);
-  }
-}
-
-/* Título principal */
-.about-header h1 {
-  /* Tipografía profesional */
-  font-size: var(--text-3xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  letter-spacing: var(--letter-spacing-tight);
-
-  /* Color: azul base */
-  color: #ffffff !important;
-
-  /* Espaciado */
-  margin: 0 0 var(--spacing-lg) 0 !important;
-  padding: 0 !important;
-}
-
-/* Descripción */
-.about-header p {
-  /* Tipografía clara */
-  font-size: var(--text-lg);
-  line-height: var(--line-height-relaxed);
-  font-weight: var(--font-weight-normal);
-
-  /* Color: gris oscuro */
-  color: #ffffff !important;
-
-  /* Espaciado */
-  max-width: 600px;
-  margin: 0 auto !important;
-  padding: 0 !important;
-}
-
-/* Mobile: reducir tamaño */
-@media (max-width: 768px) {
-  .about-header {
-    margin-bottom: var(--spacing-2xl);
-  }
-
-  .about-header h1 {
-    font-size: var(--text-2xl);
-    margin-bottom: var(--spacing-md) !important;
-  }
-
-  .about-header p {
-    font-size: var(--text-base);
-  }
-}
-
-/* Mobile pequeño */
-@media (max-width: 480px) {
-  .about-header {
     margin-bottom: var(--spacing-xl);
   }
 
   .about-header h1 {
     font-size: var(--text-xl);
   }
-
-  .about-header p {
-    font-size: var(--text-sm);
-  }
 }
 
 /* ────────────────────────────────────────────────────────────────
-   SELECTOR DE MODO - Profesional ↔ Técnico
+   PERFIL (J-Soft Solutions / Julio Martinez)
    ──────────────────────────────────────────────────────────────── */
 
-.about-selector {
-  /* Layout: flex horizontal */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-sm);
-
-  /* Espaciado */
-  margin: var(--spacing-2xl) auto;
-  padding: var(--spacing-sm);
-
-  /* Estilos */
-  background-color: #192950;
-  border-radius: var(--radius-xl);
-
-  /* Sombra */
-  box-shadow: var(--shadow-md);
-
-  /* Width auto con máximo */
-  width: fit-content;
-}
-
-/* Botón del selector */
-.about-selector button {
-  /* Tipografía */
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-medium);
-
-  /* Colores */
-  color: rgba(255, 255, 255, 0.8);
-  background: transparent;
-  border: none;
-
-  /* Espaciado */
-  padding: var(--spacing-md) var(--spacing-lg);
-
-  /* Estilo */
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-
-  /* Transiciones */
-  transition:
-    background-color var(--transition-base) var(--ease-in-out),
-    color var(--transition-base) var(--ease-in-out),
-    transform var(--transition-base) var(--ease-in-out),
-    box-shadow var(--transition-base) var(--ease-in-out);
-}
-
-/* Hover en botón */
-.about-selector button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-/* Botón activo: gradiente verde */
-.about-selector button.active {
-  background: linear-gradient(135deg,
-      #3E985D 0%,
-      #7CBD68 100%);
-  color: #ffffff;
-  font-weight: var(--font-weight-semibold);
-  box-shadow: var(--shadow-lg);
-}
-
-/* Hover en botón activo */
-.about-selector button.active:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* Mobile: wrap y full-width */
-@media (max-width: 768px) {
-  .about-selector {
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    margin: var(--spacing-xl) auto;
-  }
-
-  .about-selector button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: 0.8rem;
-  }
-}
-
-/* Mobile pequeño: vertical stack */
-@media (max-width: 480px) {
-  .about-selector {
-    flex-direction: column;
-    width: 100%;
-    gap: var(--spacing-sm);
-  }
-
-  .about-selector button {
-    width: 100%;
-    padding: var(--spacing-md);
-    font-size: 0.85rem;
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   CONTENEDOR DE CONTENIDO
-   ──────────────────────────────────────────────────────────────── */
-
-.about-content {
-  /* Layout vertical */
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-
-  /* Reset */
-  margin: 0;
-  padding: 0;
-}
-
-/* ────────────────────────────────────────────────────────────────
-   SECCIONES SOBRE MÍ - Items informativos
-   ──────────────────────────────────────────────────────────────── */
-
-.about-section {
-  /* Layout flexible */
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-
-  /* Espaciado */
-  padding: var(--spacing-2xl);
-
-  /* Estilos */
-  background-color: #ffffff;
+.about-profile {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-2xl) auto;
+  background-color: var(--color-white);
   border-radius: var(--card-border-radius);
-  border-left: 3px solid #3E985D;
-
-  /* Sombra */
+  border-left: var(--border-width-thick) solid var(--color-green-backend);
   box-shadow: var(--shadow-md);
-
-  /* Transiciones */
+  overflow: hidden;
   transition:
-    all var(--transition-base) var(--ease-in-out),
     box-shadow var(--transition-base) var(--ease-in-out),
     transform var(--transition-base) var(--ease-in-out);
 }
 
-/* Hover: elevación y sombra */
-.about-section:hover {
-  transform: translateY(-4px);
+.about-profile:hover {
   box-shadow: var(--shadow-lg);
-  border-left-color: #7CBD68;
-  background-color: #fafbfc;
+  transform: translateY(-2px);
+}
+
+.about-profile__header {
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  background-color: var(--color-gray-50);
+  border-bottom: var(--border-width-thin) solid var(--color-gray-200);
+}
+
+.about-profile__header h2 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-blue-base);
+  margin: 0 0 var(--spacing-sm) 0;
+  padding: 0;
+}
+
+.about-profile__tagline {
+  font-size: var(--text-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-gray-600);
+  margin: 0;
+  padding: 0;
+}
+
+.about-profile__sections {
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .about-profile__header {
+    padding: var(--spacing-lg);
+  }
+
+  .about-profile__sections {
+    padding: var(--spacing-lg);
+  }
+
+  .about-profile__header h2 {
+    font-size: var(--text-lg);
+  }
 }
 
 /* ────────────────────────────────────────────────────────────────
-   TÍTULO DE SECCIÓN
+   SECCIONES DENTRO DE PERFIL
    ──────────────────────────────────────────────────────────────── */
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: 0 0 var(--spacing-lg) 0;
+  border-bottom: var(--border-width-thin) solid var(--color-gray-200);
+}
+
+.about-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
 
 .about-section h3 {
-  /* Layout: icono + texto */
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-
-  /* Tipografía */
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  color: #192950 !important;
-
-  /* Reset */
-  margin: 0 !important;
-  padding: 0 !important;
+  color: var(--color-blue-base);
+  margin: 0;
+  padding: 0;
 }
-
-/* Punto decorativo antes del título */
-.about-section h3::before {
-  content: "";
-
-  /* Dimensiones */
-  width: 6px;
-  height: 6px;
-  min-width: 6px;
-  flex-shrink: 0;
-
-  /* Estilo */
-  border-radius: 50%;
-  background-color: #7CBD68;
-
-  /* Transición */
-  transition:
-    transform var(--transition-base) var(--ease-in-out),
-    background-color var(--transition-base) var(--ease-in-out);
-}
-
-/* Hover: punto reacciona */
-.about-section:hover h3::before {
-  transform: scale(1.3);
-  background-color: #3E985D;
-}
-
-/* Mobile: reducir tamaño */
-@media (max-width: 768px) {
-  .about-section h3 {
-    font-size: var(--text-base);
-    gap: var(--spacing-xs);
-  }
-
-  .about-section h3::before {
-    width: 5px;
-    height: 5px;
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   PÁRRAFOS EN SECCIÓN
-   ──────────────────────────────────────────────────────────────── */
 
 .about-section p {
-  /* Tipografía */
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   line-height: var(--line-height-relaxed);
-  color: #4b5563 !important;
-
-  /* Espaciado */
-  margin: 0 !important;
-  padding: 0 !important;
+  color: var(--color-gray-600);
+  margin: 0;
+  padding: 0;
 }
 
-/* Párrafos múltiples */
-.about-section p+p {
-  margin-top: var(--spacing-md) !important;
+.about-section p + p {
+  margin-top: var(--spacing-sm);
 }
 
-/* Último párrafo */
-.about-section p:last-of-type {
-  margin-bottom: 0 !important;
-}
-
-/* Mobile */
 @media (max-width: 768px) {
-  .about-section p {
+  .about-section h3 {
     font-size: var(--text-sm);
   }
-}
 
-/* Mobile pequeño */
-@media (max-width: 480px) {
   .about-section p {
     font-size: 0.85rem;
   }
 }
 
 /* ────────────────────────────────────────────────────────────────
-   LISTAS EN SECCIÓN
+   REDES SOCIALES
    ──────────────────────────────────────────────────────────────── */
 
-.about-section ul,
-.about-section ol {
-  /* Tipografía */
-  font-size: var(--text-base);
-  line-height: var(--line-height-relaxed);
-  color: #4b5563;
-
-  /* Espaciado */
-  margin: var(--spacing-md) 0 0 var(--spacing-lg) !important;
-  padding: 0 !important;
-
-  /* Lista */
-  list-style-position: inside;
+.about-socials {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: var(--spacing-xl);
 }
 
-.about-section li {
-  /* Tipografía */
-  font-size: var(--text-base);
-  line-height: var(--line-height-relaxed);
-  color: #4b5563;
-
-  /* Espaciado */
-  margin-bottom: var(--spacing-sm);
+.about-socials h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-blue-base);
+  margin: 0 0 var(--spacing-xl) 0;
+  padding: 0;
 }
 
-/* Color del marcador/bullet */
-.about-section li::marker {
-  color: #7CBD68;
-  font-weight: var(--font-weight-semibold);
+.about-socials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
 }
 
-/* Último item sin margen */
-.about-section li:last-child {
-  margin-bottom: 0;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  .about-section ul,
-  .about-section ol {
-    font-size: var(--text-sm);
-    margin-left: var(--spacing-md) !important;
-  }
-
-  .about-section li {
-    font-size: var(--text-sm);
-  }
-}
-
-/* Mobile pequeño */
-@media (max-width: 480px) {
-
-  .about-section ul,
-  .about-section ol {
-    font-size: 0.85rem;
-    margin-left: var(--spacing-sm) !important;
-  }
-
-  .about-section li {
-    font-size: 0.85rem;
-    margin-bottom: var(--spacing-xs);
-  }
-}
-
-/* ────────────────────────────────────────────────────────────────
-   LINKS EN SECCIÓN
-   ──────────────────────────────────────────────────────────────── */
-
-.about-section a {
-  /* Color azul activo */
-  color: #25609D;
+.about-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background-color: var(--color-gray-50);
+  border: var(--border-width-thin) solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  color: var(--color-blue-base);
   text-decoration: none;
-
-  /* Transición */
-  transition: color var(--transition-base) var(--ease-in-out);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out),
+    border-color var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out);
 }
 
-.about-section a:hover {
-  color: #7CBD68;
-  text-decoration: underline;
+.about-social-link:hover {
+  background-color: var(--color-blue-ui);
+  color: var(--color-white);
+  border-color: var(--color-blue-ui);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
-.about-section a:focus-visible {
-  outline: 2px solid #25609D;
+.about-social-link:focus-visible {
+  outline: 2px solid var(--color-blue-ui);
   outline-offset: 2px;
+}
+
+.about-social-link svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .about-socials-grid {
+    gap: var(--spacing-md);
+  }
+
+  .about-social-link {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--text-xs);
+  }
 }
 
 /* ════════════════════════════════════════════════════════════════════
    ACCESIBILIDAD
    ════════════════════════════════════════════════════════════════════ */
 
-/* Respetar preferencia de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
-
-  .about-selector button,
-  .about-section,
-  .about-section h3::before {
+  .about-profile,
+  .about-social-link {
     transition: none;
   }
 
-  .about-selector button:hover,
-  .about-section:hover,
-  .about-section:hover h3::before {
+  .about-profile:hover,
+  .about-social-link:hover {
     transform: none;
   }
 }
 
-/* Soporte para navegadores sin outline-offset */
-@supports not (outline-offset: 2px) {
-
-  .about-selector button:focus-visible,
-  .about-section a:focus-visible {
-    border: 2px solid #25609D;
-  }
-}
-
-/* High contrast mode */
 @media (prefers-contrast: more) {
-
-  .about-header h1,
-  .about-section h3 {
-    font-weight: var(--font-weight-bold);
-  }
-
-  .about-selector button.active {
-    border: 2px solid rgba(255, 255, 255, 0.5);
-  }
-
-  .about-section {
+  .about-profile {
     border-width: 2px;
   }
 
-  .about-section h3::before {
-    border: 1px solid #7CBD68;
+  .about-social-link {
+    border-width: 2px;
   }
 }
-
-/* ════════════════════════════════════════════════════════════════════
-   RESUMEN - ABOUT.CSS PROFESIONAL OPTIMIZADO:
-   
-   ✓ Estructura vertical clara y centrada
-   ✓ Selector de modo dual (Profesional ↔ Técnico)
-   ✓ Botones interactivos con gradiente activo
-   ✓ Secciones con iconos dinámicos (punto verde)
-   ✓ Colores explícitos del design system
-   ✓ Tipografía profesional con variables
-   ✓ Espaciado generoso (respiración visual)
-   ✓ Transiciones suaves (icono zoom, elevación sección)
-   ✓ Listas con bullets verdes
-   ✓ Links con color y hover interactivo
-   ✓ Responsive perfecto: horizontal → vertical en mobile
-   ✓ Estados completos: hover, focus, active
-   ✓ Accesibilidad: prefers-reduced-motion, contrast, outline
-   ✓ Sin cambio de etiquetas (compatible con HTML existente)
-   
-   CARACTERÍSTICAS CLAVE:
-   - Selector dual modo profesional/técnico
-   - Secciones con puntos decorativos que reaccionan
-   - Diseño que comunica experiencia y confianza
-   - Responsive automático en todos los dispositivos
-   - Transiciones suaves y profesionales
-   - Estructura clara y fácil de leer
-   
-   ════════════════════════════════════════════════════════════════════ */
