@@ -37,42 +37,49 @@
 ## Fase 2: Datos y Copywriting (3-4 horas)
 
 ### 2.1 Crear estructura de datos de servicios (4 paquetes)
-- [ ] 2.1.1 Crear `client/src/data/services.ts` con tipo `Service` expandido (id, title, problem, solution, benefits, includes, price, deliveryTime, niches)
-- [ ] 2.1.2 Paquete 1: Sistema de Clientes + Historial (adaptado de Software Pro)
-  - Problema: pérdida de datos, seguimiento manual, errores
-  - Solución: base de datos centralizada con historial completo
+- [x] 2.1.1 Crear `client/src/data/services.ts` con tipo `Service` expandido (id, title, problem, solution, benefits, includes, niches)
+  - **NO incluir precios ni tiempos de entrega** (decisión del usuario)
+- [x] 2.1.2 Paquete 1: Sistema de Clientes + Historial
+  - Problema: "Información dispersa en cuadernos, Excel o la memoria. Olvidas quién vino, qué servicio tomó, cuánto pagó."
+  - Solución: "Un sistema donde cada cliente tiene su historial completo: servicios, pagos, preferencias y fechas."
+  - Beneficios: "Atención personalizada, nunca más olvides un detalle importante, clientes que vuelven."
   - Incluir: control de pagos, deudas, facturación simple, inventario básico
-  - Precio: 800.000-950.000 COP
-  - Entrega: 3 semanas
-- [ ] 2.1.3 Paquete 2: Agenda de Citas / Servicios (adaptado de Software Básico)
-  - Problema: llamadas constantes, doble reservas, cancelaciones
-  - Solución: calendario online con confirmación automática
+  - Nichos: salones de belleza, veterinarias, academias
+- [x] 2.1.3 Paquete 2: Agenda de Citas / Servicios
+  - Problema: "Llamadas constantes, doble reservas, cancelaciones de última hora. Tu teléfono no para."
+  - Solución: "Un calendario online donde tus clientes reservan solos, con confirmación automática y recordatorios."
+  - Beneficios: "Reservas 24/7, menos llamadas, cero conflictos de horario, más tiempo para ti."
   - Incluir: agenda de citas, recordatorios por WhatsApp, reportes básicos
-  - Precio: 600.000-750.000 COP
-  - Entrega: 2 semanas
-- [ ] 2.1.4 Paquete 3: Mini CRM de Seguimiento (parte de Software Pro)
-  - Problema: leads perdidos, seguimiento inconsistente
-  - Solución: panel de control con pipeline de ventas
+  - Nichos: salones, veterinarias, gimnasios
+- [x] 2.1.4 Paquete 3: Mini CRM de Seguimiento
+  - Problema: "Leads que preguntan y desaparecen. Seguimiento manual que se te escapa. Oportunidades perdidas."
+  - Solución: "Un panel donde ves cada cliente potencial, su estado y próximos pasos. Nada se te pierde."
+  - Beneficios: "Mayor conversión, seguimiento sistemático, ventas que no se escapan."
   - Incluir: dashboard, reportes detallados, notificaciones avanzadas
-  - Precio: 800.000-950.000 COP
-  - Entrega: 3 semanas
-- [ ] 2.1.5 Paquete 4: Landing Page + WhatsApp (adaptado de Visibilidad Express)
-  - Problema: presencia digital débil, difícil contacto
-  - Solución: página profesional con integración directa a WhatsApp
+  - Nichos: agencias de seguros, academias
+- [x] 2.1.5 Paquete 4: Landing Page + WhatsApp
+  - Problema: "Tu negocio no aparece en internet. Los clientes no te encuentran. El boca a boca ya no alcanza."
+  - Solución: "Una página profesional que muestra tu negocio + botón directo a WhatsApp para contacto inmediato."
+  - Beneficios: "Credibilidad online, clientes nuevos cada día, contacto fácil y rápido."
   - Incluir: landing page responsive, WhatsApp Business, SEO local
-  - Precio: 400.000-550.000 COP
-  - Entrega: 7-10 días
+  - Nichos: todos los negocios
 
 ### 2.2 Crear data de redes sociales
-- [ ] 2.2.1 Crear `client/src/data/social-links.ts` con tipo `SocialLink`
-- [ ] 2.2.2 Definir: LinkedIn, GitHub, Email, WhatsApp (número)
-- [ ] 2.2.3 Placeholder para Instagram y Facebook (comentado o null)
-- [ ] 2.2.4 Incluir SVG icons inline para cada red social
+- [x] 2.2.1 Crear `client/src/data/social-links.ts` con tipo `SocialLink`
+- [x] 2.2.2 Definir: LinkedIn, GitHub, Email, WhatsApp
+  - LinkedIn: https://www.linkedin.com/in/julio-nieto-martinez/
+  - GitHub: https://github.com/JulioN02
+  - Email: jsoftsolutions1@gmail.com
+  - WhatsApp: https://wa.me/573122939515
+- [x] 2.2.3 **NO incluir Instagram ni Facebook** (cuentas vacías)
+- [x] 2.2.4 Incluir SVG icons inline para cada red social
 
 ### 2.3 Actualizar data de about
-- [ ] 2.3.1 Mantener dos perfiles: J-Soft Solutions y Julio Martinez
-- [ ] 2.3.2 Agregar sección de redes sociales al perfil profesional
-- [ ] 2.3.3 Simplificar copy: misión, visión, enfoque
+- [x] 2.3.1 Mantener dos perfiles: J-Soft Solutions y Julio Martinez
+- [x] 2.3.2 Agregar nichos de clientes exportados al módulo about
+- [x] 2.3.3 Simplificar copy: misión, visión, enfoque
+  - J-Soft Solutions: "Te ayudo a que tu negocio aparezca en internet y se organice por dentro"
+  - Julio Martinez: "Desarrollador de software especializado en soluciones web y sistemas administrativos para pequeños negocios."
 
 ---
 

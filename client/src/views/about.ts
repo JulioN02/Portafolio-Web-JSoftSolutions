@@ -24,9 +24,9 @@ export function renderAboutView(): string {
         </button>
 
         <button 
-          id="profile-technical" 
+          id="profile-personal" 
           class="about-btn" 
-          data-profile="technical">
+          data-profile="personal">
           Julio Manuel Martinez
         </button>
       </div>

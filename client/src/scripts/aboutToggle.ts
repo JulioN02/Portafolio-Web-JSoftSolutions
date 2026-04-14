@@ -1,6 +1,6 @@
 import {
   professionalProfile,
-  technicalProfile,
+  personalProfile,
   AboutProfileType
 } from "../data/about";
 import { renderAboutProfile } from "../components/sections/aboutProfile";
@@ -9,19 +9,19 @@ let currentProfile: AboutProfileType = "professional";
 
 export function initAboutToggle(): void {
   const professionalBtn = document.getElementById("profile-professional");
-  const technicalBtn = document.getElementById("profile-technical");
+  const personalBtn = document.getElementById("profile-personal");
   const contentContainer = document.getElementById("about-content");
 
-  if (!professionalBtn || !technicalBtn || !contentContainer) return;
+  if (!professionalBtn || !personalBtn || !contentContainer) return;
 
   const render = () => {
     contentContainer.innerHTML =
       currentProfile === "professional"
         ? renderAboutProfile(professionalProfile)
-        : renderAboutProfile(technicalProfile);
+        : renderAboutProfile(personalProfile);
 
     professionalBtn.classList.toggle("active", currentProfile === "professional");
-    technicalBtn.classList.toggle("active", currentProfile === "technical");
+    personalBtn.classList.toggle("active", currentProfile === "personal");
   };
 
   professionalBtn.addEventListener("click", () => {
@@ -29,8 +29,8 @@ export function initAboutToggle(): void {
     render();
   });
 
-  technicalBtn.addEventListener("click", () => {
-    currentProfile = "technical";
+  personalBtn.addEventListener("click", () => {
+    currentProfile = "personal";
     render();
   });
 

@@ -1,40 +1,105 @@
 export type Service = {
   id: string;
   title: string;
-  description: string;
-  details: string;
+  problem: string;
+  solution: string;
+  benefits: string;
   includes: string[];
+  niches: string[];
+  /** @deprecated Use problem instead. Kept for backward compat until Phase 3. */
+  description: string;
+  /** @deprecated Use solution instead. Kept for backward compat until Phase 3. */
+  details: string;
 };
 
 export const services: Service[] = [
   {
-    id: "web-development",
-    title: "Página Web Profesional",
-    description:
-      "Una web diseñada para que tu negocio se vea serio, sea fácil de encontrar y convierta visitas en clientes reales.",
-    details:
-      "Muchos negocios pierden clientes porque no tienen presencia digital o la que tienen no genera confianza.",
+    id: "clientes-historial",
+    title: "Sistema de Clientes + Historial",
+    problem:
+      "Información dispersa en cuadernos, Excel o la memoria. Olvidas quién vino, qué servicio tomó, cuánto pagó.",
+    solution:
+      "Un sistema donde cada cliente tiene su historial completo: servicios, pagos, preferencias y fechas.",
+    benefits:
+      "Atención personalizada, nunca más olvides un detalle importante, clientes que vuelven.",
     includes: [
-      "Diseño adaptado a tu tipo de negocio",
-      "Versión móvil y escritorio",
-      "Secciones: servicios, contacto, ubicación",
-      "Optimización básica para buscadores (SEO)",
-      "Entrega funcional lista para usar",
+      "Control de pagos y deudas",
+      "Facturación simple",
+      "Inventario básico",
+      "Historial completo por cliente",
     ],
+    niches: [
+      "Salones de belleza",
+      "Veterinarias",
+      "Academias",
+    ],
+    description: "Información dispersa en cuadernos, Excel o la memoria. Olvidas quién vino, qué servicio tomó, cuánto pagó.",
+    details: "Un sistema donde cada cliente tiene su historial completo: servicios, pagos, preferencias y fechas.",
   },
   {
-    id: "admin-software",
-    title: "Panel Administrativo Personalizado",
-    description:
-      "Un sistema interno hecho específicamente para lo que tu negocio necesita gestionar: clientes, reservas, inventario, seguimiento. Lo que tú defines, yo lo construyo.",
-    details:
-      "Operar con hojas de cálculo, papel o herramientas genéricas que no encajan genera errores, pérdida de tiempo y caos.",
+    id: "agenda-citas",
+    title: "Agenda de Citas / Servicios",
+    problem:
+      "Llamadas constantes, doble reservas, cancelaciones de última hora. Tu teléfono no para.",
+    solution:
+      "Un calendario online donde tus clientes reservan solos, con confirmación automática y recordatorios.",
+    benefits:
+      "Reservas 24/7, menos llamadas, cero conflictos de horario, más tiempo para ti.",
     includes: [
-      "Análisis de tu flujo operativo actual",
-      "Panel con acceso por usuario y contraseña",
-      "Módulos según tu tipo de negocio",
-      "Interfaz simple, sin curva de aprendizaje",
-      "Soporte post-entrega (alcance acordado)",
+      "Agenda de citas online",
+      "Recordatorios por WhatsApp",
+      "Reportes básicos",
+      "Confirmación automática",
     ],
+    niches: [
+      "Salones de belleza",
+      "Veterinarias",
+      "Gimnasios",
+    ],
+    description: "Llamadas constantes, doble reservas, cancelaciones de última hora. Tu teléfono no para.",
+    details: "Un calendario online donde tus clientes reservan solos, con confirmación automática y recordatorios.",
+  },
+  {
+    id: "mini-crm",
+    title: "Mini CRM de Seguimiento",
+    problem:
+      "Leads que preguntan y desaparecen. Seguimiento manual que se te escapa. Oportunidades perdidas.",
+    solution:
+      "Un panel donde ves cada cliente potencial, su estado y próximos pasos. Nada se te pierde.",
+    benefits:
+      "Mayor conversión, seguimiento sistemático, ventas que no se escapan.",
+    includes: [
+      "Dashboard de seguimiento",
+      "Reportes detallados",
+      "Notificaciones avanzadas",
+      "Pipeline de ventas",
+    ],
+    niches: [
+      "Agencias de seguros",
+      "Academias",
+    ],
+    description: "Leads que preguntan y desaparecen. Seguimiento manual que se te escapa. Oportunidades perdidas.",
+    details: "Un panel donde ves cada cliente potencial, su estado y próximos pasos. Nada se te pierde.",
+  },
+  {
+    id: "landing-whatsapp",
+    title: "Landing Page + WhatsApp",
+    problem:
+      "Tu negocio no aparece en internet. Los clientes no te encuentran. El boca a boca ya no alcanza.",
+    solution:
+      "Una página profesional que muestra tu negocio + botón directo a WhatsApp para contacto inmediato.",
+    benefits:
+      "Credibilidad online, clientes nuevos cada día, contacto fácil y rápido.",
+    includes: [
+      "Landing page responsive",
+      "WhatsApp Business integrado",
+      "SEO local",
+      "Diseño profesional",
+    ],
+    niches: [
+      "Todos los negocios",
+    ],
+    description: "Tu negocio no aparece en internet. Los clientes no te encuentran. El boca a boca ya no alcanza.",
+    details: "Una página profesional que muestra tu negocio + botón directo a WhatsApp para contacto inmediato.",
   },
 ];
