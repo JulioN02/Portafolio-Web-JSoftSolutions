@@ -1,6 +1,7 @@
 import { services } from "../data/services";
 import { nichos } from "../data/about";
 import { socialLinks } from "../data/social-links";
+import { renderHomeCarousel, initAllCarousels } from "../components/ui/carousel";
 
 const SERVICE_ICONS: Record<string, string> = {
   "clientes-historial": `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -98,6 +99,9 @@ export function renderHomeView(): string {
       </div>
     </section>
 
+    <!-- CARRUSEL DE PROYECTOS -->
+    ${renderHomeCarousel()}
+
     <!-- SERVICIOS RESUMEN -->
     <section class="services-section">
       <header>
@@ -137,4 +141,9 @@ export function renderHomeView(): string {
       </a>
     </section>
   `;
+}
+
+export function initHomeView(): void {
+  // Initialize carousel in home page
+  initAllCarousels();
 }

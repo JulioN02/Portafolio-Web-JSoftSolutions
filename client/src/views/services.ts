@@ -1,6 +1,7 @@
 import { services } from "../data/services";
 import { nichos } from "../data/about";
 import { socialLinks } from "../data/social-links";
+import { renderServicesCarousel, initAllCarousels } from "../components/ui/carousel";
 
 const PROCESS_STEPS = [
   {
@@ -91,6 +92,9 @@ export function renderServicesView(): string {
         ${packagesHTML}
       </div>
 
+      <!-- CARRUSEL DE EJEMPLOS -->
+      ${renderServicesCarousel()}
+
       <!-- NICHOS -->
       <section class="niches-section">
         <h2>¿Para qué negocios?</h2>
@@ -122,5 +126,6 @@ export function renderServicesView(): string {
 }
 
 export function initServicesView(): void {
-  // No interactive logic needed for now
+  // Initialize carousel in services page
+  initAllCarousels();
 }

@@ -1,4 +1,4 @@
-import { renderHomeView } from "../views/home";
+import { renderHomeView, initHomeView } from "../views/home";
 import { renderServicesView, initServicesView } from "../views/services";
 import { renderAboutView } from "../views/about";
 import { renderContactView } from "../views/contact";
@@ -20,7 +20,10 @@ type RouteConfig = {
 };
 
 const routes: Record<Route, RouteConfig> = {
-  "/": { render: renderHomeView },
+  "/": {
+    render: renderHomeView,
+    onMount: initHomeView,
+  },
   "/services": {
     render: renderServicesView,
     onMount: initServicesView,

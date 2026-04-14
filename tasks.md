@@ -125,20 +125,20 @@
 
 ---
 
-## Fase 4: Carrusel y Componentes UI (2-3 horas)
+## Fase 4: Carrusel y Componentes UI (2-3 horas) ✅ COMPLETADA
 
 ### 4.1 Crear componente carrusel
-- [ ] 4.1.1 Crear `client/src/components/ui/carousel.ts`
-- [ ] 4.1.2 Implementar carrusel vanilla JS con auto-play
-- [ ] 4.1.3 Controles: prev/next, indicadores de posición
-- [ ] 4.1.4 Responsive: 1 imagen en mobile, 2-3 en desktop
-- [ ] 4.1.5 Crear `client/src/styles/components/carousel.css`
-- [ ] 4.1.6 Placeholder images inicialmente (usuario proporcionará después)
+- [x] 4.1.1 Crear `client/src/components/ui/carousel.ts`
+- [x] 4.1.2 Implementar carrusel vanilla JS con auto-play
+- [x] 4.1.3 Controles: prev/next, indicadores de posición
+- [x] 4.1.4 Responsive: 1 imagen en mobile, 2-3 en desktop
+- [x] 4.1.5 Crear `client/src/styles/components/carousel.css`
+- [x] 4.1.6 Placeholder images inicialmente (usuario proporcionará después)
 
 ### 4.2 Integrar carrusel en páginas
-- [ ] 4.2.1 Home: carrusel de proyectos/servicios en hero o sección dedicada
-- [ ] 4.2.2 Servicios: carrusel de ejemplos por paquete (placeholders)
-- [ ] 4.2.3 Lazy loading de imágenes
+- [x] 4.2.1 Home: carrusel de proyectos/servicios en hero o sección dedicada
+- [x] 4.2.2 Servicios: carrusel de ejemplos por paquete (placeholders)
+- [x] 4.2.3 Lazy loading de imágenes
 
 ---
 
