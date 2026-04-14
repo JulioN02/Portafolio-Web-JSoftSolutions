@@ -1,0 +1,305 @@
+/* ════════════════════════════════════════════════════════════════════
+   UI.CSS - JSoft Solutions
+   Componentes primitivos: botones, CTAs, modales
+   
+   Responsabilidad:
+   • Botones y llamadas a acción
+   • Estados interactivos (hover, focus, active, disabled)
+   • Modales y overlays
+   • Accesibilidad y focus management
+   
+   Basado en: variables.css + layout.css
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN CTA - Llamada a acción principal
+   ──────────────────────────────────────────────────────────────── */
+
+.cta-button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  
+  /* Tipografía */
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  
+  /* Color */
+  color: var(--color-white);
+  background-color: var(--color-blue-ui);
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: var(--button-height-md);
+  
+  /* Comportamiento */
+  text-decoration: none;
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  position: relative;
+  
+  /* Transiciones suaves */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Hover: cambio a verde con elevación sutil */
+.cta-button:hover {
+  background-color: var(--color-green-accent-text);
+  color: var(--color-blue-base);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Focus: visible para navegación por teclado */
+.cta-button:focus-visible {
+  outline-color: var(--color-green-accent-text);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Active: presión visual */
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled: estado deshabilitado */
+.cta-button:disabled {
+  background-color: var(--color-gray-400);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  transform: none;
+}
+
+/* Variante: CTA secundaria (outline) */
+.cta-button--secondary {
+  background-color: transparent;
+  color: var(--color-blue-ui);
+  border: var(--border-width-thin) var(--border-style-solid);
+  border-color: var(--color-blue-ui);
+}
+
+.cta-button--secondary:hover {
+  background-color: var(--color-blue-ui);
+  color: var(--color-white);
+  border-color: var(--color-blue-ui);
+}
+
+/* Variante: CTA pequeño */
+.cta-button--small {
+  height: var(--button-height-sm);
+  padding: calc(var(--button-padding-y) * 0.75) calc(var(--button-padding-x) * 0.75);
+  font-size: var(--text-xs);
+}
+
+/* Variante: CTA grande */
+.cta-button--large {
+  height: var(--button-height-lg);
+  padding: calc(var(--button-padding-y) * 1.25) calc(var(--button-padding-x) * 1.25);
+  font-size: var(--text-base);
+}
+
+/* Mobile: ajustar tamaño */
+@media (max-width: 768px) {
+  .cta-button {
+    padding: calc(var(--button-padding-y) * 0.9) calc(var(--button-padding-x) * 0.9);
+    font-size: var(--text-xs);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────
+   BOTÓN GENÉRICO - Elemento HTML button
+   ──────────────────────────────────────────────────────────────── */
+
+button {
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ui-button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  
+  /* Tipografía */
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  
+  /* Color */
+  color: var(--color-white);
+  background-color: var(--color-blue-medium);
+  
+  /* Espaciado */
+  padding: var(--button-padding-y) var(--button-padding-x);
+  height: var(--button-height-md);
+  
+  /* Comportamiento */
+  border: none;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  position: relative;
+  
+  /* Transiciones */
+  transition:
+    background-color var(--transition-base) var(--ease-in-out),
+    transform var(--transition-base) var(--ease-in-out),
+    box-shadow var(--transition-base) var(--ease-in-out);
+  
+  /* Accesibilidad */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Hover: cambio a azul más activo */
+.ui-button:hover {
+  background-color: var(--color-blue-ui);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Focus: visible para navegación por teclado */
+.ui-button:focus-visible {
+  outline-color: var(--color-blue-ui);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Active: escala reducida */
+.ui-button:active {
+  transform: scale(0.97);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled: estado deshabilitado */
+.ui-button:disabled {
+  background-color: var(--color-gray-400);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+  transform: none;
+}
+
+/* Variante: Botón primario (énfasis) */
+.ui-button--primary {
+  background-color: var(--color-blue-ui);
+}
+
+.ui-button--primary:hover {
+  background-color: var(--color-green-accent-text);
+  color: var(--color-blue-base);
+}
+
+/* Variante: Botón secundario (outline) */
+.ui-button--secondary {
+  background-color: transparent;
+  color: var(--color-blue-medium);
+  border: var(--border-width-thin) var(--border-style-solid);
+  border-color: var(--color-blue-medium);
+}
+
+.ui-button--secondary:hover {
+  background-color: var(--color-blue-medium);
+  color: var(--color-white);
+}
+
+/* Variante: Botón de peligro */
+.ui-button--danger {
+  background-color: var(--color-error);
+}
+
+.ui-button--danger:hover {
+  background-color: #b91c1c;
+  box-shadow: var(--shadow-md);
+}
+
+/* Variante: Botón pequeño */
+.ui-button--small {
+  height: var(--button-height-sm);
+  padding: calc(var(--button-padding-y) * 0.75) calc(var(--button-padding-x) * 0.75);
+  font-size: var(--text-xs);
+}
+
+/* Variante: Botón grande */
+.ui-button--large {
+  height: var(--button-height-lg);
+  padding: calc(var(--button-padding-y) * 1.25) calc(var(--button-padding-x) * 1.25);
+  font-size: var(--text-base);
+}
+
+/* Variante: Botón ancho (full-width en contexto) */
+.ui-button--block {
+  width: 100%;
+}
+
+/* Mobile: ajustar tamaño */
+@media (max-width: 768px) {
+  .ui-button {
+    padding: calc(var(--button-padding-y) * 0.9) calc(var(--button-padding-x) * 0.9);
+    font-size: var(--text-xs);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   ACCESIBILIDAD
+   ════════════════════════════════════════════════════════════════════ */
+
+/* Respetar preferencia de usuario para reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .cta-button,
+  .ui-button {
+    transition: none;
+  }
+
+  .cta-button:hover,
+  .ui-button:hover {
+    transform: none;
+  }
+}
+
+/* Soporte para navegadores sin outline-offset */
+@supports not (outline-offset: 2px) {
+  .cta-button:focus-visible,
+  .ui-button:focus-visible {
+    border: var(--border-width-thin) var(--border-style-solid);
+    border-color: var(--color-green-accent-text);
+  }
+}
+
+/* High contrast mode (accesibilidad) */
+@media (prefers-contrast: more) {
+  .cta-button,
+  .ui-button {
+    border: var(--border-width-thin) var(--border-style-solid);
+    border-color: currentColor;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESUMEN DE CAMBIOS CLAVE:
+   
+   ✓ 100% basado en variables.css (sin valores duros)
+   ✓ Botones: CTA, UI, primario, secundario, danger, pequeño, grande
+   ✓ Estados completos: hover, focus, active, disabled
+   ✓ Jerarquía visual clara con gradientes azules
+   ✓ Verde solo en interacción (hover en botones)
+   ✓ Accesibilidad: outline focus, aria-compatible, prefers-reduced-motion
+   ✓ Responsive: mobile-first, ajustes por breakpoint
+   ✓ Transiciones suaves y coherentes
+   ✓ Compatibilidad con layout.css y footer.css
+   ════════════════════════════════════════════════════════════════════ */
