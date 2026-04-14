@@ -1,12 +1,8 @@
 import { renderHomeView } from "../views/home";
 import { renderServicesView, initServicesView } from "../views/services";
-import { renderProductsView } from "../views/products";
-import { renderTemplatesView } from "../views/templates";
-import { renderGuaranteesView } from "../views/guarantees";
 import { renderAboutView } from "../views/about";
 import { renderContactView } from "../views/contact";
-import { initContactForm } from "../scripts/contact";
-import { updateActiveLink } from "./header"; // <-- Nuevo import
+import { updateActiveLink } from "./header";
 
 // ============================
 // ROUTES
@@ -15,9 +11,6 @@ import { updateActiveLink } from "./header"; // <-- Nuevo import
 type Route =
   | "/"
   | "/services"
-  | "/products"
-  | "/templates"
-  | "/guarantees"
   | "/about"
   | "/contact";
 
@@ -32,14 +25,8 @@ const routes: Record<Route, RouteConfig> = {
     render: renderServicesView,
     onMount: initServicesView,
   },
-  "/products": { render: renderProductsView },
-  "/templates": { render: renderTemplatesView },
-  "/guarantees": { render: renderGuaranteesView },
   "/about": { render: renderAboutView },
-  "/contact": {
-    render: renderContactView,
-    onMount: initContactForm,
-  },
+  "/contact": { render: renderContactView },
 };
 
 // ============================

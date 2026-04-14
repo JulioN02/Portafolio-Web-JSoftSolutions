@@ -36,7 +36,7 @@ export function renderHeader(): string {
                 class="site-header__link" 
                 data-route="/"
               >
-                Marca
+                Inicio
               </a>
             </li>
             <li>
@@ -46,33 +46,6 @@ export function renderHeader(): string {
                 data-route="/services"
               >
                 Servicios
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/products" 
-                class="site-header__link" 
-                data-route="/products"
-              >
-                Productos
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/templates" 
-                class="site-header__link" 
-                data-route="/templates"
-              >
-                Plantillas
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/guarantees" 
-                class="site-header__link" 
-                data-route="/guarantees"
-              >
-                Garantías
               </a>
             </li>
             <li>

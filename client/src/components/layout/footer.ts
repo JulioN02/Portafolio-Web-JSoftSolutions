@@ -42,11 +42,11 @@ export function renderFooter(): string {
               </li>
               <li>
                 <a 
-                  href="/products" 
+                  href="/about" 
                   class="site-footer__link" 
-                  data-route="/products"
+                  data-route="/about"
                 >
-                  Productos
+                  Sobre mí
                 </a>
               </li>
               <li>
@@ -60,40 +60,6 @@ export function renderFooter(): string {
               </li>
             </ul>
           </nav>
-        </div>
-
-        <!-- Sección: Información -->
-        <div class="site-footer__section">
-          <h3 class="site-footer__title">Información</h3>
-          <ul class="site-footer__links">
-            <li>
-              <a 
-                href="/about" 
-                class="site-footer__link" 
-                data-route="/about"
-              >
-                Sobre mí
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/guarantees" 
-                class="site-footer__link" 
-                data-route="/guarantees"
-              >
-                Garantías
-              </a>
-            </li>
-            <li>
-              <a 
-                href="/templates" 
-                class="site-footer__link" 
-                data-route="/templates"
-              >
-                Plantillas
-              </a>
-            </li>
-          </ul>
         </div>
 
         <!-- Sección: Redes sociales -->
