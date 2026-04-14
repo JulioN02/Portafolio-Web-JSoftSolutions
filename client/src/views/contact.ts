@@ -18,8 +18,11 @@ export function renderContactView(): string {
   return `
     <section class="page page-contact">
       ${renderPageHeader({
-        title: "Contacto",
-        description: "¿Tienes un proyecto, una idea o una oportunidad profesional? Puedes escribirme directamente o usar el formulario.",
+        title: "Hablemos",
+        description: `
+          Si tienes un proyecto en mente o simplemente quieres saber si puedo ayudarte, escríbeme. Sin compromiso.<br><br>
+          Te respondo en menos de 24 horas.
+        `,
         bgImage: contactBg,
       })}
 
@@ -63,7 +66,7 @@ export function renderContactView(): string {
           </div>
 
           <button type="submit" class="ui-button">
-            Enviar mensaje
+            Escríbeme y conversemos
           </button>
 
           <p class="form-note">
@@ -72,7 +75,7 @@ export function renderContactView(): string {
         </form>
 
         <aside class="contact-channels">
-          <h2>Otros canales</h2>
+          <h2>Canales</h2>
           <ul>
             <li>
               <strong>Email:</strong>

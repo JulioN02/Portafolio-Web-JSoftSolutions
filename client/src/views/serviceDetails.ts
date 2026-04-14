@@ -9,13 +9,18 @@ export function renderServiceDetailView(serviceId: string): string {
 
   return `
     <section class="page page-service-detail">
-      <header>
+      <header style="margin-bottom: 2rem;">
         <h1>${service.title}</h1>
-        <p>${service.details}</p>
+        <p style="font-size: 1.2rem; opacity: 0.9;">${service.description}</p>
       </header>
 
-      <section>
-        <h3>Qué incluye</h3>
+      <section class="service-problem" style="margin-bottom: 2rem;">
+        <h3>Problema que resuelve</h3>
+        <p>${service.details}</p>
+      </section>
+
+      <section class="service-includes">
+        <h3>Qué incluye la versión base</h3>
         <ul>
           ${service.includes.map((item) => `<li>${item}</li>`).join("")}
         </ul>
