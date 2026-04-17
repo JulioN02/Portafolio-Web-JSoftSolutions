@@ -14,7 +14,7 @@ export function renderAboutView(): string {
           <p class="about-lead">Ingeniero de Sistemas y Desarrollador de Software, especializado en crear soluciones tecnológicas para pequeños negocios.</p>
           <p class="about-description">Combino mi formación académica en Ingeniería de Sistemas con años de experiencia coordinando operaciones logísticas. Eso me dio algo que va más allá del código: <strong>entender cómo funciona un negocio por dentro</strong>. Ahora aplico ese conocimiento para crear herramientas digitales que realmente resuelven problemas.</p>
         </div>
-        <div class="about-hero-image" style="transform: scale(1.05);">
+        <div class="about-hero-image">
           <img src="${sobreMiImage}" alt="Julio Martínez - Ingeniero de Sistemas y Desarrollador de Software" loading="lazy">
         </div>
       </div>
@@ -66,7 +66,7 @@ export function renderAboutView(): string {
           <span class="stack-tag stack-tag--secondary">PostgreSQL</span>
           <span class="stack-tag stack-tag--secondary">MongoDB</span>
           <span class="stack-tag stack-tag--secondary">Docker</span>
-          <span class="stack-tag stack-tag--secondary">AWS</span>
+          <span class="stack-tag stack-tag--secondary">Azure</span>
         </div>
         <p class="stack-note">Tecnologías modernas, estables y escalables. Nada de modas pasajeras.</p>
       </div>

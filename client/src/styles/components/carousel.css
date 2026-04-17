@@ -3,12 +3,12 @@
    JSoft Solutions - Portfolio Redesign Phase 4
 
    Responsabilidad:
-   • Carrusel responsive (1 slide mobile, 2 tablet, 3 desktop)
+   • Carrusel responsive con mockups profesionales tipo producto
+   • Marco de navegador estilo macOS con botones de tráfico
+   • Marco de teléfono moderno con notch
+   • Sombras suaves y profundidad realista
    • Controles prev/next con SVG
    • Indicadores de posición (dots)
-   • Transiciones suaves
-   • Accesibilidad (focus visible, reduced-motion)
-   • Placeholder slides con iconos
 
    Basado en: variables.css
    ════════════════════════════════════════════════════════════════════ */
@@ -82,7 +82,7 @@
 }
 
 /* ────────────────────────────────────────────────────────────────
-   CONTENEDOR DEL CARRUSEL
+    CONTENEDOR DEL CARRUSEL
    ──────────────────────────────────────────────────────────────── */
 
 .carousel {
@@ -128,63 +128,413 @@
   }
 }
 
-/* Placeholder visual (reemplazará con imagen real) */
-.carousel-slide__placeholder {
-  aspect-ratio: 16 / 10;
-  border-radius: var(--radius-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* ═══════════════════════════════════════════════════════════════
+   SLIDE IMAGES - MOCKUP PROFESIONAL TIPO FOTOGRAFÍA DE PRODUCTO
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Contenedor principal con fondo degradado suave */
+.carousel-slide__images {
   position: relative;
-  box-shadow: var(--shadow-md);
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  aspect-ratio: 16 / 11;
+  background: linear-gradient(160deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  border-radius: 24px;
+  overflow: visible;
+  padding: var(--spacing-lg);
+  margin-right: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-.carousel-slide:hover .carousel-slide__placeholder {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-4px);
+.carousel-slide:hover .carousel-slide__images {
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    0 25px 50px -12px rgba(15, 23, 42, 0.2);
 }
 
-.carousel-slide__icon {
-  width: 64px;
-  height: 64px;
-  opacity: 0.7;
-  transition: opacity var(--transition-base) var(--ease-in-out),
-              transform var(--transition-base) var(--ease-in-out);
+/* ─── MARCO DEL DISPOSITIVO DESKTOP - ESTILO macOS ─── */
+.carousel-slide__image-desktop {
+  position: relative;
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-white);
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 0 0 6px #1e293b,
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    0 10px 20px -5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.carousel-slide__icon svg {
+/* Barra superior del navegador - fondo oscuro macOS */
+.carousel-slide__image-desktop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+  border-radius: 10px 10px 0 0;
+  z-index: 3;
+}
+
+/* Botones de tráfico macOS - círculos redondos */
+.carousel-slide__image-desktop::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  width: 10px;
+  height: 10px;
+  background: #ff5f56;
+  border-radius: 50%;
+  box-shadow: 
+    16px 0 0 #ffbd2e,
+    32px 0 0 #27c93f;
+  z-index: 4;
+}
+
+/* Título de la ventana en el centro */
+.carousel-slide__image-desktop .window-title {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 4;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.carousel-slide__image-desktop img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+  padding-top: 28px;
+  background: var(--color-white);
+}
+
+/* ─── IMAGEN MOBILE - SUPERPOSICIÓN ESQUINA INFERIOR DERECHA ─── */
+.carousel-slide__image-mobile {
+  position: absolute;
+  bottom: -3%;
+  right: 3%;
+  width: 35%;
+  max-width: 150px;
+  height: 68%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0f172a;
+  z-index: 20;
+  box-shadow: 
+    0 0 0 2px #1e293b,
+    0 0 0 3px rgba(255, 255, 255, 0.1),
+    0 20px 40px -8px rgba(0, 0, 0, 0.5),
+    0 8px 16px -4px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Notch del teléfono */
+.carousel-slide__image-mobile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45%;
+  height: 22px;
+  background: #0f172a;
+  border-radius: 0 0 14px 14px;
+  z-index: 21;
+}
+
+/* Borde interior del teléfono */
+.carousel-slide__image-mobile::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 22;
+}
+
+.carousel-slide__image-mobile img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 18px;
+  padding: 5px;
 }
 
-.carousel-slide:hover .carousel-slide__icon {
-  opacity: 1;
-  transform: scale(1.1);
+/* ─── EFECTOS HOVER PROFESIONALES ─── */
+.carousel-slide:hover .carousel-slide__image-desktop {
+  transform: translateY(-4px) rotateX(2deg);
+  box-shadow: 
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 0 0 6px #1e293b,
+    0 35px 60px -12px rgba(0, 0, 0, 0.35),
+    0 15px 30px -8px rgba(0, 0, 0, 0.25);
 }
 
-/* Contenido del slide */
+.carousel-slide:hover .carousel-slide__image-mobile {
+  transform: translateY(-12px) translateX(-4px) scale(1.03);
+  box-shadow: 
+    0 0 0 2px #3b82f6,
+    0 0 0 4px #1e293b,
+    0 30px 50px -10px rgba(0, 0, 0, 0.5),
+    0 12px 24px -6px rgba(59, 130, 246, 0.3);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .carousel-slide__images {
+    aspect-ratio: 16 / 12;
+    padding: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+  
+  .carousel-slide__image-desktop {
+    width: 96%;
+  }
+  
+  .carousel-slide__image-mobile {
+    width: 33%;
+    right: 2%;
+    bottom: -2%;
+    max-width: 130px;
+    height: 65%;
+    border-radius: 16px;
+  }
+  
+  .carousel-slide__image-mobile::before {
+    height: 18px;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* Breakpoint específico para tablets pequeñas y mobile landscape */
+@media (max-width: 757px) {
+  .carousel-slide__images {
+    aspect-ratio: 16 / 12;
+    padding: var(--spacing-sm);
+    margin-right: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .carousel-slide__image-desktop {
+    width: 94%;
+    border-radius: 8px;
+    box-shadow: 
+      0 0 0 1px rgba(0, 0, 0, 0.08),
+      0 0 0 5px #1e293b,
+      0 20px 40px -10px rgba(0, 0, 0, 0.35);
+  }
+  
+  .carousel-slide__image-desktop::before {
+    height: 22px;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .carousel-slide__image-desktop::after {
+    top: 7px;
+    left: 10px;
+    width: 8px;
+    height: 8px;
+    box-shadow: 
+      13px 0 0 #ffbd2e,
+      26px 0 0 #27c93f;
+  }
+  
+  .carousel-slide__image-desktop img {
+    padding-top: 22px;
+  }
+  
+  /* Mobile más pequeño y proporcionado */
+  .carousel-slide__image-mobile {
+    width: 26%;
+    right: 4%;
+    bottom: 2%;
+    border-radius: 12px;
+    height: 52%;
+    max-width: 95px;
+    box-shadow: 
+      0 0 0 2px #1e293b,
+      0 0 0 3px rgba(255, 255, 255, 0.1),
+      0 15px 30px -6px rgba(0, 0, 0, 0.4);
+  }
+  
+  .carousel-slide__image-mobile::before {
+    height: 14px;
+    border-radius: 0 0 8px 8px;
+    width: 45%;
+  }
+  
+  .carousel-slide__image-mobile::after {
+    inset: 2px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-slide__images {
+    aspect-ratio: 16 / 13;
+  }
+  
+  .carousel-slide__image-desktop {
+    width: 96%;
+  }
+  
+  .carousel-slide__image-mobile {
+    width: 28%;
+    right: 2%;
+    bottom: 1%;
+    height: 54%;
+    max-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-slide__images {
+    aspect-ratio: 16 / 13;
+    padding: var(--spacing-xs);
+  }
+  
+  .carousel-slide__image-desktop {
+    width: 97%;
+    border-radius: 6px;
+    box-shadow: 
+      0 0 0 1px rgba(0, 0, 0, 0.08),
+      0 0 0 4px #1e293b,
+      0 15px 30px -8px rgba(0, 0, 0, 0.35);
+  }
+  
+  .carousel-slide__image-desktop::before {
+    height: 18px;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .carousel-slide__image-desktop::after {
+    top: 5px;
+    left: 8px;
+    width: 6px;
+    height: 6px;
+    box-shadow: 
+      10px 0 0 #ffbd2e,
+      20px 0 0 #27c93f;
+  }
+  
+  .carousel-slide__image-desktop img {
+    padding-top: 18px;
+  }
+  
+  /* Mobile más compacto en pantallas muy pequeñas */
+  .carousel-slide__image-mobile {
+    width: 24%;
+    right: 3%;
+    bottom: 2%;
+    border-radius: 10px;
+    height: 48%;
+    max-width: 75px;
+  }
+  
+  .carousel-slide__image-mobile::before {
+    height: 12px;
+    border-radius: 0 0 6px 6px;
+    width: 40%;
+  }
+  
+  .carousel-slide__image-mobile::after {
+    inset: 2px;
+    border-radius: 8px;
+  }
+  
+  .carousel-slide__image-mobile {
+    width: 30%;
+    right: 0%;
+    bottom: 0%;
+    border-radius: 12px;
+    height: 58%;
+    max-width: 90px;
+    box-shadow: 
+      0 0 0 2px #1e293b,
+      0 0 0 3px rgba(255, 255, 255, 0.1),
+      0 15px 30px -6px rgba(0, 0, 0, 0.4);
+  }
+  
+  .carousel-slide__image-mobile::before {
+    height: 14px;
+    border-radius: 0 0 7px 7px;
+    width: 40%;
+  }
+  
+  .carousel-slide__image-mobile::after {
+    inset: 2px;
+    border-radius: 10px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENIDO DEL SLIDE - TARJETA DE INFORMACIÓN
+   ═══════════════════════════════════════════════════════════════ */
+
 .carousel-slide__content {
-  padding: var(--spacing-lg) var(--spacing-sm);
+  padding: var(--spacing-xl) var(--spacing-md);
   text-align: center;
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  margin-top: var(--spacing-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease;
+  background: linear-gradient(180deg, var(--color-white) 0%, #f8fafc 100%);
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-lg);
+  border: 1px solid rgba(33, 73, 123, 0.08);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(33, 73, 123, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.carousel-slide__content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-blue-ui), var(--color-green-accent));
+  border-radius: 0 0 4px 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .carousel-slide:hover .carousel-slide__content {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 12px 24px rgba(33, 73, 123, 0.12);
+  border-color: rgba(33, 73, 123, 0.12);
+}
+
+.carousel-slide:hover .carousel-slide__content::before {
+  opacity: 1;
 }
 
 .carousel-slide__title {
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-blue-base);
-  margin: 0 0 var(--spacing-xs) 0;
+  margin: 0 0 var(--spacing-sm) 0;
   padding: 0;
+  letter-spacing: -0.02em;
 }
 
 .carousel-slide__description {
@@ -193,20 +543,39 @@
   color: var(--color-gray-600);
   margin: 0;
   padding: 0;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide__content {
+    padding: var(--spacing-lg) var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+  
+  .carousel-slide__title {
+    font-size: var(--text-lg);
+  }
+  
+  .carousel-slide__description {
+    font-size: var(--text-xs);
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-  .carousel-slide__icon {
-    width: 48px;
-    height: 48px;
+  .carousel-slide__content {
+    padding: var(--spacing-md);
   }
 
   .carousel-slide__title {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
   }
 
   .carousel-slide__description {
     font-size: var(--text-xs);
+    line-height: 1.5;
   }
 }
 
@@ -360,8 +729,7 @@
   }
 
   .carousel-nav,
-  .carousel-dot,
-  .carousel-slide__icon {
+  .carousel-dot {
     transition: none;
   }
 }
@@ -375,9 +743,5 @@
     border: 2px solid var(--color-blue-base);
     width: 12px;
     height: 12px;
-  }
-
-  .carousel-slide__placeholder {
-    border: 2px solid var(--color-gray-400);
   }
 }

@@ -9,8 +9,31 @@
    • Responsive (mobile: 1 slide, tablet: 2, desktop: 3)
    • Transiciones suaves con CSS
    • Accesible (ARIA labels, navegación por teclado)
-   • Placeholder images (SVG inline)
+   • Imágenes reales de maquetas (desktop + mobile superpuesto)
    ════════════════════════════════════════════════════════════════════ */
+
+// ────────────────────────────────────────────────────────────────
+// IMPORTS - Imágenes de maquetas
+// ────────────────────────────────────────────────────────────────
+
+import agendaDesktop from "../../assets/images/maquetas/agenda-desktop.png";
+import agendaMobile from "../../assets/images/maquetas/agenda-mobile.png";
+import crmDesktop from "../../assets/images/maquetas/crm-desktop.png";
+import crmMobile from "../../assets/images/maquetas/crm-mobile.png";
+import inventarioDesktop from "../../assets/images/maquetas/inventario-desktop.png";
+import inventarioMobile from "../../assets/images/maquetas/inventario-mobile.png";
+import dashboardDesktop from "../../assets/images/maquetas/dashboard-desktop.png";
+import dashboardMobile from "../../assets/images/maquetas/dashboard-mobile.png";
+import formularioDesktop from "../../assets/images/maquetas/formulario-desktop.png";
+import formularioMobile from "../../assets/images/maquetas/formulario-mobile.png";
+import landingDesktop from "../../assets/images/maquetas/landing-desktop.png";
+import landingMobile from "../../assets/images/maquetas/landing-mobile.png";
+import trackingDesktop from "../../assets/images/maquetas/tracking-desktop.png";
+import trackingMobile from "../../assets/images/maquetas/tracking-mobile.png";
+import administracionDesktop from "../../assets/images/maquetas/administracion-desktop.png";
+import administracionMobile from "../../assets/images/maquetas/administracion-mobile.png";
+import facturacionDesktop from "../../assets/images/maquetas/facturacion-desktop.png";
+import facturacionMobile from "../../assets/images/maquetas/facturacion-mobile.png";
 
 // ────────────────────────────────────────────────────────────────
 // TIPOS
@@ -20,10 +43,10 @@ export type CarouselSlide = {
   id: string;
   title: string;
   description: string;
-  /** Color de fondo del placeholder (hex sin #) */
-  bgColor: string;
-  /** SVG icon inline para el placeholder */
-  icon: string;
+  /** Imagen desktop (horizontal) */
+  desktopImage: string;
+  /** Imagen mobile (vertical) */
+  mobileImage: string;
 };
 
 export type CarouselConfig = {
@@ -42,75 +65,72 @@ export type CarouselConfig = {
 };
 
 // ────────────────────────────────────────────────────────────────
-// PLACEHOLDER SLIDES POR DEFECTO (Proyectos/Servicios)
+// SLIDES POR DEFECTO (9 ejemplos de sistemas)
 // ────────────────────────────────────────────────────────────────
 
 const PROJECT_SLIDES: CarouselSlide[] = [
   {
-    id: "project-1",
-    title: "Sistema de Clientes",
-    description: "Historial completo, pagos y facturación para salones de belleza.",
-    bgColor: "192950",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-      <circle cx="9" cy="7" r="4"/>
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-    </svg>`,
+    id: "agenda",
+    title: "Agenda",
+    description: "Reservas automáticas, horarios en tiempo real y recordatorios por WhatsApp.",
+    desktopImage: agendaDesktop,
+    mobileImage: agendaMobile,
   },
   {
-    id: "project-2",
-    title: "Agenda Online",
-    description: "Reservas automáticas y recordatorios por WhatsApp.",
-    bgColor: "21497B",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-      <line x1="16" y1="2" x2="16" y2="6"/>
-      <line x1="8" y1="2" x2="8" y2="6"/>
-      <line x1="3" y1="10" x2="21" y2="10"/>
-    </svg>`,
+    id: "crm",
+    title: "Registro e Historial",
+    description: "Ficha completa con datos personales, historial de servicios y preferencias.",
+    desktopImage: crmDesktop,
+    mobileImage: crmMobile,
   },
   {
-    id: "project-3",
-    title: "Mini CRM",
-    description: "Seguimiento de leads y pipeline de ventas organizado.",
-    bgColor: "25609D",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <line x1="18" y1="20" x2="18" y2="10"/>
-      <line x1="12" y1="20" x2="12" y2="4"/>
-      <line x1="6" y1="20" x2="6" y2="14"/>
-    </svg>`,
-  },
-  {
-    id: "project-4",
-    title: "Landing Page",
-    description: "Página profesional con WhatsApp integrado para contacto inmediato.",
-    bgColor: "3E985D",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="10"/>
-      <line x1="2" y1="12" x2="22" y2="12"/>
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-    </svg>`,
-  },
-  {
-    id: "project-5",
+    id: "inventario",
     title: "Control de Inventario",
-    description: "Stock en tiempo real con alertas de reposición automática.",
-    bgColor: "7CBD68",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-      <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-      <line x1="12" y1="22.08" x2="12" y2="12"/>
-    </svg>`,
+    description: "Stock actualizado al instante, alertas de productos bajos y control de entradas y salidas.",
+    desktopImage: inventarioDesktop,
+    mobileImage: inventarioMobile,
   },
   {
-    id: "project-6",
-    title: "Reportes y Analytics",
-    description: "Datos claros para tomar mejores decisiones de negocio.",
-    bgColor: "128C7E",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-    </svg>`,
+    id: "dashboard",
+    title: "Dashboard",
+    description: "Vista general del negocio con gráficos de ventas, clientes e ingresos.",
+    desktopImage: dashboardDesktop,
+    mobileImage: dashboardMobile,
+  },
+  {
+    id: "formulario",
+    title: "Formulario",
+    description: "Captura de datos organizada, campos personalizados y exportación a reportes.",
+    desktopImage: formularioDesktop,
+    mobileImage: formularioMobile,
+  },
+  {
+    id: "landing",
+    title: "Página Web",
+    description: "Página moderna responsive, optimizada para SEO y botón de WhatsApp integrado.",
+    desktopImage: landingDesktop,
+    mobileImage: landingMobile,
+  },
+  {
+    id: "tracking",
+    title: "Seguimiento de Pedidos",
+    description: "Estado del pedido en cada etapa, notificaciones y registro completo.",
+    desktopImage: trackingDesktop,
+    mobileImage: trackingMobile,
+  },
+  {
+    id: "administracion",
+    title: "Administración",
+    description: "Gestión centralizada de usuarios, permisos y configuraciones del sistema.",
+    desktopImage: administracionDesktop,
+    mobileImage: administracionMobile,
+  },
+  {
+    id: "facturacion",
+    title: "Facturación",
+    description: "Generación de facturas, control de deudas, historial de pagos y caja simplificada.",
+    desktopImage: facturacionDesktop,
+    mobileImage: facturacionMobile,
   },
 ];
 
@@ -135,8 +155,13 @@ export function renderCarousel(config: CarouselConfig): string {
          aria-roledescription="slide"
          aria-label="${index + 1} de ${slides.length}"
          data-slide-index="${index}">
-      <div class="carousel-slide__placeholder" style="background-color: #${slide.bgColor}">
-        <div class="carousel-slide__icon">${slide.icon}</div>
+      <div class="carousel-slide__images">
+        <div class="carousel-slide__image-desktop">
+          <img src="${slide.desktopImage}" alt="${slide.title} - Vista desktop" loading="lazy">
+        </div>
+        <div class="carousel-slide__image-mobile">
+          <img src="${slide.mobileImage}" alt="${slide.title} - Vista mobile" loading="lazy">
+        </div>
       </div>
       <div class="carousel-slide__content">
         <h3 class="carousel-slide__title">${slide.title}</h3>
@@ -220,7 +245,7 @@ export function renderHomeCarousel(): string {
   return renderCarousel({
     id: "home-projects",
     slides: PROJECT_SLIDES,
-    sectionTitle: "Proyectos y Soluciones",
+    sectionTitle: "Ejemplos de Sistemas",
     sectionSubtitle: "Algunos ejemplos de lo que puedo construir para tu negocio.",
     autoPlayInterval: 5000,
     className: "carousel-section--home",
@@ -230,7 +255,7 @@ export function renderHomeCarousel(): string {
 export function renderServicesCarousel(): string {
   return renderCarousel({
     id: "services-examples",
-    slides: PROJECT_SLIDES.slice(0, 4),
+    slides: PROJECT_SLIDES.slice(0, 6),
     sectionTitle: "Ejemplos de Soluciones",
     sectionSubtitle: "Cada paquete se adapta a las necesidades reales de tu negocio.",
     autoPlayInterval: 6000,

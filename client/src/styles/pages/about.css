@@ -104,7 +104,7 @@
   display: block;
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 605px;
 }
 
 @media (min-width: 1024px) {
@@ -118,6 +118,12 @@
   height: auto;
   border-radius: var(--radius-xl);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 1024px) {
+  .about-hero-image {
+    transform: scale(1.05);
+  }
 }
 
 /* ────────────────────────────────────────────────────────────────

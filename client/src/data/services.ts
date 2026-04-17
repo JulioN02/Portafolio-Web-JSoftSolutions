@@ -27,7 +27,7 @@ export const servicePackages: ServicePackage[] = [
       "SEO local básico (para que te encuentren en tu ciudad)",
       "Enlace a tus redes sociales",
     ],
-    price: "$400.000 - $550.000",
+    price: "Desde $450.000",
     maintenance: "$60.000/mes",
     deliveryTime: "7-10 días",
     idealFor: "Quienes solo quieren visibilidad rápida y clientes nuevos por internet",
@@ -46,7 +46,7 @@ export const servicePackages: ServicePackage[] = [
       "Reportes básicos de ventas del mes",
       "Login seguro para ti (instancia única)",
     ],
-    price: "$600.000 - $750.000",
+    price: "Desde $650.000",
     maintenance: "$80.000/mes",
     deliveryTime: "2 semanas",
     idealFor: "Negocios que necesitan ordenar citas y pagos sin complicaciones",
@@ -67,7 +67,7 @@ export const servicePackages: ServicePackage[] = [
       "Dashboard bonito y fácil de usar",
       "Reportes detallados (clientes frecuentes, ingresos, etc.)",
     ],
-    price: "$800.000 - $950.000",
+    price: "Desde $850.000",
     maintenance: "$110.000/mes",
     deliveryTime: "3 semanas",
     idealFor: "Negocios que quieren crecer y tener todo bajo control",
@@ -85,7 +85,7 @@ export const servicePackages: ServicePackage[] = [
       "Precio especial combinado",
       "Todo integrado y funcionando junto",
     ],
-    price: "$1.000.000 - $1.200.000",
+    price: "Desde $1.050.000",
     maintenance: "$150.000/mes",
     deliveryTime: "3-4 semanas",
     idealFor: "El 70% de los clientes. Te doy todo y sientes que te estoy haciendo un gran favor",
@@ -93,6 +93,7 @@ export const servicePackages: ServicePackage[] = [
   },
 ];
 
+// Divididos en dos grupos balanceados para el efecto marquee de dos líneas
 export const nichosNivel1 = [
   "Salones de belleza y peluquerías",
   "Clínicas veterinarias",
@@ -102,13 +103,19 @@ export const nichosNivel1 = [
   "Gimnasios boutique",
   "Agencias de seguros",
   "Talleres de mecánica",
+  "Spa y centros de bienestar",
+];
+
+export const nichosNivel2 = [
   "Centros de estética",
   "Escuelas de baile y yoga",
   "Consultorios médicos",
   "Tiendas de repuestos",
   "Panaderías y cafeterías",
   "Joyerías y relojerías",
-  "Farmacias pequeñas",
+  "Tiendas estéticas",
+  "Variedades",
+  "Papelerías",
 ];
 
 export const whyPoints = [
@@ -156,3 +163,58 @@ export const processSteps = [
     description: "Recibes algo que funciona desde el día uno. Con espacio para ajustes.",
   },
 ];
+
+export const generalConditions = {
+  title: "Condiciones generales que aplican a todos los paquetes",
+  subtitle: "",
+  items: [
+    {
+      icon: "price",
+      title: "Precio base",
+      description: "El valor es solo para el alcance estándar descrito. Funcionalidades adicionales se cotizan aparte.",
+    },
+    {
+      icon: "check",
+      title: "2 rondas de ajustes",
+      description: "Después de la entrega. Cambios o revisiones extras tienen costo adicional.",
+    },
+    {
+      icon: "support",
+      title: "Soporte",
+      description: "1 mes de soporte gratis después de la entrega (errores y dudas básicas). Soporte adicional se cobra con el mantenimiento mensual.",
+    },
+    {
+      icon: "document",
+      title: "Documentación",
+      description: "Incluye definición de requerimientos, manual de usuario básico, contrato y reportes de avances (si los solicitas).",
+    },
+    {
+      icon: "payment",
+      title: "Forma de pago",
+      description: "50% de anticipo al iniciar y 50% contra entrega final y aprobación. Se puede acordar otro esquema por escrito.",
+    },
+    {
+      icon: "clock",
+      title: "Tiempo de entrega",
+      description: "Comienza después de aprobar el alcance, firmar requerimientos y pagar el anticipo.",
+    },
+    {
+      icon: "server",
+      title: "Hosting, dominio y SSL",
+      description: "No incluidos en el precio base. Pueden agregarse por costo adicional o dentro del plan de mantenimiento mensual.",
+    },
+    {
+      icon: "lock",
+      title: "Confidencialidad",
+      description: "Toda la información de tu negocio se trata con confidencialidad. No comparto ni uso tus datos para otros proyectos.",
+    },
+  ],
+  benefits: {
+    title: "Otros beneficios",
+    items: [
+      "Descuento del 10% por recomendación (para ambos)",
+      "Al completar el pago total, recibes todos los derechos de uso del software o página web",
+      "El mantenimiento mensual es opcional pero recomendado (actualizaciones, backups y soporte continuo)",
+    ],
+  },
+};

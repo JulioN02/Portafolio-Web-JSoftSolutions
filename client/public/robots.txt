@@ -1,0 +1,22 @@
+# robots.txt for J-Soft Solutions Portfolio
+# https://jsoftsolutions.com.co
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jsoftsolutions.com.co/sitemap.xml
+
+# Disallow admin/private areas (if any)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Allow all assets
+Allow: /src/
+Allow: /assets/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.svg
