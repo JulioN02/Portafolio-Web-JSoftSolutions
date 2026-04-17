@@ -1,4 +1,4 @@
-import { socialLinks } from "../data/social-links";
+import { socialLinks, createWhatsAppLink, whatsappMessages } from "../data/social-links";
 import contactImage from "../assets/images/contacto.png";
 
 export function renderContactView(): string {
@@ -6,9 +6,10 @@ export function renderContactView(): string {
     .map((s) => {
       const isWhatsApp = s.name === "whatsapp";
       const isEmail = s.name === "email";
+      const linkUrl = isWhatsApp ? createWhatsAppLink(whatsappMessages.contact) : s.url;
       return `
         <a
-          href="${s.url}"
+          href="${linkUrl}"
           class="contact-card ${isWhatsApp ? 'contact-card--primary' : ''}"
           aria-label="Contactar por ${s.label}"
           ${isEmail ? "" : 'target="_blank" rel="noopener noreferrer"'}

@@ -93,6 +93,14 @@
   margin: 0 0 var(--spacing-2xl) 0;
 }
 
+.hero-subtitle {
+  font-size: var(--text-xl);
+  line-height: var(--line-height-relaxed);
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 var(--spacing-md) 0;
+  font-weight: var(--font-weight-medium);
+}
+
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;

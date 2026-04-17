@@ -40,9 +40,8 @@
 }
 
 .contact-hero-image {
-  max-width: 420px;
+  max-width: 605px;
   margin: 0 auto var(--spacing-xl);
-  transform: scale(1.05);
 }
 
 .contact-hero-image img {
@@ -92,8 +91,7 @@
   }
 
   .contact-hero-image {
-    max-width: 320px;
-    transform: scale(1.05);
+    max-width: 605px;
   }
 }
 

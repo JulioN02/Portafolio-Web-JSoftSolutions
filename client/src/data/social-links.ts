@@ -5,6 +5,25 @@ export type SocialLink = {
   icon: string;
 };
 
+const WHATSAPP_NUMBER = "573122939515";
+
+/**
+ * Crea un enlace de WhatsApp con mensaje predefinido
+ * @param message - Mensaje a enviar
+ * @returns URL completa de WhatsApp con el mensaje
+ */
+export function createWhatsAppLink(message: string): string {
+  const encodedMessage = encodeURIComponent(message);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+}
+
+// Mensajes predefinidos para diferentes contextos
+export const whatsappMessages = {
+  general: "Hola! Estoy interesado en un sistema personalizado",
+  contact: "Hola! Tengo en mente un proyecto que requiere de un software especializado",
+  package: (packageName: string) => `Hola! Me interesa el paquete ${packageName}`,
+};
+
 export const socialLinks: SocialLink[] = [
   {
     name: "whatsapp",
