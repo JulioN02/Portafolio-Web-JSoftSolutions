@@ -20,7 +20,8 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://wa.me https://api.whatsapp.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me;"
+    # CSP más relajada para permitir inline scripts que Vite genera
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https://wa.me https://api.whatsapp.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me;"
 
 # Cache control para assets estáticos
 [[headers]]

@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // Reemplaza 'nombre-de-tu-repo' por el nombre exacto en GitHub
-  // Esto es vital para que los assets (CSS/JS) carguen bien
-  base: '/Portafolio-Web-JSoftSolutions/', 
+  // Base path vacío para deploy en raíz (Netlify, Vercel, etc.)
+  // Si despliegas en un subdirectorio específico, cambia esto
+  base: '/',
+  build: {
+    // Genera sourcemaps para debugging (desactívalos en producción si quieres)
+    sourcemap: false,
+  },
 });
