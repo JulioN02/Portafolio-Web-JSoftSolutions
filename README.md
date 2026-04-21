@@ -1,108 +1,224 @@
-# J-Soft Solutions — Web System
+# J-Soft Solutions — Portafolio Profesional
 
-J-Soft Solutions es un sistema web profesional orientado a la presentación de servicios y soluciones de desarrollo de software.  
-El proyecto está concebido como un **sistema estructurado y escalable**, no como una landing aislada, y prioriza claridad arquitectónica, orden del código y coherencia entre marca, contenido y estructura técnica.
+Sitio web profesional de J-Soft Solutions, desarrollado como carta de presentación para servicios de desarrollo de software y soluciones web para pequeños negocios.
 
-Este repositorio representa la **base funcional y organizativa del sistema**, sobre la cual se continúan refinando aspectos visuales y de experiencia de usuario.
+## 🌐 Sitio en Vivo
 
-## Enfoque del Sistema
+**https://julion02.github.io/Portafolio-Web-JSoftSolutions**
 
-El proyecto está desarrollado como un **monolito frontend estructurado**, utilizando tecnologías web estándar y un enfoque modular que facilita el mantenimiento y la evolución progresiva del sistema.
+---
 
-Principios que guían el desarrollo:
+## 📋 Descripción
 
-- Separación clara de responsabilidades
-- Organización por capas semánticas
-- Código legible y mantenible
-- Preparación para crecimiento funcional futuro
-- Coherencia entre estructura técnica y propuesta de valor
+Portafolio web moderno y profesional que presenta los servicios de desarrollo de software de J-Soft Solutions. El sitio está diseñado para transmitir confianza, profesionalismo y expertise técnico, conectando con clientes potenciales que buscan soluciones digitales para sus negocios.
 
-No se utilizan frameworks de frontend en esta etapa. El renderizado y la navegación se gestionan mediante lógica propia, priorizando comprensión del flujo y control del sistema.
+### Características Principales
 
-## Stack Tecnológico Actual
+- **4 páginas principales**: Inicio, Servicios, Sobre Mí, Contacto
+- **9 ejemplos de proyectos** en carrusel interactivo (sistemas de agenda, CRM, inventario, dashboards, landing pages, etc.)
+- **4 paquetes de servicios** con precios y descripciones detalladas
+- **18 nichos de negocio** atendidos (salones de belleza, veterinarias, academias, tiendas, restaurantes, etc.)
+- **CTAs inteligentes** hacia WhatsApp con mensajes personalizados por contexto
+- **Diseño responsive** adaptado a mobile, tablet y desktop
+- **Optimizado para SEO** y accesibilidad (WCAG AA)
 
-- HTML5
-- CSS3 (estructurado por responsabilidad)
-- JavaScript
-- TypeScript (uso fundamental)
-- Vite como herramienta de desarrollo y bundling
+---
 
-El stack está definido para garantizar una base sólida antes de incorporar capas adicionales de complejidad.
+## 🛠️ Stack Tecnológico
 
-## Arquitectura del Proyecto
+| Categoría | Tecnología |
+|-----------|------------|
+| **Frontend** | React 19 + TypeScript |
+| **Bundler** | Vite |
+| **Estilos** | CSS3 (arquitectura modular) |
+| **Despliegue** | GitHub Pages (automático via GitHub Actions) |
 
-La arquitectura del sistema está organizada para reflejar de forma explícita las responsabilidades de cada parte del código.
+### Tecnologías Adicionales
 
-### Estructura base
+- Node.js 20
+- Sistema de diseño propio con variables CSS
+- Arquitectura vanilla JavaScript para interactividad
 
-/src
-|- assets → Recursos visuales (imágenes, íconos)
-|- styles → Estilos CSS organizados por responsabilidad
-|- components → Componentes reutilizables de UI y layout
-|- views → Vistas principales del sistema
-|- data → Datos estructurados estáticos
-|- scripts → Lógica global (navegación, utilidades)
-|- main.ts → Punto de entrada de la aplicación
+---
 
-Esta estructura permite escalar el sistema sin introducir acoplamiento innecesario ni desorden progresivo.
+## 📁 Estructura del Proyecto
 
-## Sistema de Vistas y Navegación
+```
+/
+├── client/                    # Aplicación frontend
+│   ├── src/
+│   │   ├── assets/           # Recursos estáticos (imágenes, iconos)
+│   │   │   └── images/
+│   │   │       └── maquetas/  # Mockups de proyectos (desktop + mobile)
+│   │   ├── components/        # Componentes reutilizables de UI
+│   │   │   ├── layout/       # Header, Footer
+│   │   │   └── ui/           # Carousel, etc.
+│   │   ├── data/             # Datos estáticos tipados
+│   │   │   ├── services.ts   # Paquetes de servicios, nichos, condiciones
+│   │   │   ├── social-links.ts # Redes sociales y links de contacto
+│   │   │   └── about.ts      # Información del perfil
+│   │   ├── scripts/          # Lógica global (navegación SPA)
+│   │   ├── styles/           # Estilos CSS modulares
+│   │   │   ├── components/   # Estilos de componentes
+│   │   │   ├── pages/        # Estilos por página
+│   │   │   └── variables.css # Tokens de diseño
+│   │   ├── views/            # Vistas principales (SPA)
+│   │   │   ├── home.ts       # Página de inicio
+│   │   │   ├── services.ts   # Servicios y paquetes
+│   │   │   ├── about.ts      # Sobre la empresa
+│   │   │   └── contact.ts    # Página de contacto
+│   │   └── main.ts           # Punto de entrada
+│   ├── public/               # Archivos públicos estáticos
+│   │   ├── robots.txt        # Directivas para motores de búsqueda
+│   │   └── sitemap.xml       # Mapa del sitio
+│   ├── index.html            # HTML principal
+│   └── package.json
+├── .github/
+│   └── workflows/
+│       └── deploy.yml        # Pipeline de despliegue automático
+└── package.json              # Workspace root (scripts compartidos)
+```
 
-El sitio funciona mediante un sistema de vistas renderizadas dinámicamente, sin recarga completa de página.
+---
 
-Las vistas actualmente definidas son:
+## 🎨 Sistema de Diseño
 
-- Home
-- Services
-- Products
-- Templates
-- Guarantees
-- About
-- Contact
+### Paleta de Colores
 
-Cada vista cuenta con su propio archivo y puede inicializar lógica específica únicamente cuando es renderizada, manteniendo control y eficiencia en la ejecución del sistema.
+| Rol | Color | Uso |
+|-----|-------|-----|
+| Azul Base | `#192950` | Fondos principales, header, footer |
+| Azul Medio | `#21497B` | Secciones, cards, paneles |
+| Azul UI | `#25609D` | Botones primarios, links |
+| Verde Acento | `#7CBD68` | Confirmaciones, highlights |
+| Verde WCAG | `#3A7D4A` | Texto en verde (contraste accesible) |
+| WhatsApp | `#128C7E` | Botón de WhatsApp (contraste 4.5:1) |
 
-## Sistema de Estilos (Estado Actual)
+### Tipografía
 
-El sistema de estilos ya cuenta con una **estructura de archivos CSS definida y organizada**, orientada a mantener orden y separación de responsabilidades visuales.
+- **Familia**: System UI stack (`-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`)
+- **Jerarquía**: 5 niveles de tamaño (`text-xs` a `text-5xl`)
 
-Actualmente:
+---
 
-- La estructura de estilos está creada y alineada con la arquitectura del proyecto.
-- La estilización visual se encuentra en **fase de refinamiento**.
-- Los estilos se pulirán y mejorarán progresivamente siguiendo la **Guía de Identidad, Estilo y Diseño de J-Soft Solutions**.
+## ⚙️ Desarrollo
 
-Esto permite trabajar sobre una base ordenada, evitando retrabajo o reestructuración futura del CSS.
+### Requisitos Previos
 
-## Identidad y Lineamientos
+- Node.js 20+
+- npm 9+
 
-El diseño visual y la comunicación del sistema se rigen por una guía específica de identidad, que define:
+### Instalación
 
-- Posicionamiento técnico de la marca
-- Uso semántico del color
-- Jerarquía visual
-- Principios de composición
-- Coherencia con el perfil de ingeniería del proyecto
+```bash
+# Instalar dependencias del cliente
+cd client && npm install
 
-Todas las decisiones de UI y estilización se alinean con estos lineamientos para mantener consistencia y profesionalismo.
+# O desde la raíz (workspace)
+npm install
+```
 
-## Estado del Proyecto
+### Scripts Disponibles
 
-El proyecto se encuentra en una fase donde:
+```bash
+# Desarrollo con hot reload
+cd client && npm run dev
 
-- La arquitectura base está definida y consolidada.
-- La estructura del sistema es estable.
-- La navegación y el renderizado de vistas están implementados.
-- La estilización se encuentra en proceso de ajuste y mejora visual.
+# Build de producción
+cd client && npm run build
 
-El enfoque actual es **refinar y fortalecer lo existente**, no redefinir la base del sistema.
+# Preview del build
+cd client && npm run preview
+```
 
-## Propósito del Repositorio
+### Despliegue Automático
 
-Este repositorio funciona como:
+El proyecto utiliza **GitHub Actions** para despliegue automático:
 
-- Base técnica del sitio web de J-Soft Solutions
-- Evidencia de criterio arquitectónico y organización de código
-- Punto de partida para evolución funcional y visual del sistema
+1. Cada push a la rama `main` activa el workflow
+2. Se instala dependencias y se ejecuta build
+3. Los archivos compilados se despliegan a GitHub Pages
 
-El proyecto está diseñado para crecer de forma controlada y coherente, manteniendo siempre claridad técnica y estructural.
+**URL de producción**: `https://julion02.github.io/Portafolio-Web-JSoftSolutions`
+
+---
+
+## 📱 Páginas
+
+### Inicio (`/`)
+- Hero con mensaje principal y CTA
+- Resumen de servicios (4 cards)
+- Carrusel de proyectos/maquetas
+- Sección de nichos atendidos (marquee infinito)
+- CTA final hacia WhatsApp
+
+### Servicios (`/services`)
+- 4 paquetes de servicios con precios "Desde $X"
+- Cada paquete incluye: problema, solución, beneficios, características
+- Condiciones generales (8 cards informativas)
+- Proceso de trabajo (4 pasos)
+- CTA de contacto
+
+### Sobre Mí (`/about`)
+- Perfil de J-Soft Solutions
+- Perfil de Julio Martinez (fundador)
+- Stack tecnológico
+- Nichos de especialización
+- Redes sociales
+
+### Contacto (`/contact`)
+- Tarjetas de contacto directo
+- WhatsApp con mensaje predefinido
+- LinkedIn, GitHub, Email
+- Nota de tiempo de respuesta
+
+---
+
+## 🔐 Seguridad y SEO
+
+### Headers de Seguridad
+- CSP (Content Security Policy)
+- X-Frame-Options
+- X-Content-Type-Options
+- Referrer-Policy
+
+### SEO
+- Meta tags completos (title, description, keywords)
+- Open Graph tags para redes sociales
+- Structured data (JSON-LD) para LocalBusiness
+- Canonical URL
+- sitemap.xml y robots.txt
+
+### Accesibilidad
+- Contraste WCAG AA en todos los colores
+- ARIA labels en elementos interactivos
+- Navegación por teclado completa
+- Focus visible en todos los elementos
+- Textos alternativos en imágenes
+
+---
+
+## 📊 Estadísticas del Build
+
+| Métrica | Valor |
+|---------|-------|
+| Módulos | ~38 |
+| CSS | ~70 KB (gzip: 10 KB) |
+| JavaScript | ~50 KB (gzip: 13 KB) |
+| Imágenes | 18 maquetas optimizadas |
+
+---
+
+## 📝 Licencia
+
+Este proyecto es propiedad de J-Soft Solutions. Todos los derechos reservados.
+
+---
+
+## 🔗 Enlaces
+
+- **Sitio**: https://julion02.github.io/Portafolio-Web-JSoftSolutions
+- **LinkedIn**: https://www.linkedin.com/in/julio-nieto-martinez/
+- **GitHub**: https://github.com/JulioN02
+- **Email**: jsoftsolutions1@gmail.com
+- **WhatsApp**: https://wa.me/573122939515
