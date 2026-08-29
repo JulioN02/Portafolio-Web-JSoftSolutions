@@ -31,7 +31,7 @@ Portafolio web moderno y profesional que presenta los servicios de desarrollo de
 | **Frontend** | React 19 + TypeScript |
 | **Bundler** | Vite |
 | **Estilos** | CSS3 (arquitectura modular) |
-| **Despliegue** | GitHub Pages (automático via GitHub Actions) |
+| **Despliegue** | GitHub Pages (GitHub Actions) + Netlify (`netlify.toml`) |
 
 ### Tecnologías Adicionales
 
@@ -140,6 +140,10 @@ El proyecto utiliza **GitHub Actions** para despliegue automático:
 3. Los archivos compilados se despliegan a GitHub Pages
 
 **URL de producción**: `https://julion02.github.io/Portafolio-Web-JSoftSolutions`
+
+### Despliegue en Netlify (alternativo)
+
+El proyecto también está configurado para Netlify (`netlify.toml`): build con Vite (`client/dist`), redirección SPA (`/*` → `/index.html`), headers de seguridad (CSP, X-Frame-Options, Referrer-Policy) y cache-control de assets. El `base` de Vite está en `'/'` para este despliegue.
 
 ---
 
